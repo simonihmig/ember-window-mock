@@ -6,7 +6,7 @@ import Ember from 'ember';
 const { testing: isTesting } = Ember;
 
 export function initialize(application) {
-  application.register('service:window', isTesting ? WindowMockService : WindowService);
+  application.register('service:window', isTesting ? WindowMockService : WindowService, { instantiate: false });
 }
 
 export default {

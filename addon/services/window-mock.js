@@ -1,6 +1,12 @@
-import Service from '@ember/service';
 import location from './mock/location';
 
-export default Service.extend({
-  location
+const MockWindow = new Proxy(window, {
+  get(receiver, name) {
+    switch (name) {
+      case 'location':
+        return location;
+    }
+  }
 });
+
+export default MockWindow;
