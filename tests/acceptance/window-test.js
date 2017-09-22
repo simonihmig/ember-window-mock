@@ -5,7 +5,7 @@ import { lookupWindow } from 'ember-window-mock';
 
 moduleForAcceptance('Acceptance | window');
 
-test('it mocks window.location', async function(assert) {
+test('it can mock window in acceptance tests', async function(assert) {
   await visit('/');
   await click('button');
 

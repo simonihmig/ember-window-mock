@@ -11,7 +11,7 @@ moduleForComponent('window', 'Integration | window', {
   }
 });
 
-test('it mocks window.location', async function(assert) {
+test('it can mock window in integration tests', async function(assert) {
 
   this.render(hbs`
     {{#window-tester as |window|}}

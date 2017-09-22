@@ -35,7 +35,7 @@ Object.defineProperty(location, 'port', {
  */
 Object.defineProperty(location, 'host', {
   get() {
-    return `${this.hostname}:${this.port}`;
+    return this.port ? `${this.hostname}:${this.port}` : this.hostname;
   },
   set(host) {
     let old = this.host;
