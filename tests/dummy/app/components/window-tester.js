@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import layout from '../templates/components/window-tester';
 
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
-  window: Ember.inject.service(),
+  window: service(),
 
   actions: {
     redirect(url) {
