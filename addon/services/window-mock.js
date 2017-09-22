@@ -1,4 +1,4 @@
-import location from './mock/location';
+import location from '../-private/mock/location';
 
 const MockWindow = new Proxy(window, {
   get(receiver, name) {
