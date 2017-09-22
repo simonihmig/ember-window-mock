@@ -1,12 +1,15 @@
 {
   "name": "ember-window-mock",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Adds a window service that can be mocked in tests",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "testing",
+    "window",
+    "mock"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Simon Ihmig <ihmig@kaliber5.de>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -18,7 +21,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.3.0"
+    "ember-cli-babel": "^6.8.2"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -36,6 +39,7 @@
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-native-dom-helpers": "^0.5.4",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.1",
     "loader.js": "^4.2.3"
