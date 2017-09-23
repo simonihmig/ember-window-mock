@@ -42,6 +42,8 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-native-dom-helpers": "^0.5.4",
     "ember-resolver": "^4.0.0",
+    "ember-sinon": "^1.0.1",
+    "ember-sinon-qunit": "^2.0.0",
     "ember-source": "~2.15.0",
     "loader.js": "^4.2.3"
   },
