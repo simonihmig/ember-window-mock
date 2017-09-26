@@ -14,7 +14,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/kaliber5/ember-window-mock.git",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
