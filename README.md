@@ -2,9 +2,14 @@
 
 [![Build Status](https://travis-ci.org/kaliber5/ember-window-mock.svg?branch=master)](https://travis-ci.org/kaliber5/ember-window-mock)
 
-This Ember.js addon provides the `window` global as a service that you can inject into any component or controller where
-you need `window`. But some of its properties and functions like `location.href` or `alert` are prohibitive to be used 
-in tests, so this service will be replaced in tests with one that mocks these critical parts.
+This EmberCLI addon provides the `window` global as a service that you can inject into any component or controller where
+you need `window`. But some of its properties and functions are prohibitive to be used 
+in tests as they will break the test run:
+* you cannot set `window.location.href` to trigger a redirect, as that will leave your test page
+* `alert`, `confirm` and `prompt` are blocking calls, and cannot be closed without user interaction, so they will just
+suspend your test run
+
+So when running tests this service will be replaced with one that mocks these critical parts.
 
 ## How to use it in your app
 
@@ -43,17 +48,7 @@ export default Controller.extend({
 Apart from getting access to it, everything else works as you would expect, since the "service" is exactly the same as
 the global. Note: since it's the same as the global `window`, it does *not* inherit form `Ember.Service`!
 
-## How to use in tests
-
-Although `ember test` runs in a normal browser (e.g. PhantomJS or headless Chrome) where you can directly use 
-`window` and its properties, some of them are prohibitive to use in tests as they will break the test run:
-* you cannot set `window.location.href` to trigger a redirect, as that will leave your test page
-* `alert`, `confirm` and `prompt` are blocking calls, and cannot be closed without user interaction, so they will just
-suspend your test run
-
-To workaround this, we can replace the normal window service with a special version that is suitable for tests
-
-### The window-mock service
+## The window-mock service
 
 This service is a drop-in replacement for the normal window service in tests. It is a proxy to `window`, so all of the 
 non-critical properties and functions just use the normal `window` global. But the critical parts are replaced suitable 
