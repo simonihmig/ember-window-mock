@@ -1,5 +1,7 @@
 # ember-window-mock
 
+[![Build Status](https://travis-ci.org/kaliber5/ember-window-mock.svg?branch=master)](https://travis-ci.org/kaliber5/ember-window-mock)
+
 This Ember.js addon provides the `window` global as a service that you can inject into any component or controller where
 you need `window`. But some of its properties and functions like `location.href` or `alert` are prohibitive to be used 
 in tests, so this service will be replaced in tests with one that mocks these critical parts.
