@@ -1,6 +1,8 @@
 # ember-window-mock
 
 [![Build Status](https://travis-ci.org/kaliber5/ember-window-mock.svg?branch=master)](https://travis-ci.org/kaliber5/ember-window-mock)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-window-mock.svg)](https://emberobserver.com/addons/ember-window-mock)
+[![npm version](https://badge.fury.io/js/ember-window-mock.svg)](https://badge.fury.io/js/ember-window-mock)
 
 This EmberCLI addon provides the `window` global as a service that you can inject into any component or controller where
 you need `window`. But some of its properties and functions are prohibitive to be used 
