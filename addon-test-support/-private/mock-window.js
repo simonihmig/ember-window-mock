@@ -1,4 +1,4 @@
-import WindowMockService from 'ember-window-mock/services/window-mock';
+import WindowMockService from '../services/window-mock';
 
 export function mockWindow(scope) {
   if (!scope) {
