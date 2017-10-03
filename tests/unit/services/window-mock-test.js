@@ -1,6 +1,6 @@
 import { module } from 'ember-qunit';
 import test from 'ember-sinon-qunit/test-support/test';
-import windowMock from 'ember-window-mock/services/window-mock';
+import windowMock from 'ember-window-mock/-private/services/window';
 
 module('service:window-mock', 'Unit | Service | window mock', {
 });

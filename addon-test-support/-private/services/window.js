@@ -1,4 +1,4 @@
-import location from '../-private/mock/location';
+import location from '../mock/location';
 
 function noop() {}
 

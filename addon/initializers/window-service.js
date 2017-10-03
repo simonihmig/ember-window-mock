@@ -1,4 +1,4 @@
-import WindowService from 'ember-window-mock/services/window-browser';
+import WindowService from 'ember-window-mock/-private/services/window';
 
 export function initialize(application) {
   application.register('service:window', WindowService, { instantiate: false });

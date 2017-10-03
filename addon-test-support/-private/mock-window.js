@@ -1,4 +1,4 @@
-import WindowMockService from '../services/window-mock';
+import WindowMockService from './services/window';
 
 export function mockWindow(scope) {
   if (!scope) {
