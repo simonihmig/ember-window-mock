@@ -1,5 +1,7 @@
 # ember-window-mock
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kaliber5/ember-window-mock.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/kaliber5/ember-window-mock.svg?branch=master)](https://travis-ci.org/kaliber5/ember-window-mock)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-window-mock.svg)](https://emberobserver.com/addons/ember-window-mock)
 [![npm version](https://badge.fury.io/js/ember-window-mock.svg)](https://badge.fury.io/js/ember-window-mock)
