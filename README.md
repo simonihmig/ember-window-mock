@@ -98,7 +98,9 @@ test('it redirects when clicking the button', async function(assert) {
 Note the import and use of the `lookupWindow` helper provided by this addon to get access to the window service instance
 in your test.
 
-## Integration tests
+## Integration/Unit tests
+
+**Note:** You *must* use `mockWindow` in your `beforeEach` or your tests will fail with `Attempting to inject an unknown injection: 'service:window'`
 
 In integration tests the initializer will not be executed automatically, so you can use the `mockWindow` helper to 
 register the mocked service instead of the normal one. 
