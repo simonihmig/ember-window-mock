@@ -1,4 +1,4 @@
-import WindowMockService from './services/window';
+import windowMockFactory from './services/window';
 
 export function mockWindow(scope) {
   if (!scope) {
@@ -7,5 +7,5 @@ export function mockWindow(scope) {
   if (!scope.register) {
     throw new Error('mockWindow must be called from an integration test!');
   }
-  return scope.register('service:window', WindowMockService, { instantiate: false });
+  return scope.register('service:window', windowMockFactory(), { instantiate: false });
 }
