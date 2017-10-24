@@ -15,5 +15,5 @@ export function mockWindow(scope) {
     throw new Error('mockWindow must be called from an unit/integration test!');
   }
   
-  return register.call(this, 'service:window', windowMockFactory(), { instantiate: false });
+  return register.call(scope, 'service:window', windowMockFactory(), { instantiate: false });
 }
