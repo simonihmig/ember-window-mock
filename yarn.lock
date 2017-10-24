@@ -2007,9 +2007,9 @@ ember-cli-version-checker@^2.0.0:
     resolve "^1.3.3"
     semver "^5.3.0"
 
-ember-cli@~2.16.1:
-  version "2.16.1"
-  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-2.16.1.tgz#91da40f19b8496f879eea13d745b3924beb23729"
+ember-cli@~2.16.2:
+  version "2.16.2"
+  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-2.16.2.tgz#53b922073a8e6f34255a6e0dcb1794a91ba3e1b7"
   dependencies:
     amd-name-resolver "1.0.0"
     babel-plugin-transform-es2015-modules-amd "^6.24.0"
