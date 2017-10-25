@@ -10,6 +10,6 @@ export function mockWindow(scope) {
   } else if (scope.register) {
     return scope.register('service:window', windowMockFactory(), { instantiate: false });
   } else {
-    throw new Error('mockWindow must be called from an unit/integration test!');
+    throw new Error('mockWindow must be called from a unit/integration test!');
   }
 }
