@@ -4,8 +4,12 @@ export function mockWindow(scope) {
   if (!scope) {
     throw new Error('mockWindow must be called with `this` as the first function parameter!');
   }
-  if (!scope.register) {
-    throw new Error('mockWindow must be called from an integration test!');
+
+  if (scope.owner && scope.owner.register) {
+    return scope.owner.register('service:window', windowMockFactory(), { instantiate: false });
+  } else if (scope.register) {
+    return scope.register('service:window', windowMockFactory(), { instantiate: false });
+  } else {
+    throw new Error('mockWindow must be called from a unit/integration test!');
   }
-  return scope.register('service:window', windowMockFactory(), { instantiate: false });
 }
