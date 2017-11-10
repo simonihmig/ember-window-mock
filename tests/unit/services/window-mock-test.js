@@ -8,8 +8,15 @@ module('service:window-mock', {
   }
 });
 
-test('it mocks window.location', function(assert) {
+test('it mocks window.location.href', function(assert) {
   this.windowMock.location.href = 'http://www.example.com';
+  assert.equal(this.windowMock.location.href, 'http://www.example.com');
+  assert.equal(this.windowMock.location.host, 'www.example.com');
+  assert.equal(this.windowMock.location.protocol, 'http:');
+});
+
+test('it mocks window.location', function(assert) {
+  this.windowMock.location = 'http://www.example.com';
   assert.equal(this.windowMock.location.href, 'http://www.example.com');
   assert.equal(this.windowMock.location.host, 'www.example.com');
   assert.equal(this.windowMock.location.protocol, 'http:');

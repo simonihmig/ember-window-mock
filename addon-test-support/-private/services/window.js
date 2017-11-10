@@ -20,6 +20,17 @@ export default function windowMockFactory() {
           }
           return target[name];
       }
+    },
+    set: function(target, name, value, receiver) {
+      switch (name) {
+        case 'location':
+          // setting window.location is equivalent to setting window.location.href
+          receiver.location.href = value;
+          return true;
+        default:
+          target[name] = value;
+          return true;
+      }
     }
   });
 
