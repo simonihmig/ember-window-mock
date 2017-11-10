@@ -89,7 +89,7 @@ export default function locationFactory() {
   });
 
   /**
-   * location.origin
+   * location.search
    */
   Object.defineProperty(location, 'search', {
     get() {
@@ -99,6 +99,19 @@ export default function locationFactory() {
     set(search) {
       let old = this.search;
       this.href = this.href.replace(old, search);
+    }
+  });
+
+  /**
+   * location.pathname
+   */
+  Object.defineProperty(location, 'pathname', {
+    get() {
+      return parseUri(this.href).path;
+    },
+    set(path) {
+      let old = this.pathname;
+      this.href = this.href.replace(old, path);
     }
   });
 
@@ -115,7 +128,13 @@ export default function locationFactory() {
     }
   });
   location.reload = function() {};
-  location.replace = function() {};
+  location.assign = function(url) {
+    this.href = url;
+  };
+  location.replace = location.assign;
+  location.toString = function() {
+    return this.href;
+  };
 
   return location;
 }
