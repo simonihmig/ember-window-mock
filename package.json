@@ -1,6 +1,6 @@
 {
   "name": "ember-window-mock",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Adds a window service that can be mocked in tests",
   "keywords": [
     "ember-addon",
