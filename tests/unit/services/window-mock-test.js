@@ -9,17 +9,21 @@ module('service:window-mock', {
 });
 
 test('it mocks window.location.href', function(assert) {
-  this.windowMock.location.href = 'http://www.example.com';
-  assert.equal(this.windowMock.location.href, 'http://www.example.com');
-  assert.equal(this.windowMock.location.host, 'www.example.com');
+  this.windowMock.location.href = 'http://www.example.com:8080/foo?q=bar#hash';
+  assert.equal(this.windowMock.location.href, 'http://www.example.com:8080/foo?q=bar#hash');
+  assert.equal(this.windowMock.location.host, 'www.example.com:8080');
+  assert.equal(this.windowMock.location.hostname, 'www.example.com');
   assert.equal(this.windowMock.location.protocol, 'http:');
+  assert.equal(this.windowMock.location.origin, 'http://www.example.com:8080');
+  assert.equal(this.windowMock.location.port, '8080');
+  assert.equal(this.windowMock.location.pathname, '/foo');
+  assert.equal(this.windowMock.location.search, '?q=bar');
+  assert.equal(this.windowMock.location.hash, '#hash');
 });
 
 test('it mocks window.location', function(assert) {
   this.windowMock.location = 'http://www.example.com';
   assert.equal(this.windowMock.location.href, 'http://www.example.com');
-  assert.equal(this.windowMock.location.host, 'www.example.com');
-  assert.equal(this.windowMock.location.protocol, 'http:');
 });
 
 test('it proxies properties', function(assert) {
