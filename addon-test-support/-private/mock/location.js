@@ -132,6 +132,9 @@ export default function locationFactory() {
     this.href = url;
   };
   location.replace = location.assign;
+  location.toString = function() {
+    return this.href;
+  };
 
   return location;
 }
