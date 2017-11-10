@@ -26,6 +26,24 @@ test('it mocks window.location', function(assert) {
   assert.equal(this.windowMock.location.href, 'http://www.example.com');
 });
 
+test('it mocks window.location.reload', function(assert) {
+  this.windowMock.location = 'http://www.example.com';
+  this.windowMock.location.reload();
+  assert.equal(this.windowMock.location.href, 'http://www.example.com');
+});
+
+test('it mocks window.location.replace', function(assert) {
+  this.windowMock.location = 'http://www.example.com';
+  this.windowMock.location.replace('http://www.emberjs.com');
+  assert.equal(this.windowMock.location.href, 'http://www.emberjs.com');
+});
+
+test('it mocks window.location.assign', function(assert) {
+  this.windowMock.location = 'http://www.example.com';
+  this.windowMock.location.assign('http://www.emberjs.com');
+  assert.equal(this.windowMock.location.href, 'http://www.emberjs.com');
+});
+
 test('it proxies properties', function(assert) {
   window.window_mock_test_property = 'foo';
   assert.equal(this.windowMock.window_mock_test_property, 'foo');

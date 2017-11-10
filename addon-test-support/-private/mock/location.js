@@ -128,7 +128,10 @@ export default function locationFactory() {
     }
   });
   location.reload = function() {};
-  location.replace = function() {};
+  location.assign = function(url) {
+    this.href = url;
+  };
+  location.replace = location.assign;
 
   return location;
 }
