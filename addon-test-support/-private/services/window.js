@@ -4,8 +4,9 @@ function noop() {}
 
 export default function windowMockFactory() {
   let location = locationFactory();
+  let holder = {};
 
-  let ProxyWindow = new Proxy(window, {
+  return new Proxy(window, {
     get(target, name) {
       switch (name) {
         case 'location':
@@ -13,19 +14,24 @@ export default function windowMockFactory() {
         case 'alert':
         case 'confirm':
         case 'prompt':
-          return noop;
+          return name in holder ? holder[name] : noop;
         default:
-          if (target.hasOwnProperty(name) && typeof target[name] === 'function') {
-            return target[name].bind(target);
+          if (window.hasOwnProperty(name) && typeof window[name] === 'function') {
+            return window[name].bind(window);
           }
           return target[name];
       }
     },
-    set: function(target, name, value, receiver) {
+    set(target, name, value, receiver) {
       switch (name) {
         case 'location':
           // setting window.location is equivalent to setting window.location.href
           receiver.location.href = value;
+          return true;
+        case 'alert':
+        case 'confirm':
+        case 'prompt':
+          holder[name] = value;
           return true;
         default:
           target[name] = value;
@@ -33,6 +39,4 @@ export default function windowMockFactory() {
       }
     }
   });
-
-  return Object.create(ProxyWindow);
 }
