@@ -101,9 +101,18 @@ test('it can stub prompt', function(assert) {
   assert.equal(result, 'bar');
 });
 
-test('it allows deleting keys', function(assert) {
+test('it allows adding and deleting properties', function(assert) {
   this.windowMock.testKey = 'test value';
   assert.ok('testKey' in this.windowMock);
   delete this.windowMock.testKey;
   assert.notOk('testKey' in this.windowMock);
+});
+
+test('it allows adding and deleting functions', function(assert) {
+  assert.expect(3);
+  this.windowMock.testFn = () => assert.ok(true);
+  assert.ok('testFn' in this.windowMock);
+  this.windowMock.testFn();
+  delete this.windowMock.testFn;
+  assert.notOk('testFn' in this.windowMock);
 });
