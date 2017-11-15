@@ -100,3 +100,10 @@ test('it can stub prompt', function(assert) {
   assert.ok(stub.calledWith('foo'));
   assert.equal(result, 'bar');
 });
+
+test('it allows deleting keys', function(assert) {
+  this.windowMock.testKey = 'test value';
+  assert.ok('testKey' in this.windowMock);
+  delete this.windowMock.testKey;
+  assert.notOk('testKey' in this.windowMock);
+});
