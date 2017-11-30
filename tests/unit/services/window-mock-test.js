@@ -116,3 +116,9 @@ test('it allows adding and deleting functions', function(assert) {
   delete this.windowMock.testFn;
   assert.notOk('testFn' in this.windowMock);
 });
+
+test('it allows retrieving sinon functions from the proxy', function(assert) {
+  assert.expect(1);
+  this.windowMock.testFn = this.spy();
+  assert.ok(this.windowMock.testFn.reset);
+});
