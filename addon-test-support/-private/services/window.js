@@ -16,6 +16,9 @@ export default function windowMockFactory() {
         case 'prompt':
           return name in holder ? holder[name] : noop;
         default:
+          if (name in holder) {
+            return holder[name];
+          }
           if (window.hasOwnProperty(name) && typeof window[name] === 'function') {
             return window[name].bind(window);
           }
@@ -28,15 +31,18 @@ export default function windowMockFactory() {
           // setting window.location is equivalent to setting window.location.href
           receiver.location.href = value;
           return true;
-        case 'alert':
-        case 'confirm':
-        case 'prompt':
+        default:
           holder[name] = value;
           return true;
-        default:
-          target[name] = value;
-          return true;
       }
+    },
+    has(target, prop) {
+      return prop in holder || prop in target;
+    },
+    deleteProperty(target, prop) {
+      delete holder[prop];
+      delete target[prop];
+      return true;
     }
   });
 }
