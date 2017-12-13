@@ -1098,7 +1098,7 @@ broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0, broccoli
     symlink-or-copy "^1.0.0"
     walk-sync "^0.3.1"
 
-broccoli-funnel@^2.0.0:
+broccoli-funnel@^2.0.0, broccoli-funnel@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-2.0.1.tgz#6823c73b675ef78fffa7ab800f083e768b51d449"
   dependencies:
@@ -2121,9 +2121,9 @@ ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-native-dom-helpers@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.4.tgz#0bc1506a643fb7adc0abf1d09c44a7914459296b"
+ember-native-dom-helpers@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.6.1.tgz#ca54b1adb9aff2e0ae10f068583bc8b92633324d"
   dependencies:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
