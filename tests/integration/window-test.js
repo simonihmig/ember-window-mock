@@ -23,21 +23,21 @@ test('it can mock window in integration tests', async function(assert) {
 
   let window = lookupWindow(this);
 
-  assert.equal(window.location.href, 'http://www.example.com');
+  assert.equal(window.location.href, 'http://www.example.com/');
 });
 
 test('each test gets a fresh copy - part 1 of 2', function(assert) {
   let window = lookupWindow(this);
 
-  assert.notEqual(window.location.href, 'http://www.example.com');
+  assert.notEqual(window.location.href, 'http://www.example.com/');
 
-  window.location.href = 'http://www.example.com';
+  window.location.href = 'http://www.example.com/';
 });
 
 test('each test gets a fresh copy - part 2 of 2', function(assert) {
   let window = lookupWindow(this);
 
-  assert.notEqual(window.location.href, 'http://www.example.com');
+  assert.notEqual(window.location.href, 'http://www.example.com/');
 
-  window.location.href = 'http://www.example.com';
+  window.location.href = 'http://www.example.com/';
 });

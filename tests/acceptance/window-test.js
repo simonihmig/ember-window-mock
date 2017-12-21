@@ -11,5 +11,5 @@ test('it can mock window in acceptance tests', async function(assert) {
 
   let window = lookupWindow(this);
 
-  assert.equal(window.location.href, 'http://www.example.com');
+  assert.equal(window.location.href, 'http://www.example.com/');
 });
