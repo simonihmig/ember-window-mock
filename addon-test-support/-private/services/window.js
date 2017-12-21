@@ -3,7 +3,7 @@ import locationFactory from '../mock/location';
 function noop() {}
 
 export default function windowMockFactory() {
-  let location = locationFactory();
+  let location = locationFactory(window.location.href);
   let holder = {};
 
   return new Proxy(window, {
