@@ -1,7 +1,8 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { moduleForComponent } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { lookupWindow, mockWindow } from 'ember-window-mock';
 import { click } from 'ember-native-dom-helpers';
+import test from 'ember-sinon-qunit/test-support/test';
 
 moduleForComponent('window', 'Integration | window', {
   integration: true,
@@ -40,4 +41,13 @@ test('each test gets a fresh copy - part 2 of 2', function(assert) {
   assert.notEqual(window.location.href, 'http://www.example.com/');
 
   window.location.href = 'http://www.example.com/';
+});
+
+test('it can call dispatchEvent', function(assert) {
+  let window = lookupWindow(this);
+  assert.expect(1);
+  let spy = this.spy();
+  window.addEventListener('test-event', spy);
+  window.dispatchEvent(new Event('test-event'));
+  assert.ok(spy.calledOnce);
 });
