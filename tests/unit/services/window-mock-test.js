@@ -132,3 +132,11 @@ test('it allows retrieving sinon functions from the proxy', function(assert) {
   this.windowMock.testFn = this.spy();
   assert.ok(this.windowMock.testFn.reset);
 });
+
+test('it can call dispatchEvent', function(assert) {
+  assert.expect(1);
+  let spy = this.spy();
+  this.windowMock.addEventListener('test-event', spy);
+  this.windowMock.dispatchEvent(new Event('test-event'));
+  assert.ok(spy.calledOnce);
+});
