@@ -19,7 +19,7 @@ export default function windowMockFactory() {
           if (name in holder) {
             return holder[name];
           }
-          if (window.hasOwnProperty(name) && typeof window[name] === 'function') {
+          if (typeof window[name] === 'function') {
             return window[name].bind(window);
           }
           return target[name];
