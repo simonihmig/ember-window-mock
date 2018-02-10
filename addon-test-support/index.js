@@ -1,2 +1,1 @@
-export { lookupWindow } from './-private/lookup-window';
-export { mockWindow } from './-private/mock-window';
+export { default, reset } from './-private/window';
