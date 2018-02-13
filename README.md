@@ -6,14 +6,14 @@
 [![Ember Observer Score](https://emberobserver.com/badges/ember-window-mock.svg)](https://emberobserver.com/addons/ember-window-mock)
 [![npm version](https://badge.fury.io/js/ember-window-mock.svg)](https://badge.fury.io/js/ember-window-mock)
 
-This EmberCLI addon provides the `window` global as a service that you can inject into any component or controller where
+This Ember CLI addon provides the `window` global as an ES6 module import that you can use in any component or controller where
 you need `window`. But some of its properties and functions are prohibitive to be used 
 in tests as they will break the test run:
 * you cannot set `window.location.href` to trigger a redirect, as that will leave your test page
 * `alert`, `confirm` and `prompt` are blocking calls, and cannot be closed without user interaction, so they will just
 suspend your test run
 
-So when running tests this service will be replaced with one that mocks these critical parts.
+So when running tests this import will be replaced with one that mocks these critical parts.
 
 ## How to use it in your app
 
@@ -31,30 +31,26 @@ export default Controller.extend({
 })
 ``` 
 
-With this addon, you can rewrite it like this to access `window` through an injected service rather than through the 
-global:
+With this addon, you can just import `window` instead of using the global:
 
 ```js
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import window from 'ember-window-mock';
 
 export default Controller.extend({
-  window: service(),
-  
   actions: {
     redirect(url) {
-      this.get('window').location.href = url;
+      window.location.href = url;
     }
   }
 })
 ```  
 
-Apart from getting access to it, everything else works as you would expect, since the "service" is exactly the same as
-the global. Note: since it's the same as the global `window`, it does *not* inherit form `Ember.Service`!
+Everything else works as you would expect, since the import is exactly the same as the global, when not running tests. 
 
-## The window-mock service
+## The window mock
 
-This service is a drop-in replacement for the normal window service in tests. It is a proxy to `window`, so all of the 
+When running in the test environment, the import will be replaced with a mock. It is a proxy to `window`, so all of the 
 non-critical properties and functions just use the normal `window` global. But the critical parts are replaced suitable 
 for tests:
 * `window.location` is mocked with an object with the same API (members like `.href` or `.host`), but setting 
@@ -67,63 +63,75 @@ return some predefined value (e.g. `true` for `confirm`).
 See below for some examples.
 
 **Important:**
-* The `window-mock` service works by using an ES6 `Proxy`, so **your tests need to run in a browser like Chrome that 
+* The window mock works by using an ES6 `Proxy`, so **your tests need to run in a browser like Chrome that 
 supports `Proxy` natively** (as it cannot be transpiled by Babel) 
-* Note that this will only work when you use these function through the service, and not by using the globals (e.g. 
-`window.alert` or  simply `alert`)
+* Note that this will only work when you use these function through the import, and not by using the global directly.
 
-## Acceptance tests
+## Resetting the state in tests
 
-The addons default initializer will automatically register the special `window-mock` as `service:window` when used in 
-tests, so you don't have to care about this. Given a controller like the one above, that redirect to some URL when a 
-button is clicked, an acceptance test could like this:
+It is possible to leak some state on the window mock between tests. For example when your app sets `location.href` in a 
+test like this:
+
+```js 
+window.location.href = 'http://www.example.com';
+```
+
+For the following test `window.location.href` will still be `'http://www.example.com'`, but instead it should have a 
+fresh instance of the window mock. Therefore this addon exports a `reset()` function to kill all changed state on `window`:
+
+```js
+import { reset } from 'ember-window-mock';
+```
+
+This function should be called before all tests that depend on the window mock, preferably in the `beforeEach` hook. See below for some examples!
+
+## Test examples
+
+### Mocking `window.location`
+
+Given a controller like the one above, that redirects to some URL when a button is clicked, an acceptance test could like this:
 
 ```js
 import { test } from 'qunit';
 import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
 import { click, visit } from 'ember-native-dom-helpers';
-import { lookupWindow } from 'ember-window-mock';
+import { default as window, reset } from 'ember-window-mock';
 
-moduleForAcceptance('Acceptance | redirect');
+moduleForAcceptance('Acceptance | redirect', {
+  beforeEach() {
+    reset();
+  }
+});
 
 test('it redirects when clicking the button', async function(assert) {
   await visit('/');
   await click('button');
 
-  let window = lookupWindow(this);
   assert.equal(window.location.href, 'http://www.example.com');
 });
 ```
 
-Note the import and use of the `lookupWindow` helper provided by this addon to get access to the window service instance
-in your test.
-
-## Integration/Unit tests
-
-**Note:** You *must* use `mockWindow` in your `beforeEach` or your tests will fail with `Attempting to inject an unknown injection: 'service:window'`
-
-In integration tests the initializer will not be executed automatically, so you can use the `mockWindow` helper to 
-register the mocked service instead of the normal one. 
+### Mocking `confirm()`
 
 Here is an example that uses [ember-sinon-qunit](https://github.com/elwayman02/ember-sinon-qunit) to replace `confirm`, 
 so you can easily check if it has been called, and to return some defined value:
 
 ```js
-import { moduleForComponent, test } from 'ember-qunit';
+import { moduleForComponent } from 'ember-qunit';
+import test from 'ember-sinon-qunit/test-support/test';
 import hbs from 'htmlbars-inline-precompile';
-import { lookupWindow, mockWindow } from 'ember-window-mock';
 import { click } from 'ember-native-dom-helpers';
+import { default as window, reset } from 'ember-window-mock';
 
 moduleForComponent('my-component', 'Integration | my-component', {
   integration: true,
 
   beforeEach() {
-    mockWindow(this);
+    reset();
   }
 });
 
 test('it deletes an item', async function(assert) {
-  let window = lookupWindow(this);
   let stub = this.stub(window, 'confirm');
   stub.returns(true);
   
@@ -134,4 +142,3 @@ test('it deletes an item', async function(assert) {
   assert.ok(stub.calledWith('Are you sure?'));
 });
 ``` 
-
