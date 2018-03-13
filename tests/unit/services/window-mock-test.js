@@ -140,3 +140,40 @@ test('it can call dispatchEvent', function(assert) {
   window.dispatchEvent(new Event('test-event'));
   assert.ok(spy.calledOnce);
 });
+
+test('it mocks window.localStorage', function(assert) {
+  assert.equal(window.localStorage.length, 0);
+
+  // Add an item, retrieve it, and fetch its key
+  window.localStorage.setItem('a', 'x');
+  assert.equal(window.localStorage.getItem('a'), 'x');
+  assert.equal(window.localStorage.key(0), 'a');
+  assert.equal(window.localStorage.length, 1);
+
+  // Add another item, check length updates, remove it
+  window.localStorage.setItem('b', 'y');
+  assert.equal(window.localStorage.length, 2);
+  window.localStorage.removeItem('b');
+  assert.equal(window.localStorage.length, 1);
+
+  // Remove with non-present keys is a no-op
+  window.localStorage.removeItem('c');
+  assert.equal(window.localStorage.length, 1);
+
+  window.localStorage.clear();
+  assert.equal(window.localStorage.length, 0);
+  assert.equal(window.localStorage.key(0), null);
+});
+
+test('it clears localStorage on reset', function(assert) {
+  window.localStorage.setItem('c', 'z');
+  assert.equal(window.localStorage.getItem('c'), 'z');
+  assert.equal(window.localStorage.key(0), 'c');
+  assert.equal(window.localStorage.length, 1);
+
+  reset();
+
+  assert.equal(window.localStorage.getItem('c'), null);
+  assert.equal(window.localStorage.key(0), null);
+  assert.equal(window.localStorage.length, 0);
+});
