@@ -140,3 +140,80 @@ test('it can call dispatchEvent', function(assert) {
   window.dispatchEvent(new Event('test-event'));
   assert.ok(spy.calledOnce);
 });
+
+test('it mocks window.localStorage.length', function(assert) {
+  assert.equal(window.localStorage.length, 0);
+
+  window.localStorage.setItem('a', 'x');
+  assert.equal(window.localStorage.length, 1);
+
+  window.localStorage.setItem('b', 'y');
+  assert.equal(window.localStorage.length, 2);
+
+  window.localStorage.clear();
+  assert.equal(window.localStorage.length, 0);
+});
+
+test('it mocks window.localStorage.getItem', function(assert) {
+  assert.equal(window.localStorage.getItem('a'), null);
+
+  window.localStorage.setItem('a', 'x');
+  assert.equal(window.localStorage.getItem('a'), 'x');
+
+  window.localStorage.clear();
+  assert.equal(window.localStorage.getItem('a'), null);
+});
+
+test('it mocks window.localStorage.key', function(assert) {
+  assert.equal(window.localStorage.key(0), null);
+
+  window.localStorage.setItem('a', 'x');
+  assert.equal(window.localStorage.key(0), 'a');
+
+  window.localStorage.setItem('b', 'y');
+  assert.equal(window.localStorage.key(0), 'a');
+  assert.equal(window.localStorage.key(1), 'b');
+
+  window.localStorage.clear();
+  assert.equal(window.localStorage.key(0), null);
+});
+
+test('it mocks window.localStorage.removeItem', function(assert) {
+  window.localStorage.setItem('a', 'x');
+  window.localStorage.setItem('b', 'y');
+  assert.equal(window.localStorage.getItem('a'), 'x');
+  assert.equal(window.localStorage.getItem('b'), 'y');
+
+  window.localStorage.removeItem('a');
+  assert.equal(window.localStorage.getItem('a'), null);
+  assert.equal(window.localStorage.getItem('b'), 'y');
+
+  window.localStorage.removeItem('y');
+  assert.equal(window.localStorage.getItem('b'), 'y');
+});
+
+test('it mocks window.localStorage.clear', function(assert) {
+  window.localStorage.setItem('a', 'x');
+  window.localStorage.setItem('b', 'y');
+
+  assert.equal(window.localStorage.length, 2);
+
+  window.localStorage.clear();
+
+  assert.equal(window.localStorage.length, 0);
+  assert.equal(window.localStorage.getItem('a'), null);
+  assert.equal(window.localStorage.getItem('b'), null);
+});
+
+test('it clears localStorage on reset', function(assert) {
+  window.localStorage.setItem('c', 'z');
+  assert.equal(window.localStorage.getItem('c'), 'z');
+  assert.equal(window.localStorage.key(0), 'c');
+  assert.equal(window.localStorage.length, 1);
+
+  reset();
+
+  assert.equal(window.localStorage.getItem('c'), null);
+  assert.equal(window.localStorage.key(0), null);
+  assert.equal(window.localStorage.length, 0);
+});
