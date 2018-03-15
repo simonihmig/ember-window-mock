@@ -34,9 +34,7 @@ test('it can mock window in integration tests', async function(assert) {
 });
 
 test('each test gets a fresh copy - part 1 of 2', function(assert) {
-  assert.notEqual(window.location.href, 'http://www.example.com/');
-  assert.notEqual(window.localStorage.getItem('counter'), '5');
-
+  assert.expect(0);
   window.location.href = 'http://www.example.com/';
   window.foo = 'bar';
   window.localStorage.setItem('counter', '5');
