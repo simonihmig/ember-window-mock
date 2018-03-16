@@ -227,11 +227,6 @@ module('service:window-mock', function(hooks) {
   });
 
   module('window.navigator', function() {
-    // test('it proxies functions', function(assert) {
-    //   assert.expect(1);
-    //   window.focus();
-    //   assert.ok(true);
-    // });
 
     test('it allows adding and deleting properties', function(assert) {
       window.navigator.testKey = 'test value';
@@ -271,5 +266,68 @@ module('service:window-mock', function(hooks) {
     });
 
   });
+
+  module('window.screen', function() {
+
+    test('it allows adding and deleting properties', function(assert) {
+      window.screen.testKey = 'test value';
+      assert.ok('testKey' in window.screen);
+      delete window.screen.testKey;
+      assert.notOk('testKey' in window.screen);
+    });
+
+    test('it allows adding and deleting functions', function(assert) {
+      assert.expect(3);
+      window.screen.testFn = () => assert.ok(true);
+      assert.ok('testFn' in window.screen);
+      window.screen.testFn();
+      delete window.screen.testFn;
+      assert.notOk('testFn' in window.screen);
+    });
+
+    module('width', function() {
+      test('it works', function(assert) {
+        let w = screen.width; // not using window-mock
+        assert.equal(window.screen.width, w);
+      });
+
+      test('it can be overridden', function(assert) {
+        window.screen.width = 320;
+        assert.equal(window.screen.width, 320);
+      });
+
+      test('it can be resetted', function(assert) {
+        let w = window.screen.width;
+        assert.notEqual(w, 320);
+
+        window.screen.width = 320;
+        reset();
+        assert.equal(window.screen.width, w);
+      });
+    });
+
+    // test for nested proxies
+    module('orientation.type', function() {
+      test('it works', function(assert) {
+        let t = screen.orientation.type; // not using window-mock
+        assert.equal(window.screen.orientation.type, t);
+      });
+
+      test('it can be overridden', function(assert) {
+        window.screen.orientation.type = 'custom';
+        assert.equal(window.screen.orientation.type, 'custom');
+      });
+
+      test('it can be resetted', function(assert) {
+        let t = window.screen.orientation.type;
+        assert.notEqual(t, 'custom');
+
+        window.screen.orientation.type = 'custom';
+        reset();
+        assert.equal(window.screen.orientation.type, t);
+      });
+    });
+
+  })
 
 });

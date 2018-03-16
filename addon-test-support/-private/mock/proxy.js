@@ -1,7 +1,7 @@
-export default function proxyFactory(target) {
+export default function proxyFactory(original) {
   let holder = {};
 
-  let proxy = new Proxy(target, {
+  let proxy = new Proxy(original, {
     get (target, name) {
       if (name === '_reset') {
         return () => holder = {};
@@ -9,9 +9,14 @@ export default function proxyFactory(target) {
       if (name in holder) {
         return holder[name];
       }
-      // if (typeof window[name] === 'function') {
-      //   return window[name].bind(window);
-      // }
+      if (typeof target[name] === 'function') {
+        return target[name].bind(target);
+      }
+      if (typeof target[name] === 'object') {
+        let proxy = proxyFactory(target[name]);
+        holder[name] = proxy;
+        return proxy;
+      }
       return target[name];
     },
     set (target, name, value) {
