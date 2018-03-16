@@ -1,13 +1,15 @@
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
-import { click, visit } from 'ember-native-dom-helpers';
+import { click, visit } from '@ember/test-helpers';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
 import window from 'ember-window-mock';
 
-moduleForAcceptance('Acceptance | window');
+module('Acceptance | window', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('it can mock window in acceptance tests', async function(assert) {
-  await visit('/');
-  await click('button');
+  test('it can mock window in acceptance tests', async function(assert) {
+    await visit('/');
+    await click('button');
 
-  assert.equal(window.location.href, 'http://www.example.com/');
+    assert.equal(window.location.href, 'http://www.example.com/');
+  });
 });
