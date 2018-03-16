@@ -226,4 +226,50 @@ module('service:window-mock', function(hooks) {
     });
   });
 
+  module('window.navigator', function() {
+    // test('it proxies functions', function(assert) {
+    //   assert.expect(1);
+    //   window.focus();
+    //   assert.ok(true);
+    // });
+
+    test('it allows adding and deleting properties', function(assert) {
+      window.navigator.testKey = 'test value';
+      assert.ok('testKey' in window.navigator);
+      delete window.navigator.testKey;
+      assert.notOk('testKey' in window.navigator);
+    });
+
+    test('it allows adding and deleting functions', function(assert) {
+      assert.expect(3);
+      window.navigator.testFn = () => assert.ok(true);
+      assert.ok('testFn' in window.navigator);
+      window.navigator.testFn();
+      delete window.navigator.testFn;
+      assert.notOk('testFn' in window.navigator);
+    });
+
+    module('userAgent', function() {
+      test('it works', function(assert) {
+        let ua = navigator.userAgent; // not using window-mock
+        assert.equal(window.navigator.userAgent, ua);
+      });
+
+      test('it can be overridden', function(assert) {
+        window.navigator.userAgent = 'mockUA';
+        assert.equal(window.navigator.userAgent, 'mockUA');
+      });
+
+      test('it can be resetted', function(assert) {
+        let ua = window.navigator.userAgent;
+        assert.notEqual(ua, 'mockUA');
+
+        window.navigator.userAgent = 'mockUA';
+        reset();
+        assert.equal(window.navigator.userAgent, ua);
+      });
+    });
+
+  });
+
 });
