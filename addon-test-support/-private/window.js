@@ -1,13 +1,15 @@
 import locationFactory from './mock/location';
 import LocalStorage from './mock/local-storage';
+import proxyFactory from "./mock/proxy";
 
 const originalWindow = window;
 
 let location = locationFactory(originalWindow.location.href);
-let localStorage = new LocalStorage()
+let localStorage = new LocalStorage();
 let holder = {};
 
-function noop() {}
+function noop() {
+}
 
 export default new Proxy(window, {
   get (target, name) {
@@ -26,6 +28,11 @@ export default new Proxy(window, {
         }
         if (typeof window[name] === 'function') {
           return window[name].bind(window);
+        }
+        if (typeof window[name] === 'object') {
+          let proxy = proxyFactory(window[name]);
+          holder[name] = proxy;
+          return proxy;
         }
         return target[name];
     }

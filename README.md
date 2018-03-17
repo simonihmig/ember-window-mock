@@ -61,6 +61,11 @@ so you can run assertions against that value to check if you app tried to redire
 like [Sinon.js](http://sinonjs.org/) to replace them with spies or stubs to assert that they have been called or to 
 return some predefined value (e.g. `true` for `confirm`).
 
+Moreover it allows you to set any (nested) properties, even if they are defined as read only. This way you can pretend
+different environments in your tests. For example you can fake different devices by changing
+* `window.navigator.userAgent` when you do user agent detection in your app.
+* `window.screen.width` to test responsive layouts when your components render differently based on it.
+
 See below for some examples.
 
 **Important:**
