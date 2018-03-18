@@ -1,5 +1,5 @@
 const mappedPorperties = [
-  'href',
+  // 'href',
   'port',
   'host',
   'hostname',
@@ -33,6 +33,29 @@ export default function locationFactory(defaultUrl) {
         url[propertyName] = value;
       }
     });
+  });
+
+  Object.defineProperty(location, 'href', {
+    get() {
+      return url.href;
+    },
+    set(value) {
+      try {
+        // check if it's a valid absolute URL
+        new URL(value);
+        url.href = value;
+      }
+      catch (e) {
+        // absolute path
+        if (value.charAt(0) === '/') {
+          url.href = url.origin + value;
+        } else {
+          // replace last part of path with new value
+          let parts = url.pathname.split('/').filter((item, index, array) => index !== array.length - 1).concat(value);
+          url.href = url.origin + parts.join('/');
+        }
+      }
+    }
   });
 
   location.reload = function() {};

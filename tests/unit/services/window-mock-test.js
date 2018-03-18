@@ -69,6 +69,24 @@ module('service:window-mock', function(hooks) {
       assert.equal(window.location.hash, '#hash');
     });
 
+    test('window.location.href supports relative URLs', function(assert) {
+      window.location.href = 'http://www.example.com:8080/foo?q=bar#hash';
+      window.location.href = '/bar';
+      assert.equal(window.location.href, 'http://www.example.com:8080/bar');
+      window.location.href = 'baz';
+      assert.equal(window.location.href, 'http://www.example.com:8080/baz');
+      window.location.href = '/foo/bar';
+      assert.equal(window.location.href, 'http://www.example.com:8080/foo/bar');
+      window.location.href = 'baz';
+      assert.equal(window.location.href, 'http://www.example.com:8080/foo/baz');
+      window.location.href = '/foo/bar/';
+      assert.equal(window.location.href, 'http://www.example.com:8080/foo/bar/');
+      window.location.href = 'baz';
+      assert.equal(window.location.href, 'http://www.example.com:8080/foo/bar/baz');
+      window.location.href = '/';
+      assert.equal(window.location.href, 'http://www.example.com:8080/');
+    });
+
     test('it mocks window.location', function(assert) {
       window.location = 'http://www.example.com';
       assert.equal(window.location.href, 'http://www.example.com/');
