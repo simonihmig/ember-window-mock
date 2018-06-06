@@ -91,6 +91,21 @@ import { reset } from 'ember-window-mock';
 
 This function should be called before all tests that depend on the window mock, preferably in the `beforeEach` hook. See below for some examples!
 
+### Resetting the state with the new testing api
+
+If your test are using the QUnit 2.0 test syntax, introduced in [RFC 0232](https://github.com/emberjs/rfcs/blob/master/text/0232-simplify-qunit-testing-api.md),
+then you can setup window mock by calling the `setupWindowMock` method:
+
+```js
+import {setupWindowMock} from 'ember-window-mock';
+
+module('SidebarController', function(hooks) {
+  setupWindowMock(hooks);
+
+  test(...);
+});
+```
+
 ## Test examples
 
 ### Mocking `window.location`
