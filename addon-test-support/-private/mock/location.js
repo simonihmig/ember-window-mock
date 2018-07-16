@@ -21,6 +21,10 @@ const mappedPorperties = [
  * @public
  */
 export default function locationFactory(defaultUrl) {
+  if (!defaultUrl) {
+    defaultUrl = window.location.href;
+  }
+
   let location = {};
   let url = new URL(defaultUrl);
 
