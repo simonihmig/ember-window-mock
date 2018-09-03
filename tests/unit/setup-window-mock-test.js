@@ -1,11 +1,13 @@
-import sinonTest from 'ember-sinon-qunit/test-support/test';
-import {reset, setupWindowMock} from 'ember-window-mock';
-import { module } from 'qunit';
+import { module, test } from 'qunit';
+import { reset, setupWindowMock } from 'ember-window-mock';
+import { setupSinonSandbox } from 'ember-sinon-sandbox/test-support';
 
-module('setup-window-mock', function () {
-  sinonTest('it calls reset in the hooks', function (assert) {
+module('setup-window-mock', function(hooks) {
+  setupSinonSandbox(hooks);
+
+  test('it calls reset in the hooks', function(assert) {
     const _hooks = {
-      beforeEach: this.spy(),
+      beforeEach: this.sandbox.spy(),
     };
 
     setupWindowMock(_hooks);
