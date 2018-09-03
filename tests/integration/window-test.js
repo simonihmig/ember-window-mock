@@ -2,12 +2,11 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { default as window, reset } from 'ember-window-mock';
+import { default as window, setupWindowMock } from 'ember-window-mock';
 
 module('Integration | window', function(hooks) {
   setupRenderingTest(hooks);
-
-  hooks.beforeEach(reset);
+  setupWindowMock(hooks);
 
   test('it can mock window in integration tests', async function(assert) {
     window.localStorage.setItem('counter', '2');

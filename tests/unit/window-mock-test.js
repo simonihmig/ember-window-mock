@@ -1,11 +1,10 @@
-import { module } from 'qunit';
-import test from 'ember-sinon-qunit/test-support/test';
-import { default as window, reset } from 'ember-window-mock';
+import { module, test } from 'qunit';
+import { setupSinonSandbox } from 'ember-sinon-sandbox/test-support';
+import { default as window, reset, setupWindowMock } from 'ember-window-mock';
 
-module('service:window-mock', function(hooks) {
-  hooks.beforeEach(function() {
-    reset();
-  });
+module('window-mock', function(hooks) {
+  setupWindowMock(hooks);
+  setupSinonSandbox(hooks);
 
   module('general properties', function() {
     test('it proxies properties', function(assert) {
@@ -38,13 +37,13 @@ module('service:window-mock', function(hooks) {
 
     test('it allows retrieving sinon functions from the proxy', function(assert) {
       assert.expect(1);
-      window.testFn = this.spy();
+      window.testFn = this.sandbox.spy();
       assert.equal(window.testFn.callCount, 0);
     });
 
     test('it can call dispatchEvent', function(assert) {
       assert.expect(1);
-      let spy = this.spy();
+      let spy = this.sandbox.spy();
       window.addEventListener('test-event', spy);
       window.dispatchEvent(new Event('test-event'));
       assert.ok(spy.calledOnce);
@@ -140,14 +139,14 @@ module('service:window-mock', function(hooks) {
     });
 
     test('it can stub alert', function(assert) {
-      let stub = this.stub(window, 'alert');
+      let stub = this.sandbox.stub(window, 'alert');
       window.alert('foo');
       assert.ok(stub.calledOnce);
       assert.ok(stub.calledWith('foo'));
     });
 
     test('it can stub confirm', function(assert) {
-      let stub = this.stub(window, 'confirm');
+      let stub = this.sandbox.stub(window, 'confirm');
       stub.returns(true);
       let result = window.confirm('foo');
       assert.ok(stub.calledOnce);
@@ -156,7 +155,7 @@ module('service:window-mock', function(hooks) {
     });
 
     test('it can stub prompt', function(assert) {
-      let stub = this.stub(window, 'prompt');
+      let stub = this.sandbox.stub(window, 'prompt');
       stub.returns('bar');
       let result = window.prompt('foo');
       assert.ok(stub.calledOnce);
