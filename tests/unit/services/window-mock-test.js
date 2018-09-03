@@ -39,7 +39,7 @@ module('service:window-mock', function(hooks) {
     test('it allows retrieving sinon functions from the proxy', function(assert) {
       assert.expect(1);
       window.testFn = this.spy();
-      assert.ok(window.testFn.reset);
+      assert.equal(window.testFn.callCount, 0);
     });
 
     test('it can call dispatchEvent', function(assert) {
