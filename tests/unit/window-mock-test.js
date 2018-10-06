@@ -48,6 +48,13 @@ module('window-mock', function(hooks) {
       window.dispatchEvent(new Event('test-event'));
       assert.ok(spy.calledOnce);
     });
+
+    test('it proxies various null fields', function(assert) {
+      // NOTE: in some conditions these can be set by the navigator
+      assert.equal(window.frameElement, null);
+      assert.equal(window.opener, null);
+      assert.equal(window.onbeforeunload, null);
+    });
   });
 
   module('window.location', function() {
