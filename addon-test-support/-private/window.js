@@ -29,7 +29,7 @@ export default new Proxy(window, {
         if (typeof window[name] === 'function') {
           return window[name].bind(window);
         }
-        if (typeof window[name] === 'object') {
+        if (typeof window[name] === 'object' && window[name] !== null) {
           let proxy = proxyFactory(window[name]);
           holder[name] = proxy;
           return proxy;
