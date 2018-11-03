@@ -7,11 +7,11 @@ module('setup-window-mock', function(hooks) {
 
   test('it calls reset in the hooks', function(assert) {
     const _hooks = {
-      beforeEach: this.sandbox.spy(),
+      afterEach: this.sandbox.spy(),
     };
 
     setupWindowMock(_hooks);
 
-    assert.ok(_hooks.beforeEach.calledWith(reset));
+    assert.ok(_hooks.afterEach.calledWith(reset));
   });
 });
