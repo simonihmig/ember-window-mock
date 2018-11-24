@@ -1,8 +1,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-window-mock',
-
+  name: require('./package').name,
 
   treeForAddonTestSupport(tree) {
     // intentionally not calling _super here
