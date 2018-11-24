@@ -1,6 +1,7 @@
 import locationFactory from './mock/location';
 import LocalStorage from './mock/local-storage';
 import proxyFactory from "./mock/proxy";
+import mockFunction from './mock/function';
 
 const originalWindow = window;
 
@@ -27,7 +28,7 @@ export default new Proxy(window, {
           return holder[name];
         }
         if (typeof window[name] === 'function') {
-          return window[name].bind(window);
+          return mockFunction(target[name], target);
         }
         if (typeof window[name] === 'object' && window[name] !== null) {
           let proxy = proxyFactory(window[name]);
