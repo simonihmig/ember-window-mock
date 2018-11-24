@@ -1,3 +1,5 @@
+import mockFunction from './function';
+
 export default function proxyFactory(original) {
   let holder = {};
 
@@ -10,7 +12,7 @@ export default function proxyFactory(original) {
         return holder[name];
       }
       if (typeof target[name] === 'function') {
-        return target[name].bind(target);
+        return mockFunction(target[name], target);
       }
       if (typeof target[name] === 'object') {
         let proxy = proxyFactory(target[name]);

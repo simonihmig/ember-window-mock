@@ -35,6 +35,14 @@ module('window-mock', function(hooks) {
       assert.notOk('testFn' in window);
     });
 
+    test('method calls have the correct context', function(assert) {
+      assert.expect(1);
+      window.testFn = function() {
+        assert.equal(this, window);
+      };
+      window.testFn();
+    });
+
     test('it allows retrieving sinon functions from the proxy', function(assert) {
       assert.expect(1);
       window.testFn = this.sandbox.spy();
@@ -252,22 +260,6 @@ module('window-mock', function(hooks) {
 
   module('window.navigator', function() {
 
-    test('it allows adding and deleting properties', function(assert) {
-      window.navigator.testKey = 'test value';
-      assert.ok('testKey' in window.navigator);
-      delete window.navigator.testKey;
-      assert.notOk('testKey' in window.navigator);
-    });
-
-    test('it allows adding and deleting functions', function(assert) {
-      assert.expect(3);
-      window.navigator.testFn = () => assert.ok(true);
-      assert.ok('testFn' in window.navigator);
-      window.navigator.testFn();
-      delete window.navigator.testFn;
-      assert.notOk('testFn' in window.navigator);
-    });
-
     module('userAgent', function() {
       test('it works', function(assert) {
         let ua = navigator.userAgent; // not using window-mock
@@ -329,29 +321,63 @@ module('window-mock', function(hooks) {
         assert.equal(window.screen.width, w);
       });
     });
+  });
 
-    // test for nested proxies
-    module('orientation.type', function() {
-      test('it works', function(assert) {
-        let t = screen.orientation.type; // not using window-mock
-        assert.equal(window.screen.orientation.type, t);
-      });
+  module('nested proxies', function() {
 
-      test('it can be overridden', function(assert) {
-        window.screen.orientation.type = 'custom';
-        assert.equal(window.screen.orientation.type, 'custom');
-      });
-
-      test('it can be resetted', function(assert) {
-        let t = window.screen.orientation.type;
-        assert.notEqual(t, 'custom');
-
-        window.screen.orientation.type = 'custom';
-        reset();
-        assert.equal(window.screen.orientation.type, t);
-      });
+    test('it allows adding and deleting properties', function(assert) {
+      window.navigator.testKey = 'test value';
+      assert.ok('testKey' in window.navigator);
+      delete window.navigator.testKey;
+      assert.notOk('testKey' in window.navigator);
     });
 
-  })
+    test('it proxies functions', function(assert) {
+      assert.expect(1);
+      window.navigator.connection.removeEventListener('foo', () => {});
+      assert.ok(true);
+    });
+
+    test('it allows adding and deleting functions', function(assert) {
+      assert.expect(3);
+      window.navigator.testFn = () => assert.ok(true);
+      assert.ok('testFn' in window.navigator);
+      window.navigator.testFn();
+      delete window.navigator.testFn;
+      assert.notOk('testFn' in window.navigator);
+    });
+
+    test('method calls have the correct context', function(assert) {
+      assert.expect(1);
+      window.navigator.testFn = function() {
+        assert.equal(this, window.navigator);
+      };
+      window.navigator.testFn();
+    });
+
+    test('static methods work', function(assert) {
+      assert.equal(typeof window.Notification, 'function');
+      assert.equal(typeof window.Notification.requestPermission, 'function');
+    });
+
+    test('it works', function(assert) {
+      let t = screen.orientation.type; // not using window-mock
+      assert.equal(window.screen.orientation.type, t);
+    });
+
+    test('it can be overridden', function(assert) {
+      window.screen.orientation.type = 'custom';
+      assert.equal(window.screen.orientation.type, 'custom');
+    });
+
+    test('it can be resetted', function(assert) {
+      let t = window.screen.orientation.type;
+      assert.notEqual(t, 'custom');
+
+      window.screen.orientation.type = 'custom';
+      reset();
+      assert.equal(window.screen.orientation.type, t);
+    });
+  });
 
 });
