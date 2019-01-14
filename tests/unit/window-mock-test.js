@@ -378,6 +378,10 @@ module('window-mock', function(hooks) {
       reset();
       assert.equal(window.screen.orientation.type, t);
     });
+
+    test('it proxies nested null fields', function(assert) {
+      assert.equal(window.history.state, null);
+    });
   });
 
 });

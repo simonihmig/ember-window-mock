@@ -14,7 +14,7 @@ export default function proxyFactory(original) {
       if (typeof target[name] === 'function') {
         return mockFunction(target[name], target);
       }
-      if (typeof target[name] === 'object') {
+      if (typeof target[name] === 'object' && target[name] !== null) {
         let proxy = proxyFactory(target[name]);
         holder[name] = proxy;
         return proxy;
