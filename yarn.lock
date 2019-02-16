@@ -3043,9 +3043,10 @@ ember-router-generator@^1.2.3:
   dependencies:
     recast "^0.11.3"
 
-ember-sinon-sandbox@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-sinon-sandbox/-/ember-sinon-sandbox-1.0.0.tgz#7c48d9963a5f712cbb38c63dbd294dcda0153a72"
+ember-sinon-sandbox@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-sinon-sandbox/-/ember-sinon-sandbox-2.0.0.tgz#ad7ff14e706301a0f6fd66d32235475c0c8c177b"
+  integrity sha512-iMXo5pjyx1shTl+pdUM0W7NfVtsZ8FQcheCuOSL3IzkB9nsTuzX8aojLfwo1tFlwXh7DQPNeswad3dxmfIzDFw==
   dependencies:
     ember-cli-babel "^6.16.0"
 
