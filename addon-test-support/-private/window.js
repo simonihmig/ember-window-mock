@@ -1,6 +1,7 @@
+import { get } from '@ember/object';
 import locationFactory from './mock/location';
 import LocalStorage from './mock/local-storage';
-import proxyFactory, { reset as resetProxy } from './mock/proxy';
+import proxyFactory, { getProxyConfig } from './mock/proxy';
 
 const originalWindow = window;
 
@@ -35,5 +36,20 @@ const windowProxy = proxyFactory(originalWindow, {
 export default windowProxy;
 
 export function reset(proxy = windowProxy) {
-  resetProxy(proxy);
+  getProxyConfig(proxy).reset();
+}
+
+export function mock(path, value) {
+  let proxy = windowProxy;
+  let propertyKey = path;
+  if (path.includes('.')) {
+    const idxLastDot = path.lastIndexOf('.');
+    const parentPath = path.slice(0, idxLastDot);
+    proxy = get(windowProxy, parentPath);
+    propertyKey = path.slice(idxLastDot + 1);
+  }
+
+  const { holder, descriptors } = getProxyConfig(proxy);
+  delete descriptors[propertyKey];
+  holder[propertyKey] = value;
 }

@@ -3,7 +3,7 @@ import mockFunction from './function';
 
 const PROXIES = new WeakMap();
 
-function getProxyConfig(proxy) {
+export function getProxyConfig(proxy) {
   assert(`Could not find '${proxy}' in the proxy map.`, PROXIES.has(proxy));
   return PROXIES.get(proxy);
 }
@@ -106,8 +106,4 @@ export default function proxyFactory(
   PROXIES.set(proxy, config);
 
   return proxy;
-}
-
-export function reset(proxy) {
-  getProxyConfig(proxy).reset();
 }
