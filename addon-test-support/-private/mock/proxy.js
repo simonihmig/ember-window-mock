@@ -21,7 +21,7 @@ function assertWritableDescriptor(target, key) {
   if (descriptor && 'configurable' in descriptor && !descriptor.configurable) {
     assert(
       `Cannot directly set '${key}' on '${target}', because it is a non-configurable and non-writable property.\nSee https://github.com/kaliber5/ember-window-mock/issues/99`,
-      'set' in descriptor || descriptor.writable
+      typeof descriptor.set === 'function' || descriptor.writable
     );
   }
 }
