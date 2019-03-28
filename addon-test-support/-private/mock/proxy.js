@@ -30,26 +30,33 @@ export default function proxyFactory(
   original,
   { makeHolder = () => ({}), makeDescriptors = () => ({}) } = {}
 ) {
-  let holder = makeHolder();
-  let descriptors = makeDescriptors();
+  const config = {
+    original,
+    holder: makeHolder(),
+    descriptors: makeDescriptors(),
+    reset() {
+      config.holder = makeHolder();
+      config.descriptors = makeDescriptors();
+    }
+  };
 
-  let proxy = new Proxy(original, {
+  const proxy = new Proxy(original, {
     get(target, key) {
-      if (key in holder) {
-        return holder[key];
+      if (key in config.holder) {
+        return config.holder[key];
       }
-      if (key in descriptors) {
-        if (descriptors[key].get) {
-          return descriptors[key].get.call(original);
+      if (key in config.descriptors) {
+        if (config.descriptors[key].get) {
+          return config.descriptors[key].get.call(original);
         }
-        return descriptors[key].value;
+        return config.descriptors[key].value;
       }
       if (typeof target[key] === 'function') {
         return mockFunction(target[key], target);
       }
       if (typeof target[key] === 'object' && target[key] !== null) {
         let proxy = proxyFactory(target[key]);
-        holder[key] = proxy;
+        config.holder[key] = proxy;
         return proxy;
       }
       return target[key];
@@ -57,51 +64,46 @@ export default function proxyFactory(
     set(target, key, value) {
       assertWritableDescriptor(target, key);
 
-      if (key in descriptors) {
-        if (descriptors[key].set) {
-          descriptors[key].set.call(original, value);
+      if (key in config.descriptors) {
+        if (config.descriptors[key].set) {
+          config.descriptors[key].set.call(original, value);
           return true;
         }
-        if (!descriptors[key].writable) {
+        if (!config.descriptors[key].writable) {
           return false;
         }
-        descriptors[key].value = value;
+        config.descriptors[key].value = value;
         return true;
       }
 
-      holder[key] = value;
+      config.holder[key] = value;
       return true;
     },
     has(target, key) {
-      return key in holder || key in target;
+      return key in config.holder || key in target;
     },
     deleteProperty(target, key) {
       assertWritableDescriptor(target, key);
-      delete holder[key];
+      delete config.holder[key];
       delete target[key];
       return true;
     },
     defineProperty(target, key, descriptor) {
       assertConfigurableDescriptor(target, key);
-      descriptors[key] = descriptor;
-      delete holder[key];
+      config.descriptors[key] = descriptor;
+      delete config.holder[key];
       return true;
     },
     getOwnPropertyDescriptor(target, key) {
-      if (key in descriptors) {
-        return descriptors[key];
+      if (key in config.descriptors) {
+        return config.descriptors[key];
       }
 
       return Object.getOwnPropertyDescriptor(target, key);
     }
   });
 
-  function reset() {
-    holder = makeHolder();
-    descriptors = makeDescriptors();
-  }
-
-  PROXIES.set(proxy, { original, holder, descriptors, reset });
+  PROXIES.set(proxy, config);
 
   return proxy;
 }
