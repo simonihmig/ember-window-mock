@@ -11,7 +11,7 @@ function getProxyConfig(proxy) {
 function assertConfigurableDescriptor(target, key) {
   const descriptor = Object.getOwnPropertyDescriptor(target, key);
   assert(
-    `Canot override non-configurable descriptor for '${key}' on '${target}'.`,
+    `Cannot override non-configurable descriptor for '${key}' on '${target}'.`,
     !descriptor || descriptor.configurable
   );
 }
