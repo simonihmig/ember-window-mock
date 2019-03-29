@@ -26,17 +26,12 @@ function assertWritableDescriptor(target, key) {
   }
 }
 
-export default function proxyFactory(
-  original,
-  { makeHolder = () => ({}), makeDescriptors = () => ({}) } = {}
-) {
+export default function proxyFactory(original, makeHolder = () => ({})) {
   const config = {
     original,
     holder: makeHolder(),
-    descriptors: makeDescriptors(),
     reset() {
       config.holder = makeHolder();
-      config.descriptors = makeDescriptors();
     }
   };
 
@@ -44,12 +39,6 @@ export default function proxyFactory(
     get(target, key) {
       if (key in config.holder) {
         return config.holder[key];
-      }
-      if (key in config.descriptors) {
-        if (config.descriptors[key].get) {
-          return config.descriptors[key].get.call(original);
-        }
-        return config.descriptors[key].value;
       }
       if (typeof target[key] === 'function') {
         return mockFunction(target[key], target);
@@ -63,19 +52,6 @@ export default function proxyFactory(
     },
     set(target, key, value) {
       assertWritableDescriptor(target, key);
-
-      if (key in config.descriptors) {
-        if (config.descriptors[key].set) {
-          config.descriptors[key].set.call(original, value);
-          return true;
-        }
-        if (!config.descriptors[key].writable) {
-          return false;
-        }
-        config.descriptors[key].value = value;
-        return true;
-      }
-
       config.holder[key] = value;
       return true;
     },
@@ -90,13 +66,12 @@ export default function proxyFactory(
     },
     defineProperty(target, key, descriptor) {
       assertConfigurableDescriptor(target, key);
-      config.descriptors[key] = descriptor;
-      delete config.holder[key];
+      Object.defineProperty(config.holder, key, descriptor);
       return true;
     },
     getOwnPropertyDescriptor(target, key) {
-      if (key in config.descriptors) {
-        return config.descriptors[key];
+      if (key in config.holder) {
+        return Object.getOwnPropertyDescriptor(config.holder, key);
       }
 
       return Object.getOwnPropertyDescriptor(target, key);

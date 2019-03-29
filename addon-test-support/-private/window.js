@@ -7,30 +7,25 @@ const originalWindow = window;
 function makeHolder() {
   function noop() {}
 
-  return {
+  const holder = {
     localStorage: new LocalStorage(),
     alert: noop,
     confirm: noop,
     prompt: noop
   };
-}
 
-function makeDescriptors() {
   const location = locationFactory(originalWindow.location.href);
-  return {
-    location: {
-      enumerable: true,
-      configurable: false,
-      get: () => location,
-      set: href => (location.href = href)
-    }
-  };
+  Object.defineProperty(holder, 'location', {
+    enumerable: true,
+    configurable: false,
+    get: () => location,
+    set: href => (location.href = href)
+  });
+
+  return holder;
 }
 
-const windowProxy = proxyFactory(originalWindow, {
-  makeHolder,
-  makeDescriptors
-});
+const windowProxy = proxyFactory(originalWindow, makeHolder);
 
 export default windowProxy;
 
