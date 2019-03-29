@@ -8,14 +8,6 @@ function getProxyConfig(proxy) {
   return PROXIES.get(proxy);
 }
 
-function assertConfigurableDescriptor(target, key) {
-  const descriptor = Object.getOwnPropertyDescriptor(target, key);
-  assert(
-    `Cannot override non-configurable descriptor for '${key}' on '${target}'.`,
-    !descriptor || descriptor.configurable
-  );
-}
-
 function assertWritableDescriptor(target, key) {
   const descriptor = Object.getOwnPropertyDescriptor(target, key);
   if (descriptor && 'configurable' in descriptor && !descriptor.configurable) {
@@ -65,8 +57,19 @@ export default function proxyFactory(original, makeHolder = () => ({})) {
       return true;
     },
     defineProperty(target, key, descriptor) {
-      assertConfigurableDescriptor(target, key);
+      if (!(key in config.holder)) {
+        // First copy the original descriptor to a dummy object.
+        const originalDescriptor = Object.getOwnPropertyDescriptor(target, key);
+        const dummy = {};
+        Object.defineProperty(dummy, key, originalDescriptor);
+
+        // Then try overriding it with the new descriptor, which might throw a TypeError.
+        Object.defineProperty(config.holder, key, descriptor);
+      }
+
+      // If no error was thrown, actually set the descriptor on the holder.
       Object.defineProperty(config.holder, key, descriptor);
+
       return true;
     },
     getOwnPropertyDescriptor(target, key) {
