@@ -173,10 +173,11 @@ You can check if the function has been called as well as the value of its parame
 import { module, test } from 'qunit';
 import { click, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { default as window, reset } from 'ember-window-mock';
+import { default as window, setupWindowMock } from 'ember-window-mock';
 
 module('Acceptance | new window', function(hooks) {
   setupApplicationTest(hooks);
+  setupWindowMock(hooks);
 
   test('it opens a new window when clicking the button', async function(assert) {
     await visit('/');
@@ -184,7 +185,6 @@ module('Acceptance | new window', function(hooks) {
       assert.equal(urlToOpen, 'http://www.example.com/some-file.jpg');
     };
     await click('button');
-    reset();
   });
 }
 ```

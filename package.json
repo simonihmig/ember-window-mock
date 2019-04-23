@@ -1,6 +1,6 @@
 {
   "name": "ember-window-mock",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Adds a window service that can be mocked in tests",
   "keywords": [
     "ember-addon",
@@ -43,7 +43,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-qunit": "^3.4.1",
+    "ember-qunit": "^4.2.0",
     "ember-resolver": "^5.0.1",
     "ember-sinon": "^3.0.0",
     "ember-sinon-sandbox": "^1.0.0",
