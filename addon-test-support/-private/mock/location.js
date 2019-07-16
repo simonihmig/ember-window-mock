@@ -1,4 +1,4 @@
-const mappedPorperties = [
+const mappedProperties = [
   // 'href',
   'port',
   'host',
@@ -24,7 +24,7 @@ export default function locationFactory(defaultUrl) {
   let location = {};
   let url = new URL(defaultUrl);
 
-  mappedPorperties.forEach((propertyName) => {
+  mappedProperties.forEach((propertyName) => {
     Object.defineProperty(location, propertyName, {
       get() {
         return url[propertyName];
