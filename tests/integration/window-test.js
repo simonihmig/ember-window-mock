@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, find } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { default as window, setupWindowMock } from 'ember-window-mock';
 
@@ -12,21 +12,21 @@ module('Integration | window', function(hooks) {
     window.localStorage.setItem('counter', '2');
 
     await render(hbs`
-      {{#window-tester as |window|}}
-        <span {{action window.increment}}>{{window.counter}}</span>
-        <button {{action window.redirect "http://www.example.com"}}>Redirect</button>
-      {{/window-tester}}
+      <WindowTester as |window|>
+        <button type="button" data-test-counter {{on "click" window.increment}}>{{window.counter}}</button>
+        <button type="button" data-test-redirect {{on "click" (fn window.redirect "http://www.example.com")}}>Redirect</button>
+      </WindowTester>
     `);
 
-    assert.equal(find('span').textContent.trim(), '2');
+    assert.dom('[data-test-counter]').hasText('2');
 
-    await click('button');
+    await click('[data-test-redirect]');
 
     assert.equal(window.location.href, 'http://www.example.com/');
 
-    await click('span');
+    await click('[data-test-counter]');
 
-    assert.equal(find('span').textContent.trim(), '3');
+    assert.dom('[data-test-counter]').hasText('3');
     assert.equal(window.localStorage.getItem('counter'), '3');
   });
 

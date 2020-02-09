@@ -1,3 +1,3 @@
-{{#window-tester as |window|}}
-  <button {{action window.redirect "http://www.example.com"}}>Redirect</button>
-{{/window-tester}}
+<WindowTester as |window|>
+  <button type="button" {{on "click" (fn window.redirect "http://www.example.com")}}>Redirect</button>
+</WindowTester>

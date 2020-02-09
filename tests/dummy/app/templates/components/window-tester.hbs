@@ -1,7 +1,7 @@
 {{yield
   (hash
-    redirect=(action "redirect")
-    counter=(readonly counter)
-    increment=(action "increment")
+    redirect=this.redirect
+    counter=(readonly this.counter)
+    increment=this.increment
   )
 }}
