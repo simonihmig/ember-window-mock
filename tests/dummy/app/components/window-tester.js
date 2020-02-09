@@ -1,27 +1,20 @@
 import Component from '@ember/component';
-import layout from '../templates/components/window-tester';
 import window from 'ember-window-mock';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  layout,
+export default class WindowTesterComponent extends Component {
 
-  counter: 0,
+  counter = +window.localStorage.getItem('counter') || 1;
 
-  init() {
-    this._super(...arguments);
-
-    this.set('counter', +window.localStorage.getItem('counter') || 1);
-  },
-
-  actions: {
-    redirect(url) {
-      window.location.href = url;
-    },
-
-    increment() {
-      this.incrementProperty('counter');
-      window.localStorage.setItem('counter', this.get('counter'));
-    }
+  @action
+  redirect(url) {
+    window.location.href = url;
   }
 
-});
+  @action
+  increment() {
+    this.incrementProperty('counter');
+    window.localStorage.setItem('counter', this.get('counter'));
+  }
+
+}
