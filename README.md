@@ -1,7 +1,5 @@
 # ember-window-mock
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/kaliber5/ember-window-mock.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/kaliber5/ember-window-mock.svg?branch=master)](https://travis-ci.org/kaliber5/ember-window-mock)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-window-mock.svg)](https://emberobserver.com/addons/ember-window-mock)
 [![npm version](https://badge.fury.io/js/ember-window-mock.svg)](https://badge.fury.io/js/ember-window-mock)
@@ -15,7 +13,26 @@ suspend your test run
 
 So when running tests this import will be replaced with one that mocks these critical parts.
 
-## How to use it in your app
+
+Compatibility
+------------------------------------------------------------------------------
+
+* Ember.js v3.8 or above
+* Ember CLI v2.13 or above
+* Node.js v8 or above
+
+
+Installation
+------------------------------------------------------------------------------
+
+```
+ember install ember-window-mock
+```
+
+Usage
+------------------------------------------------------------------------------
+
+### How to use it in your app
 
 Let's say you want to redirect to an external URL. A simple controller could look like this:
 
@@ -48,7 +65,7 @@ export default Controller.extend({
 
 Everything else works as you would expect, since the import is exactly the same as the global, when not running tests. 
 
-## The window mock
+### The window mock
 
 When running in the test environment, the import will be replaced with a mock. It is a proxy to `window`, so all of the 
 non-critical properties and functions just use the normal `window` global. But the critical parts are replaced suitable 
@@ -73,7 +90,7 @@ See below for some examples.
 supports `Proxy` natively** (as it cannot be transpiled by Babel) 
 * Note that this will only work when you use these function through the import, and not by using the global directly.
 
-## Resetting the state in tests
+### Resetting the state in tests
 
 It is possible to leak some state on the window mock between tests. For example when your app sets `location.href` in a 
 test like this:
@@ -91,7 +108,7 @@ import { reset } from 'ember-window-mock';
 
 This function should be called before all tests that depend on the window mock, preferably in the `beforeEach` hook. See below for some examples!
 
-### Resetting the state with the new testing APIs
+#### Resetting the state with the new testing APIs
 
 If your tests are using the QUnit 2.0 test syntax, introduced in [RFC 0232](https://github.com/emberjs/rfcs/blob/master/text/0232-simplify-qunit-testing-api.md),
 then you can setup window mock by calling the `setupWindowMock` method:
@@ -106,9 +123,9 @@ module('SidebarController', function(hooks) {
 });
 ```
 
-## Test examples
+### Test examples
 
-### Mocking `window.location`
+#### Mocking `window.location`
 
 Given a controller like the one above, that redirects to some URL when a button is clicked, an acceptance test could like this:
 
@@ -132,7 +149,7 @@ test('it redirects when clicking the button', async function(assert) {
 });
 ```
 
-### Mocking `confirm()`
+#### Mocking `confirm()`
 
 Here is an example that uses [ember-sinon-qunit](https://github.com/elwayman02/ember-sinon-qunit) to replace `confirm`, 
 so you can easily check if it has been called, and to return some defined value:
@@ -164,7 +181,7 @@ test('it deletes an item', async function(assert) {
 });
 ``` 
 
-### Mocking `open()`
+#### Mocking `open()`
 
 Here is an example that assigns a new function to replace `open`.
 You can check if the function has been called as well as the value of its parameters.
@@ -188,3 +205,15 @@ module('Acceptance | new window', function(hooks) {
   });
 }
 ```
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).
+
