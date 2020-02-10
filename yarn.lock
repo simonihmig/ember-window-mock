@@ -4585,7 +4585,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, 
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.11.0, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.1.2, ember-cli-babel@^7.11.0, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.7.3:
   version "7.17.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.17.2.tgz#2c7717c6864425be3cd11913c722115fbf1448d2"
   integrity sha512-64jRwtRVtEp4ghhew/sHeMsPyUOg3t1TB2dary5mCbKkRasb3L7FwF7xnuzPihaz+AW/v2LqYLALXGCml5XNLA==
@@ -4985,11 +4985,12 @@ ember-router-generator@^2.0.0:
     "@babel/traverse" "^7.4.5"
     recast "^0.18.1"
 
-ember-sinon-sandbox@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-sinon-sandbox/-/ember-sinon-sandbox-1.0.0.tgz#7c48d9963a5f712cbb38c63dbd294dcda0153a72"
+ember-sinon-sandbox@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/ember-sinon-sandbox/-/ember-sinon-sandbox-2.0.2.tgz#ef901aae6174473f97c34a01137801e19ad71ba2"
+  integrity sha512-cqlSYUilmnbQdazG4tucAEfd4kpov0aI98snK7BRS5iEIV9N/uv8B4/nnK3kswkVBiaOups7VzD08PKLgNMmPQ==
   dependencies:
-    ember-cli-babel "^6.16.0"
+    ember-cli-babel "^7.1.2"
 
 ember-sinon@^4.1.1:
   version "4.1.1"
