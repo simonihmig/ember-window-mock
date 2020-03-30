@@ -12,7 +12,7 @@ export default class Storage {
         if (arguments.length < 1) {
           throw argumentError('getItem', 1, arguments.length);
         }
-        if (this.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(this, key)) {
           return this[key];
         }
         return null;
