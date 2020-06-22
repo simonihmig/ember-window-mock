@@ -15,7 +15,6 @@ module.exports = function(defaults) {
   */
 
   if ('@embroider/webpack' in app.dependencies()) {
-    console.log('using embroider');
     const { Webpack } = require('@embroider/webpack'); // eslint-disable-line node/no-missing-require
     return require('@embroider/compat') // eslint-disable-line node/no-missing-require
       .compatBuild(app, Webpack, {

@@ -12,7 +12,7 @@ let holder = {};
 function noop() {
 }
 
-export default new Proxy(window, {
+export const mockProxyHandler = {
   get (target, name) {
     switch (name) {
       case 'location':
@@ -57,7 +57,7 @@ export default new Proxy(window, {
     delete target[prop];
     return true;
   }
-});
+};
 
 export function reset() {
   location = locationFactory(originalWindow.location.href);

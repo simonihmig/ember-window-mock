@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupSinonSandbox } from 'ember-sinon-sandbox/test-support';
-import { default as window, reset, setupWindowMock } from 'ember-window-mock';
+import window from 'ember-window-mock';
+import { reset, setupWindowMock } from 'ember-window-mock/test-support';
 
 module('window-mock', function(hooks) {
   setupWindowMock(hooks);
