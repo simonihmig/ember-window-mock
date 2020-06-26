@@ -14,7 +14,7 @@ export default class WindowTesterComponent extends Component {
   @action
   increment() {
     this.incrementProperty('counter');
-    window.localStorage.setItem('counter', this.get('counter'));
+    window.localStorage.setItem('counter', this.counter);
   }
 
 }
