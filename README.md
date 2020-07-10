@@ -38,29 +38,29 @@ Let's say you want to redirect to an external URL. A simple controller could loo
 
 ```js
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  actions: {
-    redirect(url) {
-      window.location.href = url;
-    }
+export default class IndexController extends Controller {
+  @action
+  redirect(url) {
+    window.location.href = url;
   }
-})
+}
 ``` 
 
 With this addon, you can just import `window` instead of using the global:
 
 ```js
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import window from 'ember-window-mock';
 
-export default Controller.extend({
-  actions: {
-    redirect(url) {
-      window.location.href = url;
-    }
+export default class IndexController extends Controller {
+  @action
+  redirect(url) {
+    window.location.href = url;
   }
-})
+}
 ```  
 
 Everything else works as you would expect, since the import is exactly the same as the global, when not running tests. 
@@ -86,7 +86,7 @@ different environments in your tests. For example you can fake different devices
 See below for some examples.
 
 **Important:**
-* The window mock works by using an ES6 `Proxy`, so **your tests need to run in a browser like Chrome that 
+* The window mock works by using an ES6 `Proxy`, so **your development environment and tests need to run in a browser like Chrome that 
 supports `Proxy` natively** (as it cannot be transpiled by Babel) 
 * Note that this will only work when you use these function through the import, and not by using the global directly.
 
@@ -100,21 +100,10 @@ window.location.href = 'http://www.example.com';
 ```
 
 For the following test `window.location.href` will still be `'http://www.example.com'`, but instead it should have a 
-fresh instance of the window mock. Therefore this addon exports a `reset()` function to kill all changed state on `window`:
+fresh instance of the window mock. Therefore this addon exports a `setupWindowMock` function to kill all changed state on `window`:
 
 ```js
-import { reset } from 'ember-window-mock';
-```
-
-This function should be called before all tests that depend on the window mock, preferably in the `beforeEach` hook. See below for some examples!
-
-#### Resetting the state with the new testing APIs
-
-If your tests are using the QUnit 2.0 test syntax, introduced in [RFC 0232](https://github.com/emberjs/rfcs/blob/master/text/0232-simplify-qunit-testing-api.md),
-then you can setup window mock by calling the `setupWindowMock` method:
-
-```js
-import { setupWindowMock } from 'ember-window-mock';
+import { setupWindowMock } from 'ember-window-mock/test-support';
 
 module('SidebarController', function(hooks) {
   setupWindowMock(hooks);
@@ -127,25 +116,25 @@ module('SidebarController', function(hooks) {
 
 #### Mocking `window.location`
 
-Given a controller like the one above, that redirects to some URL when a button is clicked, an acceptance test could like this:
+Given a controller like the one above, that redirects to some URL when a button is clicked, an application test could like this:
 
 ```js
-import { test } from 'qunit';
-import moduleForAcceptance from '../../tests/helpers/module-for-acceptance';
-import { click, visit } from 'ember-native-dom-helpers';
-import { default as window, reset } from 'ember-window-mock';
+import { module, test } from 'qunit';
+import { click, visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+import window from 'ember-window-mock';
+import { setupWindowMock } from 'ember-window-mock/test-support';
 
-moduleForAcceptance('Acceptance | redirect', {
-  beforeEach() {
-    reset();
-  }
-});
+module('Acceptance | redirect', function(hooks) {
+  setupApplicationTest(hooks);
+  setupWindowMock(hooks);
 
-test('it redirects when clicking the button', async function(assert) {
-  await visit('/');
-  await click('button');
-
-  assert.equal(window.location.href, 'http://www.example.com');
+  test('it redirects when clicking the button', async function(assert) {
+    await visit('/');
+    await click('button');
+    
+    assert.equal(window.location.href, 'http://www.example.com');
+  });
 });
 ```
 
@@ -155,29 +144,27 @@ Here is an example that uses [ember-sinon-qunit](https://github.com/elwayman02/e
 so you can easily check if it has been called, and to return some defined value:
 
 ```js
-import { moduleForComponent } from 'ember-qunit';
-import test from 'ember-sinon-qunit/test-support/test';
-import hbs from 'htmlbars-inline-precompile';
-import { click } from 'ember-native-dom-helpers';
-import { default as window, reset } from 'ember-window-mock';
+import { module, test } from 'qunit';
+import { click, visit } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+import window from 'ember-window-mock';
+import { setupWindowMock } from 'ember-window-mock/test-support';
+import sinon from 'sinon';
 
-moduleForComponent('my-component', 'Integration | my-component', {
-  integration: true,
+module('Acceptance | redirect', function(hooks) {
+  setupApplicationTest(hooks);
+  setupWindowMock(hooks);
 
-  beforeEach() {
-    reset();
-  }
-});
-
-test('it deletes an item', async function(assert) {
-  let stub = this.stub(window, 'confirm');
-  stub.returns(true);
-  
-  this.render(hbs`{{my-component}}`);
-  await click('.delete');
-  
-  assert.ok(stub.calledOnce);
-  assert.ok(stub.calledWith('Are you sure?'));
+  test('it deletes an item', async function(assert) {
+    let stub = sinon.stub(window, 'confirm');
+    stub.returns(true);
+    
+    await visit('/');
+    await click('[data-test-delete]');
+    
+    assert.ok(stub.calledOnce);
+    assert.ok(stub.calledWith('Are you sure?'));
+  });
 });
 ``` 
 
@@ -190,7 +177,8 @@ You can check if the function has been called as well as the value of its parame
 import { module, test } from 'qunit';
 import { click, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { default as window, setupWindowMock } from 'ember-window-mock';
+import window from 'ember-window-mock';
+import { setupWindowMock } from 'ember-window-mock/test-support';
 
 module('Acceptance | new window', function(hooks) {
   setupApplicationTest(hooks);
@@ -203,7 +191,7 @@ module('Acceptance | new window', function(hooks) {
     };
     await click('button');
   });
-}
+});
 ```
 
 Contributing
