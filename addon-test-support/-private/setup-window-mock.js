@@ -10,6 +10,6 @@ export default function setupWindowMock(hooks = self) {
   hooks.beforeEach(() => _setCurrentHandler(mockProxyHandler))
   hooks.afterEach(() => {
     reset();
-    _setCurrentHandler(null);
+    _setCurrentHandler();
   });
 }
