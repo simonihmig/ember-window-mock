@@ -1,3 +1,11 @@
+## v0.7.1 (2020-07-15)
+
+#### :bug: Bug Fix
+* [#201](https://github.com/kaliber5/ember-window-mock/pull/201) Reset to `doNothingHandler` in tests ([@alexlafroscia](https://github.com/alexlafroscia))
+
+#### Committers: 1
+- Alex LaFroscia ([@alexlafroscia](https://github.com/alexlafroscia))
+
 ## v0.7.0 (2020-07-10)
 
 #### :boom: Breaking Change
