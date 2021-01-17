@@ -1,9 +1,10 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import window from 'ember-window-mock';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class WindowTesterComponent extends Component {
-
+  @tracked
   counter = +window.localStorage.getItem('counter') || 1;
 
   @action
@@ -13,7 +14,7 @@ export default class WindowTesterComponent extends Component {
 
   @action
   increment() {
-    this.incrementProperty('counter');
+    this.counter++;
     window.localStorage.setItem('counter', this.counter);
   }
 
