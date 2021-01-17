@@ -5,11 +5,11 @@ import hbs from 'htmlbars-inline-precompile';
 import window from 'ember-window-mock';
 import { setupWindowMock } from 'ember-window-mock/test-support';
 
-module('Integration | window', function(hooks) {
+module('Integration | window', function (hooks) {
   setupRenderingTest(hooks);
   setupWindowMock(hooks);
 
-  test('it can mock window in integration tests', async function(assert) {
+  test('it can mock window in integration tests', async function (assert) {
     window.localStorage.setItem('counter', '2');
 
     await render(hbs`
@@ -31,14 +31,14 @@ module('Integration | window', function(hooks) {
     assert.equal(window.localStorage.getItem('counter'), '3');
   });
 
-  test('each test gets a fresh copy - part 1 of 2', function(assert) {
+  test('each test gets a fresh copy - part 1 of 2', function (assert) {
     assert.expect(0);
     window.location.href = 'http://www.example.com/';
     window.foo = 'bar';
     window.localStorage.setItem('counter', '5');
   });
 
-  test('each test gets a fresh copy - part 2 of 2', function(assert) {
+  test('each test gets a fresh copy - part 2 of 2', function (assert) {
     assert.notEqual(window.location.href, 'http://www.example.com/');
     assert.equal(window.foo, undefined);
     assert.equal(window.localStorage.getItem('counter'), null);

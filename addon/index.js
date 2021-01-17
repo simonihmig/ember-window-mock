@@ -14,7 +14,7 @@ if (DEBUG) {
         return new Proxy(value, {
           apply(t, _thisArg, argumentsList) {
             return Reflect.apply(value, target, argumentsList);
-          }
+          },
         });
       }
 
@@ -22,13 +22,14 @@ if (DEBUG) {
     },
     set: Reflect.set,
     has: Reflect.has,
-    deleteProperty: Reflect.deleteProperty
-  }
+    deleteProperty: Reflect.deleteProperty,
+  };
 
   let currentHandler = doNothingHandler;
 
   // private function to replace the default handler in tests
-  _setCurrentHandler = (handler = doNothingHandler) => currentHandler = handler;
+  _setCurrentHandler = (handler = doNothingHandler) =>
+    (currentHandler = handler);
 
   const proxyHandler = {
     get() {
@@ -43,7 +44,7 @@ if (DEBUG) {
     deleteProperty() {
       return currentHandler.deleteProperty(...arguments);
     },
-  }
+  };
 
   exportedWindow = new Proxy(window, proxyHandler);
 } else {

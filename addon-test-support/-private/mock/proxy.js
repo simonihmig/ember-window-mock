@@ -4,9 +4,9 @@ export default function proxyFactory(original) {
   let holder = {};
 
   let proxy = new Proxy(original, {
-    get (target, name) {
+    get(target, name) {
       if (name === '_reset') {
-        return () => holder = {};
+        return () => (holder = {});
       }
       if (name in holder) {
         return holder[name];
@@ -21,7 +21,7 @@ export default function proxyFactory(original) {
       }
       return target[name];
     },
-    set (target, name, value) {
+    set(target, name, value) {
       holder[name] = value;
       return true;
     },
@@ -32,7 +32,7 @@ export default function proxyFactory(original) {
       delete holder[prop];
       delete target[prop];
       return true;
-    }
+    },
   });
 
   return proxy;

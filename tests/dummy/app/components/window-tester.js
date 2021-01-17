@@ -17,5 +17,4 @@ export default class WindowTesterComponent extends Component {
     this.counter++;
     window.localStorage.setItem('counter', this.counter);
   }
-
 }
