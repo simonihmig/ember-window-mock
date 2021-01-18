@@ -64,7 +64,8 @@ jobs:
           - ember-canary
           - ember-default-with-jquery
           - ember-classic
-          - embroider
+          - embroider-safe
+          - embroider-optimized
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
