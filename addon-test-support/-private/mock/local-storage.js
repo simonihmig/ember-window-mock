@@ -1,7 +1,12 @@
 function argumentError(f, required, given) {
   return new TypeError(
-    "Failed to execute '" + f + "' on 'Storage': " +
-    required + 'arguments required, but only ' + given + 'present.'
+    "Failed to execute '" +
+      f +
+      "' on 'Storage': " +
+      required +
+      'arguments required, but only ' +
+      given +
+      'present.'
   );
 }
 
@@ -17,7 +22,7 @@ export default class Storage {
         }
         return null;
       },
-      enumerable: false
+      enumerable: false,
     });
 
     Object.defineProperty(this, 'setItem', {
@@ -27,7 +32,7 @@ export default class Storage {
         }
         this[key] = value + '';
       },
-      enumerable: false
+      enumerable: false,
     });
 
     Object.defineProperty(this, 'removeItem', {
@@ -37,7 +42,7 @@ export default class Storage {
         }
         delete this[key];
       },
-      enumerable: false
+      enumerable: false,
     });
 
     Object.defineProperty(this, 'key', {
@@ -57,21 +62,21 @@ export default class Storage {
 
         return Object.keys(this)[index];
       },
-      enumerable: false
+      enumerable: false,
     });
 
     Object.defineProperty(this, 'clear', {
       value() {
-        Object.keys(this).forEach(key => delete this[key]);
+        Object.keys(this).forEach((key) => delete this[key]);
       },
-      enumerable: false
+      enumerable: false,
     });
 
     Object.defineProperty(this, 'toString', {
       value() {
         return '[object Storage]';
       },
-      enumerable: false
+      enumerable: false,
     });
   }
 

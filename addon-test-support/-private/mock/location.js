@@ -9,7 +9,7 @@ const mappedProperties = [
   'pathname',
   'protocol',
   'username',
-  'password'
+  'password',
 ];
 
 /**
@@ -31,7 +31,7 @@ export default function locationFactory(defaultUrl) {
       },
       set(value) {
         url[propertyName] = value;
-      }
+      },
     });
   });
 
@@ -44,26 +44,28 @@ export default function locationFactory(defaultUrl) {
         // check if it's a valid absolute URL
         new URL(value);
         url.href = value;
-      }
-      catch (e) {
+      } catch (e) {
         // absolute path
         if (value.charAt(0) === '/') {
           url.href = url.origin + value;
         } else {
           // replace last part of path with new value
-          let parts = url.pathname.split('/').filter((item, index, array) => index !== array.length - 1).concat(value);
+          let parts = url.pathname
+            .split('/')
+            .filter((item, index, array) => index !== array.length - 1)
+            .concat(value);
           url.href = url.origin + parts.join('/');
         }
       }
-    }
+    },
   });
 
-  location.reload = function() {};
-  location.assign = function(url) {
+  location.reload = function () {};
+  location.assign = function (url) {
     this.href = url;
   };
   location.replace = location.assign;
-  location.toString = function() {
+  location.toString = function () {
     return this.href;
   };
 

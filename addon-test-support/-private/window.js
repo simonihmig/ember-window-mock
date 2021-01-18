@@ -1,6 +1,6 @@
 import locationFactory from './mock/location';
 import LocalStorage from './mock/local-storage';
-import proxyFactory from "./mock/proxy";
+import proxyFactory from './mock/proxy';
 import mockFunction from './mock/function';
 
 const originalWindow = window;
@@ -9,11 +9,10 @@ let location = locationFactory(originalWindow.location.href);
 let localStorage = new LocalStorage();
 let holder = {};
 
-function noop() {
-}
+function noop() {}
 
 export const mockProxyHandler = {
-  get (target, name) {
+  get(target, name) {
     switch (name) {
       case 'location':
         return location;
@@ -38,7 +37,7 @@ export const mockProxyHandler = {
         return target[name];
     }
   },
-  set (target, name, value, receiver) {
+  set(target, name, value, receiver) {
     switch (name) {
       case 'location':
         // setting window.location is equivalent to setting window.location.href
@@ -56,7 +55,7 @@ export const mockProxyHandler = {
     delete holder[prop];
     delete target[prop];
     return true;
-  }
+  },
 };
 
 export function reset() {

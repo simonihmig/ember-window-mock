@@ -7,7 +7,7 @@ import { _setCurrentHandler } from 'ember-window-mock';
 // NOTE: the `hooks = self` is for mocha support
 //
 export default function setupWindowMock(hooks = self) {
-  hooks.beforeEach(() => _setCurrentHandler(mockProxyHandler))
+  hooks.beforeEach(() => _setCurrentHandler(mockProxyHandler));
   hooks.afterEach(() => {
     reset();
     _setCurrentHandler();

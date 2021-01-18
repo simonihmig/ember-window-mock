@@ -1,33 +1,32 @@
 import { module, test } from 'qunit';
-import { setupSinonSandbox } from 'ember-sinon-sandbox/test-support';
 import window from 'ember-window-mock';
 import { reset, setupWindowMock } from 'ember-window-mock/test-support';
+import sinon from 'sinon';
 
-module('window-mock', function(hooks) {
+module('window-mock', function (hooks) {
   setupWindowMock(hooks);
-  setupSinonSandbox(hooks);
 
-  module('general properties', function() {
-    test('it proxies properties', function(assert) {
+  module('general properties', function () {
+    test('it proxies properties', function (assert) {
       window.window_mock_test_property = 'foo';
       assert.equal(window.window_mock_test_property, 'foo');
       delete window.window_mock_test_property;
     });
 
-    test('it proxies functions', function(assert) {
+    test('it proxies functions', function (assert) {
       assert.expect(1);
       window.focus();
       assert.ok(true);
     });
 
-    test('it allows adding and deleting properties', function(assert) {
+    test('it allows adding and deleting properties', function (assert) {
       window.testKey = 'test value';
       assert.ok('testKey' in window);
       delete window.testKey;
       assert.notOk('testKey' in window);
     });
 
-    test('it allows adding and deleting functions', function(assert) {
+    test('it allows adding and deleting functions', function (assert) {
       assert.expect(3);
       window.testFn = () => assert.ok(true);
       assert.ok('testFn' in window);
@@ -36,29 +35,29 @@ module('window-mock', function(hooks) {
       assert.notOk('testFn' in window);
     });
 
-    test('method calls have the correct context', function(assert) {
+    test('method calls have the correct context', function (assert) {
       assert.expect(1);
-      window.testFn = function() {
+      window.testFn = function () {
         assert.equal(this, window);
       };
       window.testFn();
     });
 
-    test('it allows retrieving sinon functions from the proxy', function(assert) {
+    test('it allows retrieving sinon functions from the proxy', function (assert) {
       assert.expect(1);
-      window.testFn = this.sandbox.spy();
+      window.testFn = sinon.spy();
       assert.equal(window.testFn.callCount, 0);
     });
 
-    test('it can call dispatchEvent', function(assert) {
+    test('it can call dispatchEvent', function (assert) {
       assert.expect(1);
-      let spy = this.sandbox.spy();
+      let spy = sinon.spy();
       window.addEventListener('test-event', spy);
       window.dispatchEvent(new Event('test-event'));
       assert.ok(spy.calledOnce);
     });
 
-    test('it proxies various null fields', function(assert) {
+    test('it proxies various null fields', function (assert) {
       // NOTE: in some conditions these can be set by the navigator
       assert.equal(window.frameElement, null);
       assert.equal(window.opener, null);
@@ -66,14 +65,17 @@ module('window-mock', function(hooks) {
     });
   });
 
-  module('window.location', function() {
-    test('it defaults to window.location', function(assert) {
+  module('window.location', function () {
+    test('it defaults to window.location', function (assert) {
       assert.equal(window.location.href, window.location.href);
     });
 
-    test('it mocks window.location.href', function(assert) {
+    test('it mocks window.location.href', function (assert) {
       window.location.href = 'http://www.example.com:8080/foo?q=bar#hash';
-      assert.equal(window.location.href, 'http://www.example.com:8080/foo?q=bar#hash');
+      assert.equal(
+        window.location.href,
+        'http://www.example.com:8080/foo?q=bar#hash'
+      );
       assert.equal(window.location.host, 'www.example.com:8080');
       assert.equal(window.location.hostname, 'www.example.com');
       assert.equal(window.location.protocol, 'http:');
@@ -84,7 +86,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.location.hash, '#hash');
     });
 
-    test('window.location.href supports relative URLs', function(assert) {
+    test('window.location.href supports relative URLs', function (assert) {
       window.location.href = 'http://www.example.com:8080/foo?q=bar#hash';
       window.location.href = '/bar';
       assert.equal(window.location.href, 'http://www.example.com:8080/bar');
@@ -95,74 +97,79 @@ module('window-mock', function(hooks) {
       window.location.href = 'baz';
       assert.equal(window.location.href, 'http://www.example.com:8080/foo/baz');
       window.location.href = '/foo/bar/';
-      assert.equal(window.location.href, 'http://www.example.com:8080/foo/bar/');
+      assert.equal(
+        window.location.href,
+        'http://www.example.com:8080/foo/bar/'
+      );
       window.location.href = 'baz';
-      assert.equal(window.location.href, 'http://www.example.com:8080/foo/bar/baz');
+      assert.equal(
+        window.location.href,
+        'http://www.example.com:8080/foo/bar/baz'
+      );
       window.location.href = '/';
       assert.equal(window.location.href, 'http://www.example.com:8080/');
     });
 
-    test('it mocks window.location', function(assert) {
+    test('it mocks window.location', function (assert) {
       window.location = 'http://www.example.com';
       assert.equal(window.location.href, 'http://www.example.com/');
     });
 
-    test('it mocks window.location.reload', function(assert) {
+    test('it mocks window.location.reload', function (assert) {
       window.location.href = 'http://www.example.com';
       window.location.reload();
       assert.equal(window.location.href, 'http://www.example.com/');
     });
 
-    test('it mocks window.location.replace', function(assert) {
+    test('it mocks window.location.replace', function (assert) {
       window.location.href = 'http://www.example.com';
       window.location.replace('http://www.emberjs.com');
       assert.equal(window.location.href, 'http://www.emberjs.com/');
     });
 
-    test('it mocks window.location.assign', function(assert) {
+    test('it mocks window.location.assign', function (assert) {
       window.location.href = 'http://www.example.com';
       window.location.assign('http://www.emberjs.com');
       assert.equal(window.location.href, 'http://www.emberjs.com/');
     });
 
-    test('it mocks window.location.toString()', function(assert) {
+    test('it mocks window.location.toString()', function (assert) {
       window.location.href = 'http://www.example.com';
       assert.equal(window.location.toString(), 'http://www.example.com/');
     });
 
-    test('it mocks pathname', function(assert) {
+    test('it mocks pathname', function (assert) {
       window.location.href = 'http://www.example.com';
       window.location.pathname = '/foo/';
       assert.equal(window.location.href, 'http://www.example.com/foo/');
     });
   });
 
-  module('blocking dialogs', function() {
-
-    test('it replaces alert with noop', function(assert) {
+  module('blocking dialogs', function () {
+    test('it replaces alert with noop', function (assert) {
       assert.expect(1);
       assert.equal(window.alert('foo'), undefined);
     });
 
-    test('it replaces confirm with noop', function(assert) {
+    test('it replaces confirm with noop', function (assert) {
       assert.expect(1);
       assert.equal(window.confirm('foo'), undefined);
     });
 
-    test('it replaces prompt with prompt', function(assert) {
+    test('it replaces prompt with prompt', function (assert) {
       assert.expect(1);
       assert.equal(window.prompt('foo'), undefined);
     });
 
-    test('it can stub alert', function(assert) {
-      let stub = this.sandbox.stub(window, 'alert');
+    test('it can stub alert', function (assert) {
+      let stub = sinon.stub(window, 'alert');
       window.alert('foo');
       assert.ok(stub.calledOnce);
       assert.ok(stub.calledWith('foo'));
     });
 
-    test('it can stub confirm', function(assert) {
-      let stub = this.sandbox.stub(window, 'confirm');
+    test('it can stub confirm', function (assert) {
+      let stub = sinon.stub(window, 'confirm');
       stub.returns(true);
       let result = window.confirm('foo');
       assert.ok(stub.calledOnce);
@@ -170,8 +177,8 @@ module('window-mock', function(hooks) {
       assert.equal(result, true);
     });
 
-    test('it can stub prompt', function(assert) {
-      let stub = this.sandbox.stub(window, 'prompt');
+    test('it can stub prompt', function (assert) {
+      let stub = sinon.stub(window, 'prompt');
       stub.returns('bar');
       let result = window.prompt('foo');
       assert.ok(stub.calledOnce);
@@ -180,8 +187,8 @@ module('window-mock', function(hooks) {
     });
   });
 
-  module('localStorage', function() {
-    test('it mocks window.localStorage.length', function(assert) {
+  module('localStorage', function () {
+    test('it mocks window.localStorage.length', function (assert) {
       assert.equal(window.localStorage.length, 0);
 
       window.localStorage.setItem('a', 'x');
@@ -194,7 +201,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.localStorage.length, 0);
     });
 
-    test('it mocks window.localStorage.getItem', function(assert) {
+    test('it mocks window.localStorage.getItem', function (assert) {
       assert.equal(window.localStorage.getItem('a'), null);
 
       window.localStorage.setItem('a', 'x');
@@ -204,7 +211,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.localStorage.getItem('a'), null);
     });
 
-    test('it mocks window.localStorage.key', function(assert) {
+    test('it mocks window.localStorage.key', function (assert) {
       assert.equal(window.localStorage.key(0), null);
 
       window.localStorage.setItem('a', 'x');
@@ -218,7 +225,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.localStorage.key(0), null);
     });
 
-    test('it mocks window.localStorage.removeItem', function(assert) {
+    test('it mocks window.localStorage.removeItem', function (assert) {
       window.localStorage.setItem('a', 'x');
       window.localStorage.setItem('b', 'y');
       assert.equal(window.localStorage.getItem('a'), 'x');
@@ -232,7 +239,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.localStorage.getItem('b'), 'y');
     });
 
-    test('it mocks window.localStorage.clear', function(assert) {
+    test('it mocks window.localStorage.clear', function (assert) {
       window.localStorage.setItem('a', 'x');
       window.localStorage.setItem('b', 'y');
 
@@ -245,7 +252,7 @@ module('window-mock', function(hooks) {
       assert.equal(window.localStorage.getItem('b'), null);
     });
 
-    test('it clears localStorage on reset', function(assert) {
+    test('it clears localStorage on reset', function (assert) {
       window.localStorage.setItem('c', 'z');
       assert.equal(window.localStorage.getItem('c'), 'z');
       assert.equal(window.localStorage.key(0), 'c');
@@ -259,20 +266,19 @@ module('window-mock', function(hooks) {
     });
   });
 
-  module('window.navigator', function() {
-
-    module('userAgent', function() {
-      test('it works', function(assert) {
+  module('window.navigator', function () {
+    module('userAgent', function () {
+      test('it works', function (assert) {
         let ua = navigator.userAgent; // not using window-mock
         assert.equal(window.navigator.userAgent, ua);
       });
 
-      test('it can be overridden', function(assert) {
+      test('it can be overridden', function (assert) {
         window.navigator.userAgent = 'mockUA';
         assert.equal(window.navigator.userAgent, 'mockUA');
       });
 
-      test('it can be resetted', function(assert) {
+      test('it can be resetted', function (assert) {
         let ua = window.navigator.userAgent;
         assert.notEqual(ua, 'mockUA');
 
@@ -281,19 +287,17 @@ module('window-mock', function(hooks) {
         assert.equal(window.navigator.userAgent, ua);
       });
     });
-
   });
 
-  module('window.screen', function() {
-
-    test('it allows adding and deleting properties', function(assert) {
+  module('window.screen', function () {
+    test('it allows adding and deleting properties', function (assert) {
       window.screen.testKey = 'test value';
       assert.ok('testKey' in window.screen);
       delete window.screen.testKey;
       assert.notOk('testKey' in window.screen);
     });
 
-    test('it allows adding and deleting functions', function(assert) {
+    test('it allows adding and deleting functions', function (assert) {
       assert.expect(3);
       window.screen.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.screen);
@@ -302,18 +306,18 @@ module('window-mock', function(hooks) {
       assert.notOk('testFn' in window.screen);
     });
 
-    module('width', function() {
-      test('it works', function(assert) {
+    module('width', function () {
+      test('it works', function (assert) {
         let w = screen.width; // not using window-mock
         assert.equal(window.screen.width, w);
       });
 
-      test('it can be overridden', function(assert) {
+      test('it can be overridden', function (assert) {
         window.screen.width = 320;
         assert.equal(window.screen.width, 320);
       });
 
-      test('it can be resetted', function(assert) {
+      test('it can be resetted', function (assert) {
         let w = window.screen.width;
         assert.notEqual(w, 320);
 
@@ -324,22 +328,21 @@ module('window-mock', function(hooks) {
     });
   });
 
-  module('nested proxies', function() {
-
-    test('it allows adding and deleting properties', function(assert) {
+  module('nested proxies', function () {
+    test('it allows adding and deleting properties', function (assert) {
       window.navigator.testKey = 'test value';
       assert.ok('testKey' in window.navigator);
       delete window.navigator.testKey;
       assert.notOk('testKey' in window.navigator);
     });
 
-    test('it proxies functions', function(assert) {
+    test('it proxies functions', function (assert) {
       assert.expect(1);
       window.navigator.connection.removeEventListener('foo', () => {});
       assert.ok(true);
     });
 
-    test('it allows adding and deleting functions', function(assert) {
+    test('it allows adding and deleting functions', function (assert) {
       assert.expect(3);
       window.navigator.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.navigator);
@@ -348,30 +351,30 @@ module('window-mock', function(hooks) {
       assert.notOk('testFn' in window.navigator);
     });
 
-    test('method calls have the correct context', function(assert) {
+    test('method calls have the correct context', function (assert) {
       assert.expect(1);
-      window.navigator.testFn = function() {
+      window.navigator.testFn = function () {
         assert.equal(this, window.navigator);
       };
       window.navigator.testFn();
     });
 
-    test('static methods work', function(assert) {
+    test('static methods work', function (assert) {
       assert.equal(typeof window.Notification, 'function');
       assert.equal(typeof window.Notification.requestPermission, 'function');
     });
 
-    test('it works', function(assert) {
+    test('it works', function (assert) {
       let t = screen.orientation.type; // not using window-mock
       assert.equal(window.screen.orientation.type, t);
     });
 
-    test('it can be overridden', function(assert) {
+    test('it can be overridden', function (assert) {
       window.screen.orientation.type = 'custom';
       assert.equal(window.screen.orientation.type, 'custom');
     });
 
-    test('it can be resetted', function(assert) {
+    test('it can be resetted', function (assert) {
       let t = window.screen.orientation.type;
       assert.notEqual(t, 'custom');
 
@@ -380,9 +383,8 @@ module('window-mock', function(hooks) {
       assert.equal(window.screen.orientation.type, t);
     });
 
-    test('it proxies nested null fields', function(assert) {
+    test('it proxies nested null fields', function (assert) {
       assert.equal(window.history.state, null);
     });
   });
-
 });
