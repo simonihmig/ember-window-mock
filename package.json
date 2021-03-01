@@ -37,7 +37,7 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.2.3",
     "@embroider/test-setup": "^0.35.1",
-    "@glimmer/component": "^1.0.3",
+    "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
