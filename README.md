@@ -1,6 +1,6 @@
 # ember-window-mock
 
-![CI](https://github.com/kaliber5/ember-window-mock/workflows/CI/badge.svg)
+[![CI](https://github.com/kaliber5/ember-window-mock/actions/workflows/ci.yml/badge.svg)](https://github.com/kaliber5/ember-window-mock/actions/workflows/ci.yml)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-window-mock.svg)](https://emberobserver.com/addons/ember-window-mock)
 [![npm version](https://badge.fury.io/js/ember-window-mock.svg)](https://badge.fury.io/js/ember-window-mock)
 
