@@ -17,8 +17,8 @@ So when running tests this import will be replaced with one that mocks these cri
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
+* Ember.js v3.20 or above
+* Ember CLI v3.20 or above
 * Node.js v10 or above
 
 

@@ -174,7 +174,7 @@ module('window-mock', function (hooks) {
       let result = window.confirm('foo');
       assert.ok(stub.calledOnce);
       assert.ok(stub.calledWith('foo'));
-      assert.equal(result, true);
+      assert.true(result);
     });
 
     test('it can stub prompt', function (assert) {
