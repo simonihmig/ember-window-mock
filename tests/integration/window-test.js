@@ -23,12 +23,12 @@ module('Integration | window', function (hooks) {
 
     await click('[data-test-redirect]');
 
-    assert.equal(window.location.href, 'http://www.example.com/');
+    assert.strictEqual(window.location.href, 'http://www.example.com/');
 
     await click('[data-test-counter]');
 
     assert.dom('[data-test-counter]').hasText('3');
-    assert.equal(window.localStorage.getItem('counter'), '3');
+    assert.strictEqual(window.localStorage.getItem('counter'), '3');
   });
 
   test('each test gets a fresh copy - part 1 of 2', function (assert) {
@@ -40,7 +40,7 @@ module('Integration | window', function (hooks) {
 
   test('each test gets a fresh copy - part 2 of 2', function (assert) {
     assert.notEqual(window.location.href, 'http://www.example.com/');
-    assert.equal(window.foo, undefined);
-    assert.equal(window.localStorage.getItem('counter'), null);
+    assert.strictEqual(window.foo, undefined);
+    assert.strictEqual(window.localStorage.getItem('counter'), null);
   });
 });
