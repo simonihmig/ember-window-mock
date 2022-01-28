@@ -5,22 +5,22 @@ import { setupWindowMock } from 'ember-window-mock/test-support';
 function testIsMocked(message) {
   test(message, function (assert) {
     mockableWindow.localStorage.setItem('foo', 'bar');
-    assert.equal(mockableWindow.localStorage.getItem('foo'), 'bar');
-    assert.equal(window.localStorage.getItem('foo'), null);
+    assert.strictEqual(mockableWindow.localStorage.getItem('foo'), 'bar');
+    assert.strictEqual(window.localStorage.getItem('foo'), null);
   });
 }
 
 function testIsResetted() {
   test('mocked state is resetted after test', function (assert) {
-    assert.equal(mockableWindow.localStorage.getItem('foo'), null);
+    assert.strictEqual(mockableWindow.localStorage.getItem('foo'), null);
   });
 }
 
 function testIsNOTMocked(message) {
   test(message, function (assert) {
     mockableWindow.localStorage.setItem('foo', 'bar');
-    assert.equal(mockableWindow.localStorage.getItem('foo'), 'bar');
-    assert.equal(window.localStorage.getItem('foo'), 'bar');
+    assert.strictEqual(mockableWindow.localStorage.getItem('foo'), 'bar');
+    assert.strictEqual(window.localStorage.getItem('foo'), 'bar');
     mockableWindow.localStorage.removeItem('foo');
   });
 }

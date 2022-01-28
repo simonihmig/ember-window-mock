@@ -12,6 +12,6 @@ module('Acceptance | window', function (hooks) {
     await visit('/');
     await click('button');
 
-    assert.equal(window.location.href, 'http://www.example.com/');
+    assert.strictEqual(window.location.href, 'http://www.example.com/');
   });
 });
