@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - renovate/*
   pull_request: {}
 
 concurrency:
