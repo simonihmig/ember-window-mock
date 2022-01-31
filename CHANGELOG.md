@@ -1,3 +1,18 @@
+
+## v0.8.0 (2022-01-31)
+
+#### :boom: Breaking Change
+* [#442](https://github.com/kaliber5/ember-window-mock/pull/442) Update to Ember 4.1, drop Ember < 3.24 ([@simonihmig](https://github.com/simonihmig))
+* [#429](https://github.com/kaliber5/ember-window-mock/pull/429) Drop node 10 support ([@simonihmig](https://github.com/simonihmig))
+* [#428](https://github.com/kaliber5/ember-window-mock/pull/428) Update to Ember 3.27, drop suport for Ember <3.20 ([@simonihmig](https://github.com/simonihmig))
+
+#### :house: Internal
+* [#442](https://github.com/kaliber5/ember-window-mock/pull/442) Update to Ember 4.1, drop Ember < 3.24 ([@simonihmig](https://github.com/simonihmig))
+* [#428](https://github.com/kaliber5/ember-window-mock/pull/428) Update to Ember 3.27, drop suport for Ember <3.20 ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v0.7.2 (2021-01-18)
 
 #### :house: Internal
