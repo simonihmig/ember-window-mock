@@ -1,6 +1,6 @@
-import { module, test } from 'qunit';
 import window from 'ember-window-mock';
 import { reset, setupWindowMock } from 'ember-window-mock/test-support';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
 
 module('window-mock', function (hooks) {
@@ -275,6 +275,56 @@ module('window-mock', function (hooks) {
       assert.strictEqual(window.localStorage.getItem('c'), null);
       assert.strictEqual(window.localStorage.key(0), null);
       assert.strictEqual(window.localStorage.length, 0);
+    });
+  });
+
+  module('sessionStorage', function () {
+    test('it mocks window.sessionStorage.length', function (assert) {
+      assert.strictEqual(window.sessionStorage.length, 0);
+
+      window.sessionStorage.setItem('a', 'x');
+      assert.strictEqual(window.sessionStorage.length, 1);
+    });
+
+    test('it mocks window.sessionStorage.getItem', function (assert) {
+      assert.strictEqual(window.sessionStorage.getItem('a'), null);
+
+      window.sessionStorage.setItem('a', 'x');
+      assert.strictEqual(window.sessionStorage.getItem('a'), 'x');
+    });
+
+    test('it mocks window.sessionStorage.key', function (assert) {
+      assert.strictEqual(window.sessionStorage.key(0), null);
+
+      window.sessionStorage.setItem('a', 'x');
+      assert.strictEqual(window.sessionStorage.key(0), 'a');
+    });
+
+    test('it mocks window.sessionStorage.removeItem', function (assert) {
+      window.sessionStorage.setItem('a', 'x');
+
+      window.sessionStorage.removeItem('a');
+      assert.strictEqual(window.sessionStorage.getItem('a'), null);
+    });
+
+    test('it mocks window.sessionStorage.clear', function (assert) {
+      window.sessionStorage.setItem('a', 'x');
+
+      window.sessionStorage.clear();
+      assert.strictEqual(window.sessionStorage.getItem('a'), null);
+    });
+
+    test('it clears sessionStorage on reset', function (assert) {
+      window.sessionStorage.setItem('c', 'z');
+      assert.strictEqual(window.sessionStorage.getItem('c'), 'z');
+      assert.strictEqual(window.sessionStorage.key(0), 'c');
+      assert.strictEqual(window.sessionStorage.length, 1);
+
+      reset();
+
+      assert.strictEqual(window.sessionStorage.getItem('c'), null);
+      assert.strictEqual(window.sessionStorage.key(0), null);
+      assert.strictEqual(window.sessionStorage.length, 0);
     });
   });
 
