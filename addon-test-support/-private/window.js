@@ -1,12 +1,13 @@
-import locationFactory from './mock/location';
-import LocalStorage from './mock/local-storage';
-import proxyFactory from './mock/proxy';
 import mockFunction from './mock/function';
+import locationFactory from './mock/location';
+import proxyFactory from './mock/proxy';
+import Storage from './mock/storage';
 
 const originalWindow = window;
 
 let location = locationFactory(originalWindow.location.href);
-let localStorage = new LocalStorage();
+let localStorage = new Storage();
+let sessionStorage = new Storage();
 let holder = {};
 
 function noop() {}
@@ -18,6 +19,8 @@ export const mockProxyHandler = {
         return location;
       case 'localStorage':
         return localStorage;
+      case 'sessionStorage':
+        return sessionStorage;
       case 'alert':
       case 'confirm':
       case 'prompt':
@@ -60,6 +63,7 @@ export const mockProxyHandler = {
 
 export function reset() {
   location = locationFactory(originalWindow.location.href);
-  localStorage = new LocalStorage();
+  localStorage = new Storage();
+  sessionStorage = new Storage();
   holder = {};
 }
