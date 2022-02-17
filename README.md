@@ -74,6 +74,7 @@ for tests:
 `location.href` will just do nothing. Still reading from `location.href` will return the value that was previously set, 
 so you can run assertions against that value to check if you app tried to redirect to the expected URL.
 * `window.localStorage` is also mocked with an object with the same API (`getItem`, `setItem`, `removeItem`, `clear`, `key`, and `length`). Storage is not persistent and does not affect your browser's `localStorage` object.
+* `window.sessionStorage` is mocked similar to `window.localStorage`.
 * `alert`, `confirm` and `prompt` are replaced by simple noop functions (they do nothing). You can use a mocking library
 like [Sinon.js](http://sinonjs.org/) to replace them with spies or stubs to assert that they have been called or to 
 return some predefined value (e.g. `true` for `confirm`).
