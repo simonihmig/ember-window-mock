@@ -2,6 +2,7 @@ import window from 'ember-window-mock';
 import { reset, setupWindowMock } from 'ember-window-mock/test-support';
 import QUnit, { module, test } from 'qunit';
 import sinon from 'sinon';
+import $ from 'jquery';
 
 module('window-mock', function (hooks) {
   setupWindowMock(hooks);
@@ -511,6 +512,17 @@ module('window-mock', function (hooks) {
         'it exists'
       );
       assert.strictEqual(window, window.window, 'it is the same');
+    });
+  });
+
+  module('jQuery', function () {
+    test('it can listen to window events', function (assert) {
+      /* eslint-disable ember/no-jquery */
+      const spy = sinon.spy();
+      $(window).on('click', spy);
+
+      $(window).trigger('click');
+      assert.true(spy.calledOnce, 'event was triggered and listener called');
     });
   });
 });
