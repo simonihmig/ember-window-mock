@@ -1,4 +1,19 @@
 
+
+## v0.8.1 (2022-02-18)
+
+#### :rocket: Enhancement
+* [#451](https://github.com/kaliber5/ember-window-mock/pull/451) Add support for mocking session storage ([@stfnio](https://github.com/stfnio))
+
+#### :bug: Bug Fix
+* [#454](https://github.com/kaliber5/ember-window-mock/pull/454) Add basic jQuery test coverage ([@simonihmig](https://github.com/simonihmig))
+* [#452](https://github.com/kaliber5/ember-window-mock/pull/452) Fix behaviour of `window.window` ([@simonihmig](https://github.com/simonihmig))
+* [#453](https://github.com/kaliber5/ember-window-mock/pull/453) Handle `window.onerror` and `window.onunhandledrejection` correctly ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 2
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+- Stefan Prokopenko ([@stfnio](https://github.com/stfnio))
+
 ## v0.8.0 (2022-01-31)
 
 #### :boom: Breaking Change
