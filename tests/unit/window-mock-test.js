@@ -1,6 +1,6 @@
 import window from 'ember-window-mock';
 import { reset, setupWindowMock } from 'ember-window-mock/test-support';
-import { module, test } from 'qunit';
+import QUnit, { module, test } from 'qunit';
 import sinon from 'sinon';
 
 module('window-mock', function (hooks) {
@@ -387,6 +387,56 @@ module('window-mock', function (hooks) {
         reset();
         assert.strictEqual(window.screen.width, w);
       });
+    });
+  });
+
+  module('window.onerror', function (hooks) {
+    let origOnerror;
+    let origUnhandledRejection;
+    let origQunitUncaught;
+
+    hooks.beforeEach(function () {
+      origOnerror = window.onerror;
+      origUnhandledRejection = window.onunhandledrejection;
+      origQunitUncaught = QUnit.onUncaughtException;
+      QUnit.onUncaughtException = () => {};
+    });
+
+    hooks.afterEach(function () {
+      window.onerror = origOnerror;
+      window.onunhandledrejection = origUnhandledRejection;
+      QUnit.onUncaughtException = origQunitUncaught;
+    });
+
+    test('onerror works as expected', function (assert) {
+      const done = assert.async();
+      assert.expect(1);
+      window.onerror = sinon.spy();
+
+      setTimeout(() => {
+        throw new Error('error');
+      }, 0);
+      setTimeout(() => {
+        assert.true(window.onerror.calledOnce, 'was called correctly');
+        done();
+      }, 10);
+    });
+
+    test('onunhandledrejection works as expected', function (assert) {
+      const done = assert.async();
+      assert.expect(1);
+
+      QUnit.onUncaughtException = () => {};
+      window.onunhandledrejection = sinon.spy();
+
+      setTimeout(() => Promise.reject('rejected'), 0);
+      setTimeout(() => {
+        assert.true(
+          window.onunhandledrejection.calledOnce,
+          'was called correctly'
+        );
+        done();
+      }, 10);
     });
   });
 
