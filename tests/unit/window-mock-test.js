@@ -502,4 +502,15 @@ module('window-mock', function (hooks) {
       assert.strictEqual(window.history.state, null);
     });
   });
+
+  module('window.window', function () {
+    test('it works', function (assert) {
+      assert.true(
+        // eslint-disable-next-line qunit/no-assert-logical-expression
+        typeof window.window === 'object' && window.window != null,
+        'it exists'
+      );
+      assert.strictEqual(window, window.window, 'it is the same');
+    });
+  });
 });

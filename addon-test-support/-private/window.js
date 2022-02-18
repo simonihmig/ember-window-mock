@@ -13,7 +13,7 @@ let holder = {};
 function noop() {}
 
 export const mockProxyHandler = {
-  get(target, name) {
+  get(target, name, receiver) {
     switch (name) {
       case 'location':
         return location;
@@ -21,6 +21,8 @@ export const mockProxyHandler = {
         return localStorage;
       case 'sessionStorage':
         return sessionStorage;
+      case 'window':
+        return receiver;
       case 'alert':
       case 'confirm':
       case 'prompt':
