@@ -25,6 +25,10 @@ export const mockProxyHandler = {
       case 'confirm':
       case 'prompt':
         return name in holder ? holder[name] : noop;
+      case 'onerror':
+      case 'onunhandledrejection':
+        // Always return the original error handler
+        return Reflect.get(target, name);
       default:
         if (name in holder) {
           return holder[name];
@@ -46,6 +50,10 @@ export const mockProxyHandler = {
         // setting window.location is equivalent to setting window.location.href
         receiver.location.href = value;
         return true;
+      case 'onerror':
+      case 'onunhandledrejection':
+        // onerror always must live on the real window object to work
+        return Reflect.set(target, name, value);
       default:
         holder[name] = value;
         return true;
