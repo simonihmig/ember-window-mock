@@ -1088,10 +1088,10 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@glimmer/component@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.0.tgz#a9ab87896444b01b6af6a885fc2da3cb02ddba42"
-  integrity sha512-oqGUX84p4qu9Kfdv3nxqS9NUuDiJFUFS4jxGqRYrm5i3KgEKss48or21GZo279OX2LrUjDvRT+EMp6Mz5h2Ryw==
+"@glimmer/component@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.1.tgz#ed8252f6431b4c0c988338cd38bd98ac34da85b9"
+  integrity sha512-+nEj8nH/0WiCFz3dZOy50BLRuYiCZ3C2qrsckquJS/bQF9/nf0ZQ7Hwd53kAp7rLnxkYSLk4z4cUDBqiOf2nBQ==
   dependencies:
     "@glimmer/di" "^0.1.9"
     "@glimmer/env" "^0.1.7"
@@ -1153,10 +1153,10 @@
     "@handlebars/parser" "~2.0.0"
     simple-html-tokenizer "^0.5.11"
 
-"@glimmer/tracking@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-1.1.0.tgz#510b880bad452c930193d4889e821695fbe0c24f"
-  integrity sha512-dYa+My1aO7sSVnUvVuyG+QsdyCzHw715AWqNj+/jQbfl28+7EMmj8lcR0HIqpj/00lG3me3XM8zggHTjNLkaKw==
+"@glimmer/tracking@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-1.1.1.tgz#2c352b94a39c1b7a738426441fd66ac2ec8d923f"
+  integrity sha512-ZdwyzHww8Svdy8kfMgL9pffiWO7DmD+1GMq9hsOMQMsuZ23E2ZAb9nLjt6hKqBpPLu1yQSXreL22YPmTZ0f9tw==
   dependencies:
     "@glimmer/env" "^0.1.7"
     "@glimmer/validator" "^0.44.0"
