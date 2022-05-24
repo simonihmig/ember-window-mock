@@ -1040,12 +1040,12 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
-"@embroider/macros@1.7.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.6.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.7.0.tgz#81390227dc86be0ec0b4ad7ca155550c6f979afd"
-  integrity sha512-meS/AVU/j+PVbnhupSd3Oy+vdM3yBbnALgPt7wlgKP3l6G3ObJTtPiKK2ngRRL7sg+TY0BFE2KnR8Bk1EtCqYQ==
+"@embroider/macros@1.7.1", "@embroider/macros@^1.0.0", "@embroider/macros@^1.6.0":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.7.1.tgz#125b73f30f983866528b7b6ccd6d2ca565628c70"
+  integrity sha512-JmWSCaRVSubV2FIFlOORZzLa8YfSndGqI8B013LtzOkYDkiLTFmE6L9kQmu/c8gdSUoqYiK+pVQn/AIh8ChtHQ==
   dependencies:
-    "@embroider/shared-internals" "1.7.0"
+    "@embroider/shared-internals" "1.7.1"
     assert-never "^1.2.1"
     babel-import-util "^1.1.0"
     ember-cli-babel "^7.26.6"
@@ -1068,10 +1068,10 @@
     semver "^7.3.5"
     typescript-memoize "^1.0.1"
 
-"@embroider/shared-internals@1.7.0", "@embroider/shared-internals@^1.0.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-1.7.0.tgz#824675aef9a403b13772bc282ba23052ad08f55b"
-  integrity sha512-DLE/QH27VHbLFqLeqLaVY3N6QnRgftYxxa5poYvLpdG/o0sbYuyUxrI7nxLOtXRR9RqtdrssV+Y/w5f/TE0yTQ==
+"@embroider/shared-internals@1.7.1", "@embroider/shared-internals@^1.0.0":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-1.7.1.tgz#68afe26aa84e7431b858fcc1f1e0e8a5aaa7c90b"
+  integrity sha512-qT7i3EnOogwvi6xRl7wjJmx27rLlUZG6B6HJXAKXvZOyGFVs0GnQKIJX+7zX2PZAcqlpqhmdWm9MPdrof0dj5g==
   dependencies:
     babel-import-util "^1.1.0"
     ember-rfc176-data "^0.3.17"
@@ -1082,10 +1082,10 @@
     semver "^7.3.5"
     typescript-memoize "^1.0.1"
 
-"@embroider/test-setup@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-1.7.0.tgz#4614d62eca931f1e6611f664443cf3595be1afad"
-  integrity sha512-SrGf8igzCrQA1A7c7gtcrB8V017GfKyTKuUooMVIja7CbEc6RUCkb0hmw/9A1+sa3+KXQE69mvz+SCwQeP1X/Q==
+"@embroider/test-setup@1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-1.7.1.tgz#3e4669b1313c76f0259edfbc3703c535eac40abc"
+  integrity sha512-IxZ/ETmWyzRolTGYH4LDMJEEtrS9w6ak+Sc/nxrITechO1IR6A+a15qrxbzR38b3lXRZn4XlNEsJy3+qcq9c6A==
   dependencies:
     lodash "^4.17.21"
     resolve "^1.20.0"
