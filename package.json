@@ -66,7 +66,7 @@
     "eslint-plugin-qunit": "7.3.4",
     "jquery": "3.6.4",
     "loader.js": "4.7.0",
-    "prettier": "2.8.4",
+    "prettier": "2.8.5",
     "qunit": "2.19.4",
     "qunit-dom": "2.0.0",
     "release-it": "15.9.0",
