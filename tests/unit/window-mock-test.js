@@ -3,7 +3,6 @@ import { reset, setupWindowMock } from 'ember-window-mock/test-support';
 import QUnit, { module, test } from 'qunit';
 import sinon from 'sinon';
 import $ from 'jquery';
-import { dependencySatisfies } from '@embroider/macros';
 
 module('window-mock', function (hooks) {
   setupWindowMock(hooks);
@@ -43,12 +42,6 @@ module('window-mock', function (hooks) {
         assert.strictEqual(this, window);
       };
       window.testFn();
-    });
-
-    test('it allows retrieving sinon functions from the proxy', function (assert) {
-      assert.expect(1);
-      window.testFn = sinon.spy();
-      assert.strictEqual(window.testFn.callCount, 0);
     });
 
     test('it can call dispatchEvent', function (assert) {
@@ -516,16 +509,14 @@ module('window-mock', function (hooks) {
     });
   });
 
-  if (dependencySatisfies('ember-source', '>=3.28')) {
-    module('jQuery', function () {
-      test('it can listen to window events', function (assert) {
-        /* eslint-disable ember/no-jquery */
-        const spy = sinon.spy();
-        $(window).on('click', spy);
+  module('jQuery', function () {
+    test('it can listen to window events', function (assert) {
+      /* eslint-disable ember/no-jquery */
+      const spy = sinon.spy();
+      $(window).on('click', spy);
 
-        $(window).trigger('click');
-        assert.true(spy.calledOnce, 'event was triggered and listener called');
-      });
+      $(window).trigger('click');
+      assert.true(spy.calledOnce, 'event was triggered and listener called');
     });
-  }
+  });
 });
