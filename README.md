@@ -33,8 +33,8 @@ ember install ember-window-mock
 Let's say you want to redirect to an external URL. A simple controller could look like this:
 
 ```js
-import Controller from '@ember/controller';
-import { action } from '@ember/object';
+import Controller from "@ember/controller";
+import { action } from "@ember/object";
 
 export default class IndexController extends Controller {
   @action
@@ -47,9 +47,9 @@ export default class IndexController extends Controller {
 With this addon, you can just import `window` instead of using the global:
 
 ```js
-import Controller from '@ember/controller';
-import { action } from '@ember/object';
-import window from 'ember-window-mock';
+import Controller from "@ember/controller";
+import { action } from "@ember/object";
+import window from "ember-window-mock";
 
 export default class IndexController extends Controller {
   @action
@@ -96,7 +96,7 @@ It is possible to leak some state on the window mock between tests. For example 
 test like this:
 
 ```js
-window.location.href = 'http://www.example.com';
+window.location.href = "http://www.example.com";
 ```
 
 For the following test `window.location.href` will still be `'http://www.example.com'`, but instead it should have a
@@ -119,21 +119,21 @@ module('SidebarController', function(hooks) {
 Given a controller like the one above, that redirects to some URL when a button is clicked, an application test could like this:
 
 ```js
-import { module, test } from 'qunit';
-import { click, visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
-import window from 'ember-window-mock';
-import { setupWindowMock } from 'ember-window-mock/test-support';
+import { module, test } from "qunit";
+import { click, visit } from "@ember/test-helpers";
+import { setupApplicationTest } from "ember-qunit";
+import window from "ember-window-mock";
+import { setupWindowMock } from "ember-window-mock/test-support";
 
-module('Acceptance | redirect', function (hooks) {
+module("Acceptance | redirect", function (hooks) {
   setupApplicationTest(hooks);
   setupWindowMock(hooks);
 
-  test('it redirects when clicking the button', async function (assert) {
-    await visit('/');
-    await click('button');
+  test("it redirects when clicking the button", async function (assert) {
+    await visit("/");
+    await click("button");
 
-    assert.equal(window.location.href, 'http://www.example.com');
+    assert.equal(window.location.href, "http://www.example.com");
   });
 });
 ```
@@ -144,26 +144,26 @@ Here is an example that uses [ember-sinon-qunit](https://github.com/elwayman02/e
 so you can easily check if it has been called, and to return some defined value:
 
 ```js
-import { module, test } from 'qunit';
-import { click, visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
-import window from 'ember-window-mock';
-import { setupWindowMock } from 'ember-window-mock/test-support';
-import sinon from 'sinon';
+import { module, test } from "qunit";
+import { click, visit } from "@ember/test-helpers";
+import { setupApplicationTest } from "ember-qunit";
+import window from "ember-window-mock";
+import { setupWindowMock } from "ember-window-mock/test-support";
+import sinon from "sinon";
 
-module('Acceptance | redirect', function (hooks) {
+module("Acceptance | redirect", function (hooks) {
   setupApplicationTest(hooks);
   setupWindowMock(hooks);
 
-  test('it deletes an item', async function (assert) {
-    let stub = sinon.stub(window, 'confirm');
+  test("it deletes an item", async function (assert) {
+    let stub = sinon.stub(window, "confirm");
     stub.returns(true);
 
-    await visit('/');
-    await click('[data-test-delete]');
+    await visit("/");
+    await click("[data-test-delete]");
 
     assert.ok(stub.calledOnce);
-    assert.ok(stub.calledWith('Are you sure?'));
+    assert.ok(stub.calledWith("Are you sure?"));
   });
 });
 ```
@@ -174,22 +174,22 @@ Here is an example that assigns a new function to replace `open`.
 You can check if the function has been called as well as the value of its parameters.
 
 ```js
-import { module, test } from 'qunit';
-import { click, visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
-import window from 'ember-window-mock';
-import { setupWindowMock } from 'ember-window-mock/test-support';
+import { module, test } from "qunit";
+import { click, visit } from "@ember/test-helpers";
+import { setupApplicationTest } from "ember-qunit";
+import window from "ember-window-mock";
+import { setupWindowMock } from "ember-window-mock/test-support";
 
-module('Acceptance | new window', function (hooks) {
+module("Acceptance | new window", function (hooks) {
   setupApplicationTest(hooks);
   setupWindowMock(hooks);
 
-  test('it opens a new window when clicking the button', async function (assert) {
-    await visit('/');
+  test("it opens a new window when clicking the button", async function (assert) {
+    await visit("/");
     window.open = (urlToOpen) => {
-      assert.equal(urlToOpen, 'http://www.example.com/some-file.jpg');
+      assert.equal(urlToOpen, "http://www.example.com/some-file.jpg");
     };
-    await click('button');
+    await click("button");
   });
 });
 ```
