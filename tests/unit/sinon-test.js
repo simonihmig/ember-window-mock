@@ -18,7 +18,8 @@ module('sinon', function (hooks) {
     assert.true(window.testFn.calledOnce);
   });
 
-  test('it can stub window.confirm', function (assert) {
+  // TODO: https://github.com/simonihmig/ember-window-mock/issues/478
+  test.skip('it can stub window.confirm', function (assert) {
     sinon.stub(window, 'confirm').returns(true);
     assert.true(window.confirm(), 'window.confirm can be stubbed');
   });
