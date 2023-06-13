@@ -1083,10 +1083,10 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/macros@1.11.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.11.0.tgz#d6c1f1c1325e8253971483c20059edd08ef5a353"
-  integrity sha512-P/WSB+PqKSja5qXjYvhLyUM0ivcDoI9kkqs+R0GNujfVhS0EIIAMHfD9uHDBbhzFit39pT0QJqgcXGE2rprCPA==
+"@embroider/macros@1.11.1", "@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0":
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.11.1.tgz#62eeb5bb7907ad01bdf750510c7f46c0192b6605"
+  integrity sha512-yg4Pl5Sw26lKrrtLwk2UEgYkKkztq+Hatn67QYL5A3I3T4IE/bRA3o6xvIslrJNnhyER7jCc2pwusxt3O4HubA==
   dependencies:
     "@embroider/shared-internals" "2.1.0"
     assert-never "^1.2.1"
