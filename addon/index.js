@@ -23,6 +23,8 @@ if (DEBUG) {
     set: Reflect.set,
     has: Reflect.has,
     deleteProperty: Reflect.deleteProperty,
+    getOwnPropertyDescriptor: Reflect.getOwnPropertyDescriptor,
+    defineProperty: Reflect.defineProperty,
   };
 
   let currentHandler = doNothingHandler;
@@ -43,6 +45,12 @@ if (DEBUG) {
     },
     deleteProperty() {
       return currentHandler.deleteProperty(...arguments);
+    },
+    getOwnPropertyDescriptor() {
+      return currentHandler.getOwnPropertyDescriptor(...arguments);
+    },
+    defineProperty() {
+      return currentHandler.defineProperty(...arguments);
     },
   };
 

@@ -33,6 +33,15 @@ export default function proxyFactory(original) {
       delete target[prop];
       return true;
     },
+    getOwnPropertyDescriptor(target, property) {
+      return (
+        Reflect.getOwnPropertyDescriptor(holder, property) ??
+        Reflect.getOwnPropertyDescriptor(target, property)
+      );
+    },
+    defineProperty(target, property, attributes) {
+      return Reflect.defineProperty(holder, property, attributes);
+    },
   });
 
   return proxy;

@@ -18,14 +18,12 @@ module('sinon', function (hooks) {
     assert.true(window.testFn.calledOnce);
   });
 
-  // TODO: https://github.com/simonihmig/ember-window-mock/issues/478
-  test.skip('it can stub window.confirm', function (assert) {
+  test('it can stub window.confirm', function (assert) {
     sinon.stub(window, 'confirm').returns(true);
     assert.true(window.confirm(), 'window.confirm can be stubbed');
   });
 
-  // this fails inside sinon with `Attempted to wrap undefined property fetch as function`, as it does some weird things that seem to not play nicely with our Proxies
-  test.skip('it can spy on window.fetch', function (assert) {
+  test('it can spy on window.fetch', function (assert) {
     sinon.spy(window, 'fetch');
     window.fetch();
     assert.true(window.fetch.calledOnce, 'window.fetch can be spied on');

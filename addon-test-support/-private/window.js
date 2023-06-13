@@ -69,6 +69,15 @@ export const mockProxyHandler = {
     delete target[prop];
     return true;
   },
+  getOwnPropertyDescriptor(target, property) {
+    return (
+      Reflect.getOwnPropertyDescriptor(holder, property) ??
+      Reflect.getOwnPropertyDescriptor(target, property)
+    );
+  },
+  defineProperty(target, property, attributes) {
+    return Reflect.defineProperty(holder, property, attributes);
+  },
 };
 
 export function reset() {
