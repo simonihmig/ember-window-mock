@@ -1,5 +1,24 @@
 
 
+
+## v0.9.0 (2023-06-13)
+
+#### :boom: Breaking Change
+* [#537](https://github.com/simonihmig/ember-window-mock/pull/537) Drop support for Ember < 4.4 ([@simonihmig](https://github.com/simonihmig))
+* [#536](https://github.com/simonihmig/ember-window-mock/pull/536) Drop support for node 14 ([@simonihmig](https://github.com/simonihmig))
+* [#494](https://github.com/simonihmig/ember-window-mock/pull/494) Update Ember, drop support for node 12, Ember < 3.28 ([@simonihmig](https://github.com/simonihmig))
+
+#### :bug: Bug Fix
+* [#535](https://github.com/simonihmig/ember-window-mock/pull/535) Fix sinon.stub on window object with latest sinon ([@simonihmig](https://github.com/simonihmig))
+
+#### :house: Internal
+* [#534](https://github.com/simonihmig/ember-window-mock/pull/534) Update sinon dependencies ([@simonihmig](https://github.com/simonihmig))
+* [#528](https://github.com/simonihmig/ember-window-mock/pull/528) Add separate tests covering sinon usage ([@simonihmig](https://github.com/simonihmig))
+* [#524](https://github.com/simonihmig/ember-window-mock/pull/524) Update to Ember 4.12 ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v0.8.1 (2022-02-18)
 
 #### :rocket: Enhancement
