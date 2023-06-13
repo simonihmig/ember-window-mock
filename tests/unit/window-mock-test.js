@@ -169,27 +169,25 @@ module('window-mock', function (hooks) {
     });
 
     test('it can stub alert', function (assert) {
-      let stub = sinon.stub(window, 'alert');
+      window.alert = sinon.spy();
       window.alert('foo');
-      assert.ok(stub.calledOnce);
-      assert.ok(stub.calledWith('foo'));
+      assert.ok(window.alert.calledOnce);
+      assert.ok(window.alert.calledWith('foo'));
     });
 
     test('it can stub confirm', function (assert) {
-      let stub = sinon.stub(window, 'confirm');
-      stub.returns(true);
+      window.confirm = sinon.stub().returns(true);
       let result = window.confirm('foo');
-      assert.ok(stub.calledOnce);
-      assert.ok(stub.calledWith('foo'));
+      assert.ok(window.confirm.calledOnce);
+      assert.ok(window.confirm.calledWith('foo'));
       assert.true(result);
     });
 
     test('it can stub prompt', function (assert) {
-      let stub = sinon.stub(window, 'prompt');
-      stub.returns('bar');
+      window.prompt = sinon.stub().returns('bar');
       let result = window.prompt('foo');
-      assert.ok(stub.calledOnce);
-      assert.ok(stub.calledWith('foo'));
+      assert.ok(window.prompt.calledOnce);
+      assert.ok(window.prompt.calledWith('foo'));
       assert.strictEqual(result, 'bar');
     });
   });
