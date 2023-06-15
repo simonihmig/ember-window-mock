@@ -1060,10 +1060,10 @@
   dependencies:
     ember-cli-babel "^7.26.6"
 
-"@ember/test-helpers@3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-3.0.3.tgz#4d278ebc4576fbf5ff5a2643978f2d310d2656cc"
-  integrity sha512-W8fEWritv36W216wmuusOlsUJs+iDFkOvHratI8tw466NV4deq9TVej1p5DtUFeDUUP/E14IxqrNNC3qaYszfQ==
+"@ember/test-helpers@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-3.1.0.tgz#a1ff020a073bf499805b6dabf3f03655701563c8"
+  integrity sha512-7T4sKM/8oML7tBvBPIAlugtz8p+Vm0x0PcQsPW8sg83/tIQY8EUElhclMbYcAoYeij+KJ4HKGI+fCUBBfKAImg==
   dependencies:
     "@ember/test-waiters" "^3.0.2"
     "@embroider/macros" "^1.10.0"
