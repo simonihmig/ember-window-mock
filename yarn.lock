@@ -4746,10 +4746,10 @@ ember-template-imports@^3.4.2:
     string.prototype.matchall "^4.0.6"
     validate-peer-dependencies "^1.1.0"
 
-ember-template-lint@5.10.1:
-  version "5.10.1"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-5.10.1.tgz#cce793ac82d72a901ce444da91f6131e245306ab"
-  integrity sha512-WZZypF73Bmei7WQYGMcClARkno3Sdvv1piV3R7jrHEud9Yg589oiFUtwEsCJ28Zbjx7gkcXIt24cRZAqtNvdZQ==
+ember-template-lint@5.10.2:
+  version "5.10.2"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-5.10.2.tgz#41182886e4b4db4fd8b9af4cd0c6b74a20e7b81c"
+  integrity sha512-aws6R+oZje6J2zFfDFLWWHkzDoNObDCsypNgVgETGayibL5MaMO+NHcH5/cZtzPw8e63pviftqqgumjmOSRQQA==
   dependencies:
     "@lint-todo/utils" "^13.0.3"
     aria-query "^5.0.2"
