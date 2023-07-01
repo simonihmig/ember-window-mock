@@ -1128,13 +1128,14 @@
   dependencies:
     ember-cli-babel "^7.26.6"
 
-"@ember/test-helpers@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-3.1.0.tgz#a1ff020a073bf499805b6dabf3f03655701563c8"
-  integrity sha512-7T4sKM/8oML7tBvBPIAlugtz8p+Vm0x0PcQsPW8sg83/tIQY8EUElhclMbYcAoYeij+KJ4HKGI+fCUBBfKAImg==
+"@ember/test-helpers@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-3.2.0.tgz#3541bd815bd214b7f1686125f0d6f9eb5bf1488d"
+  integrity sha512-3yWpPsK5O77tUdCwW3HayrAcdlRitIRYMvLIG69Pkal1JMIGdNYVTvJ2R1lenhQh2syd/WFmGM07vQuDAtotQw==
   dependencies:
     "@ember/test-waiters" "^3.0.2"
     "@embroider/macros" "^1.10.0"
+    "@simple-dom/interface" "^1.4.0"
     broccoli-debug "^0.6.5"
     broccoli-funnel "^3.0.8"
     ember-auto-import "^2.6.0"
