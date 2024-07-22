@@ -1,4 +1,4 @@
-import mockFunction from './function';
+import mockFunction from './function.js';
 
 export default function proxyFactory(original) {
   let holder = {};

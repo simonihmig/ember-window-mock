@@ -6,7 +6,7 @@ function argumentError(f, required, given) {
       required +
       'arguments required, but only ' +
       given +
-      'present.'
+      'present.',
   );
 }
 

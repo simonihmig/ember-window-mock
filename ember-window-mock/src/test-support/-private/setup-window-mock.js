@@ -1,5 +1,5 @@
-import { reset, mockProxyHandler } from './window';
-import { _setCurrentHandler } from 'ember-window-mock';
+import { reset, mockProxyHandler } from './window.js';
+import { _setCurrentHandler } from '../../index.js';
 
 //
 // Used to reset window-mock for a test.

@@ -1,7 +1,7 @@
-import mockFunction from './mock/function';
-import locationFactory from './mock/location';
-import proxyFactory from './mock/proxy';
-import Storage from './mock/storage';
+import mockFunction from './mock/function.js';
+import locationFactory from './mock/location.js';
+import proxyFactory from './mock/proxy.js';
+import Storage from './mock/storage.js';
 
 const originalWindow = window;
 
