@@ -1,9 +1,9 @@
-import { DEBUG } from '@glimmer/env';
+import { macroCondition, isTesting } from '@embroider/macros';
 
 let exportedWindow;
 let _setCurrentHandler;
 
-if (DEBUG) {
+if (macroCondition(isTesting())) {
   // this Proxy handler will be used to preserve the unaltered behavior of the window global by default
   const doNothingHandler = {
     get(target, prop) {

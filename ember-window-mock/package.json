@@ -8,13 +8,15 @@
   "repository": "https://github.com/simonihmig/ember-window-mock.git",
   "license": "MIT",
   "author": "Simon Ihmig <simon.ihmig@gmail.com>",
-  "type": "module",
-  "sideEffects": false,
   "main": "./src/index.js",
   "types": "./index.d.ts",
+  "exports": {
+    ".": "./src/index.js",
+    "./test-support": "./src/test-support/index.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
   "files": [
-    "src",
-    "index.d.ts"
+    "addon-main.cjs"
   ],
   "scripts": {
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
@@ -22,6 +24,10 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.7",
+    "@embroider/macros": "^1.16.5"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
@@ -35,5 +41,11 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {}
   }
 }

@@ -1292,7 +1292,7 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
-"@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.1":
+"@embroider/macros@^1.0.0", "@embroider/macros@^1.10.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.1", "@embroider/macros@^1.16.5":
   version "1.16.5"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.16.5.tgz#871addab2103b554c6b6a3a337c00e3f0a0462ac"
   integrity sha512-Oz8bUZvZzOV1Gk3qSgIzZJJzs6acclSTcEFyB+KdKbKqjTC3uebn53aU2gAlLU7/YdTRZrg2gNbQuwAp+tGkGg==
