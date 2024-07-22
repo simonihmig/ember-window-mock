@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - renovate/*
   pull_request: {}
 
 concurrency:
@@ -58,6 +59,7 @@ jobs:
         try-scenario:
           - ember-lts-4.12
           - ember-lts-5.4
+          - ember-lts-5.8
           - ember-release
           - ember-beta
           - ember-canary
