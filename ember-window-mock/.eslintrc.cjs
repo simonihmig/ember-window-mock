@@ -8,7 +8,6 @@ module.exports = {
     {
       files: ['**/*.js'],
       env: { browser: true },
-      parser: '@babel/eslint-parser',
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',

@@ -1,29 +1,25 @@
 {
   "private": true,
-  "repository": "https://github.com/kaliber5/ember-window-mock.git",
+  "repository": "https://github.com/simonihmig/ember-window-mock.git",
   "license": "MIT",
-  "author": "Simon Ihmig <ihmig@kaliber5.de>",
+  "author": "Simon Ihmig <simon.ihmig@gmail.com>",
   "scripts": {
-    "build": "yarn workspace ember-window-mock run build",
     "lint": "yarn workspaces run lint",
     "lint:fix": "yarn workspaces run lint:fix",
-    "prepare": "yarn build",
     "start": "concurrently 'yarn:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "yarn workspace ember-window-mock run start",
     "start:test-app": "yarn workspace test-app run start",
     "test": "yarn workspaces run test",
     "test:ember": "yarn workspace test-app run test:ember"
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
+    "prettier": "^3.0.3"
   },
   "workspaces": [
     "ember-window-mock",
     "test-app"
   ],
   "engines": {
-    "node": "16.* || >= 18"
+    "node": "18.* || >= 20"
   }
 }
