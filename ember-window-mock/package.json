@@ -19,6 +19,13 @@
     },
     "./addon-main.js": "./addon-main.cjs"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./index.d.ts"
+      ]
+    }
+  },
   "files": [
     "addon-main.cjs"
   ],
