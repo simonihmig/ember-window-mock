@@ -13,8 +13,8 @@
     "release": "yarn workspace ember-window-mock run release"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
-    "prettier": "^3.0.3"
+    "concurrently": "8.2.2",
+    "prettier": "3.3.3"
   },
   "workspaces": [
     "ember-window-mock",
