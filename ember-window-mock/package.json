@@ -8,11 +8,15 @@
   "repository": "https://github.com/simonihmig/ember-window-mock.git",
   "license": "MIT",
   "author": "Simon Ihmig <simon.ihmig@gmail.com>",
-  "main": "./src/index.js",
-  "types": "./index.d.ts",
   "exports": {
-    ".": "./src/index.js",
-    "./test-support": "./src/test-support/index.js",
+    ".": {
+      "default": "./src/index.js",
+      "types": "./index.d.ts"
+    },
+    "./test-support": {
+      "default": "./src/test-support/index.js",
+      "types": "./index.d.ts"
+    },
     "./addon-main.js": "./addon-main.cjs"
   },
   "files": [

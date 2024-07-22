@@ -1,9 +1,14 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
-import window from 'ember-window-mock';
+import { hbs } from 'ember-cli-htmlbars';
+import _window from 'ember-window-mock';
 import { setupWindowMock } from 'ember-window-mock/test-support';
+
+interface TestGlobals {
+  foo?: string;
+}
+const window: typeof _window & TestGlobals = _window;
 
 module('Integration | window', function (hooks) {
   setupRenderingTest(hooks);

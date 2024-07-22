@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import mockableWindow from 'ember-window-mock';
 import { setupWindowMock } from 'ember-window-mock/test-support';
 
-function testIsMocked(message) {
+function testIsMocked(message: string) {
   test(message, function (assert) {
     mockableWindow.localStorage.setItem('foo', 'bar');
     assert.strictEqual(mockableWindow.localStorage.getItem('foo'), 'bar');
@@ -16,7 +16,7 @@ function testIsResetted() {
   });
 }
 
-function testIsNOTMocked(message) {
+function testIsNOTMocked(message: string) {
   test(message, function (assert) {
     mockableWindow.localStorage.setItem('foo', 'bar');
     assert.strictEqual(mockableWindow.localStorage.getItem('foo'), 'bar');

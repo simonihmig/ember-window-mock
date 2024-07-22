@@ -1,8 +1,15 @@
-import window from 'ember-window-mock';
+import _window from 'ember-window-mock';
 import { reset, setupWindowMock } from 'ember-window-mock/test-support';
-import QUnit, { module, test } from 'qunit';
+import QUnit, { module, skip, test } from 'qunit';
 import sinon from 'sinon';
 import $ from 'jquery';
+
+interface TestGlobals {
+  window_mock_test_property?: string;
+  testFn?: () => void;
+  testKey?: string;
+}
+const window: typeof _window & TestGlobals = _window;
 
 module('window-mock', function (hooks) {
   setupWindowMock(hooks);
@@ -116,6 +123,7 @@ module('window-mock', function (hooks) {
     });
 
     test('it mocks window.location', function (assert) {
+      // @ts-expect-error
       window.location = 'http://www.example.com';
       assert.strictEqual(window.location.href, 'http://www.example.com/');
     });
@@ -164,25 +172,28 @@ module('window-mock', function (hooks) {
     });
 
     test('it can stub alert', function (assert) {
-      window.alert = sinon.spy();
+      const spy = sinon.spy();
+      window.alert = spy;
       window.alert('foo');
-      assert.ok(window.alert.calledOnce);
-      assert.ok(window.alert.calledWith('foo'));
+      assert.ok(spy.calledOnce);
+      assert.ok(spy.calledWith('foo'));
     });
 
     test('it can stub confirm', function (assert) {
-      window.confirm = sinon.stub().returns(true);
+      const stub = sinon.stub().returns(true);
+      window.confirm = stub;
       let result = window.confirm('foo');
-      assert.ok(window.confirm.calledOnce);
-      assert.ok(window.confirm.calledWith('foo'));
+      assert.ok(stub.calledOnce);
+      assert.ok(stub.calledWith('foo'));
       assert.true(result);
     });
 
     test('it can stub prompt', function (assert) {
-      window.prompt = sinon.stub().returns('bar');
+      const stub = sinon.stub().returns('bar');
+      window.prompt = stub;
       let result = window.prompt('foo');
-      assert.ok(window.prompt.calledOnce);
-      assert.ok(window.prompt.calledWith('foo'));
+      assert.ok(stub.calledOnce);
+      assert.ok(stub.calledWith('foo'));
       assert.strictEqual(result, 'bar');
     });
   });
@@ -324,6 +335,7 @@ module('window-mock', function (hooks) {
       });
 
       test('it can be overridden', function (assert) {
+        // @ts-expect-error we can override that with the mocked window
         window.navigator.userAgent = 'mockUA';
         assert.strictEqual(window.navigator.userAgent, 'mockUA');
       });
@@ -332,6 +344,7 @@ module('window-mock', function (hooks) {
         let ua = window.navigator.userAgent;
         assert.notEqual(ua, 'mockUA');
 
+        // @ts-expect-error we can override that with the mocked window
         window.navigator.userAgent = 'mockUA';
         reset();
         assert.strictEqual(window.navigator.userAgent, ua);
@@ -341,16 +354,21 @@ module('window-mock', function (hooks) {
 
   module('window.screen', function () {
     test('it allows adding and deleting properties', function (assert) {
+      // @ts-expect-error
       window.screen.testKey = 'test value';
       assert.ok('testKey' in window.screen);
+      // @ts-expect-error
       delete window.screen.testKey;
       assert.notOk('testKey' in window.screen);
     });
 
     test('it allows adding and deleting functions', function (assert) {
+      // @ts-expect-error
       window.screen.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.screen);
+      // @ts-expect-error
       window.screen.testFn();
+      // @ts-expect-error
       delete window.screen.testFn;
       assert.notOk('testFn' in window.screen);
     });
@@ -362,6 +380,7 @@ module('window-mock', function (hooks) {
       });
 
       test('it can be overridden', function (assert) {
+        // @ts-expect-error we can override that with the mocked window
         window.screen.width = 320;
         assert.strictEqual(window.screen.width, 320);
       });
@@ -370,6 +389,7 @@ module('window-mock', function (hooks) {
         let w = window.screen.width;
         assert.notEqual(w, 320);
 
+        // @ts-expect-error we can override that with the mocked window
         window.screen.width = 320;
         reset();
         assert.strictEqual(window.screen.width, w);
@@ -378,9 +398,9 @@ module('window-mock', function (hooks) {
   });
 
   module('window.onerror', function (hooks) {
-    let origOnerror;
-    let origUnhandledRejection;
-    let origQunitUncaught;
+    let origOnerror: typeof window.onerror;
+    let origUnhandledRejection: typeof window.onunhandledrejection;
+    let origQunitUncaught: typeof QUnit.onUncaughtException;
 
     hooks.beforeEach(function () {
       origOnerror = window.onerror;
@@ -399,31 +419,30 @@ module('window-mock', function (hooks) {
     test('onerror works as expected', function (assert) {
       const done = assert.async();
       assert.expect(1);
-      window.onerror = sinon.spy();
+      const spy = sinon.spy();
+      window.onerror = spy;
 
       setTimeout(() => {
         throw new Error('error');
       }, 0);
       setTimeout(() => {
-        assert.true(window.onerror.calledOnce, 'was called correctly');
+        assert.true(spy.calledOnce, 'was called correctly');
         done();
       }, 10);
     });
 
     // TODO: flakey
-    test.skip('onunhandledrejection works as expected', function (assert) {
+    skip('onunhandledrejection works as expected', function (assert) {
       const done = assert.async();
       assert.expect(1);
 
       QUnit.onUncaughtException = () => {};
-      window.onunhandledrejection = sinon.spy();
+      const spy = sinon.spy();
+      window.onunhandledrejection = spy;
 
       setTimeout(() => Promise.reject('rejected'), 0);
       setTimeout(() => {
-        assert.true(
-          window.onunhandledrejection.calledOnce,
-          'was called correctly',
-        );
+        assert.true(spy.calledOnce, 'was called correctly');
         done();
       }, 10);
     });
@@ -431,29 +450,37 @@ module('window-mock', function (hooks) {
 
   module('nested proxies', function () {
     test('it allows adding and deleting properties', function (assert) {
+      // @ts-expect-error
       window.navigator.testKey = 'test value';
       assert.ok('testKey' in window.navigator);
+      // @ts-expect-error
       delete window.navigator.testKey;
       assert.notOk('testKey' in window.navigator);
     });
 
     test('it proxies functions', function (assert) {
+      // @ts-expect-error
       window.navigator.connection.removeEventListener('foo', () => {});
       assert.ok(true);
     });
 
     test('it allows adding and deleting functions', function (assert) {
+      // @ts-expect-error
       window.navigator.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.navigator);
+      // @ts-expect-error
       window.navigator.testFn();
+      // @ts-expect-error
       delete window.navigator.testFn;
       assert.notOk('testFn' in window.navigator);
     });
 
     test('method calls have the correct context', function (assert) {
+      // @ts-expect-error
       window.navigator.testFn = function () {
         assert.strictEqual(this, window.navigator);
       };
+      // @ts-expect-error
       window.navigator.testFn();
     });
 
@@ -471,6 +498,7 @@ module('window-mock', function (hooks) {
     });
 
     test('it can be overridden', function (assert) {
+      // @ts-expect-error
       window.screen.orientation.type = 'custom';
       assert.strictEqual(window.screen.orientation.type, 'custom');
     });
@@ -479,6 +507,7 @@ module('window-mock', function (hooks) {
       let t = window.screen.orientation.type;
       assert.notEqual(t, 'custom');
 
+      // @ts-expect-error
       window.screen.orientation.type = 'custom';
       reset();
       assert.strictEqual(window.screen.orientation.type, t);
