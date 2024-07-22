@@ -1,0 +1,80 @@
+{
+  "name": "ember-window-mock",
+  "version": "0.9.0",
+  "description": "Wraps the global window object with a proxy that can be mocked in tests",
+  "keywords": [
+    "ember-addon"
+  ],
+  "repository": "https://github.com/simonihmig/ember-window-mock.git",
+  "license": "MIT",
+  "author": "Simon Ihmig <simon.ihmig@gmail.com>",
+  "exports": {
+    ".": {
+      "default": "./src/index.js",
+      "types": "./index.d.ts"
+    },
+    "./test-support": {
+      "default": "./src/test-support/index.js",
+      "types": "./index.d.ts"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "addon-main.cjs"
+  ],
+  "scripts": {
+    "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'npm:lint:*:fix' --names 'fix:'",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "release": "yarn release-it"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.7",
+    "@embroider/macros": "^1.16.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^12.0.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.3.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "release-it": "15.11.0",
+    "release-it-lerna-changelog": "5.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {}
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
+  }
+}

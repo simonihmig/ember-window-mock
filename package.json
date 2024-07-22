@@ -1,113 +1,26 @@
 {
-  "name": "ember-window-mock",
-  "version": "0.9.0",
-  "description": "Adds a window service that can be mocked in tests",
-  "keywords": [
-    "ember-addon",
-    "testing",
-    "window",
-    "mock"
-  ],
-  "repository": "https://github.com/kaliber5/ember-window-mock.git",
+  "private": true,
+  "repository": "https://github.com/simonihmig/ember-window-mock.git",
   "license": "MIT",
-  "author": "Simon Ihmig <ihmig@kaliber5.de>",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
+  "author": "Simon Ihmig <simon.ihmig@gmail.com>",
   "scripts": {
-    "build": "ember build --environment=production",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
-  },
-  "dependencies": {
-    "ember-cli-babel": "^8.0.0",
-    "ember-cli-htmlbars": "^6.2.0"
+    "lint": "yarn workspaces run lint",
+    "lint:fix": "yarn workspaces run lint:fix",
+    "start": "concurrently 'yarn:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:test-app": "yarn workspace test-app run start",
+    "test": "yarn workspaces run test",
+    "test:ember": "yarn workspace test-app run test:ember",
+    "release": "yarn workspace ember-window-mock run release"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.23.3",
-    "@babel/plugin-proposal-decorators": "7.23.7",
-    "@ember/optional-features": "2.0.0",
-    "@ember/string": "3.1.1",
-    "@ember/test-helpers": "3.2.1",
-    "@embroider/macros": "1.13.4",
-    "@embroider/test-setup": "3.0.3",
-    "@glimmer/component": "1.1.2",
-    "@glimmer/tracking": "1.1.2",
-    "broccoli-asset-rev": "3.0.0",
-    "concurrently": "8.2.2",
-    "ember-auto-import": "2.7.2",
-    "ember-cli": "4.12.2",
-    "ember-cli-dependency-checker": "3.3.2",
-    "ember-cli-inject-live-reload": "2.1.0",
-    "ember-cli-sri": "2.1.1",
-    "ember-cli-terser": "4.0.2",
-    "ember-load-initializers": "2.1.2",
-    "ember-page-title": "8.2.0",
-    "ember-qunit": "8.0.2",
-    "ember-resolver": "11.0.1",
-    "ember-sinon-qunit": "7.4.0",
-    "ember-source": "4.12.3",
-    "ember-source-channel-url": "3.0.0",
-    "ember-template-lint": "5.13.0",
-    "ember-try": "3.0.0",
-    "eslint": "8.56.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-ember": "11.12.0",
-    "eslint-plugin-n": "16.6.2",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-qunit": "7.3.4",
-    "jquery": "3.7.1",
-    "loader.js": "4.7.0",
-    "prettier": "2.8.8",
-    "qunit": "2.20.0",
-    "qunit-dom": "3.0.0",
-    "release-it": "15.11.0",
-    "release-it-lerna-changelog": "5.0.0",
-    "sinon": "17.0.1",
-    "stylelint": "15.11.0",
-    "stylelint-config-standard": "34.0.0",
-    "stylelint-prettier": "3.0.0",
-    "webpack": "5.89.0"
+    "concurrently": "^8.2.0",
+    "prettier": "^3.0.3"
   },
-  "peerDependencies": {
-    "ember-source": "^4.0.0"
-  },
+  "workspaces": [
+    "ember-window-mock",
+    "test-app"
+  ],
   "engines": {
-    "node": "16.* || >= 18"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
-  },
-  "release-it": {
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
+    "node": "18.* || >= 20"
   }
 }
