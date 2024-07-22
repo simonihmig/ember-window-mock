@@ -51,7 +51,7 @@ module('window-mock', function (hooks) {
     });
 
     test('it can call dispatchEvent', function (assert) {
-      let spy = sinon.spy();
+      const spy = sinon.spy();
       window.addEventListener('test-event', spy);
       window.dispatchEvent(new Event('test-event'));
       assert.ok(spy.calledOnce);
@@ -123,7 +123,7 @@ module('window-mock', function (hooks) {
     });
 
     test('it mocks window.location', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - this actually works
       window.location = 'http://www.example.com';
       assert.strictEqual(window.location.href, 'http://www.example.com/');
     });
@@ -182,7 +182,7 @@ module('window-mock', function (hooks) {
     test('it can stub confirm', function (assert) {
       const stub = sinon.stub().returns(true);
       window.confirm = stub;
-      let result = window.confirm('foo');
+      const result = window.confirm('foo');
       assert.ok(stub.calledOnce);
       assert.ok(stub.calledWith('foo'));
       assert.true(result);
@@ -191,7 +191,7 @@ module('window-mock', function (hooks) {
     test('it can stub prompt', function (assert) {
       const stub = sinon.stub().returns('bar');
       window.prompt = stub;
-      let result = window.prompt('foo');
+      const result = window.prompt('foo');
       assert.ok(stub.calledOnce);
       assert.ok(stub.calledWith('foo'));
       assert.strictEqual(result, 'bar');
@@ -330,7 +330,7 @@ module('window-mock', function (hooks) {
   module('window.navigator', function () {
     module('userAgent', function () {
       test('it works', function (assert) {
-        let ua = navigator.userAgent; // not using window-mock
+        const ua = navigator.userAgent; // not using window-mock
         assert.strictEqual(window.navigator.userAgent, ua);
       });
 
@@ -341,7 +341,7 @@ module('window-mock', function (hooks) {
       });
 
       test('it can be resetted', function (assert) {
-        let ua = window.navigator.userAgent;
+        const ua = window.navigator.userAgent;
         assert.notEqual(ua, 'mockUA');
 
         // @ts-expect-error we can override that with the mocked window
@@ -354,28 +354,28 @@ module('window-mock', function (hooks) {
 
   module('window.screen', function () {
     test('it allows adding and deleting properties', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.screen.testKey = 'test value';
       assert.ok('testKey' in window.screen);
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       delete window.screen.testKey;
       assert.notOk('testKey' in window.screen);
     });
 
     test('it allows adding and deleting functions', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.screen.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.screen);
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.screen.testFn();
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       delete window.screen.testFn;
       assert.notOk('testFn' in window.screen);
     });
 
     module('width', function () {
       test('it works', function (assert) {
-        let w = screen.width; // not using window-mock
+        const w = screen.width; // not using window-mock
         assert.strictEqual(window.screen.width, w);
       });
 
@@ -386,7 +386,7 @@ module('window-mock', function (hooks) {
       });
 
       test('it can be resetted', function (assert) {
-        let w = window.screen.width;
+        const w = window.screen.width;
         assert.notEqual(w, 320);
 
         // @ts-expect-error we can override that with the mocked window
@@ -450,37 +450,37 @@ module('window-mock', function (hooks) {
 
   module('nested proxies', function () {
     test('it allows adding and deleting properties', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.testKey = 'test value';
       assert.ok('testKey' in window.navigator);
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       delete window.navigator.testKey;
       assert.notOk('testKey' in window.navigator);
     });
 
     test('it proxies functions', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.connection.removeEventListener('foo', () => {});
       assert.ok(true);
     });
 
     test('it allows adding and deleting functions', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.navigator);
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.testFn();
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       delete window.navigator.testFn;
       assert.notOk('testFn' in window.navigator);
     });
 
     test('method calls have the correct context', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.testFn = function () {
         assert.strictEqual(this, window.navigator);
       };
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.navigator.testFn();
     });
 
@@ -493,21 +493,21 @@ module('window-mock', function (hooks) {
     });
 
     test('it works', function (assert) {
-      let t = screen.orientation.type; // not using window-mock
+      const t = screen.orientation.type; // not using window-mock
       assert.strictEqual(window.screen.orientation.type, t);
     });
 
     test('it can be overridden', function (assert) {
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.screen.orientation.type = 'custom';
       assert.strictEqual(window.screen.orientation.type, 'custom');
     });
 
     test('it can be resetted', function (assert) {
-      let t = window.screen.orientation.type;
+      const t = window.screen.orientation.type;
       assert.notEqual(t, 'custom');
 
-      // @ts-expect-error
+      // @ts-expect-error - ok for testing
       window.screen.orientation.type = 'custom';
       reset();
       assert.strictEqual(window.screen.orientation.type, t);
