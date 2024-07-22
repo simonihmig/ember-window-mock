@@ -7,7 +7,6 @@ module('sinon', function (hooks) {
   setupWindowMock(hooks);
 
   test('it allows retrieving sinon functions from the proxy', function (assert) {
-    assert.expect(1);
     window.testFn = sinon.spy();
     assert.strictEqual(window.testFn.callCount, 0);
   });

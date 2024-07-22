@@ -15,7 +15,6 @@ module('window-mock', function (hooks) {
     });
 
     test('it proxies functions', function (assert) {
-      assert.expect(1);
       window.focus();
       assert.ok(true);
     });
@@ -28,7 +27,6 @@ module('window-mock', function (hooks) {
     });
 
     test('it allows adding and deleting functions', function (assert) {
-      assert.expect(3);
       window.testFn = () => assert.ok(true);
       assert.ok('testFn' in window);
       window.testFn();
@@ -36,6 +34,7 @@ module('window-mock', function (hooks) {
       assert.notOk('testFn' in window);
     });
 
+    // eslint-disable-next-line qunit/require-expect
     test('method calls have the correct context', function (assert) {
       assert.expect(1);
       window.testFn = function () {
@@ -45,7 +44,6 @@ module('window-mock', function (hooks) {
     });
 
     test('it can call dispatchEvent', function (assert) {
-      assert.expect(1);
       let spy = sinon.spy();
       window.addEventListener('test-event', spy);
       window.dispatchEvent(new Event('test-event'));
@@ -69,7 +67,7 @@ module('window-mock', function (hooks) {
       window.location.href = 'http://www.example.com:8080/foo?q=bar#hash';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/foo?q=bar#hash'
+        'http://www.example.com:8080/foo?q=bar#hash',
       );
       assert.strictEqual(window.location.host, 'www.example.com:8080');
       assert.strictEqual(window.location.hostname, 'www.example.com');
@@ -86,32 +84,32 @@ module('window-mock', function (hooks) {
       window.location.href = '/bar';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/bar'
+        'http://www.example.com:8080/bar',
       );
       window.location.href = 'baz';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/baz'
+        'http://www.example.com:8080/baz',
       );
       window.location.href = '/foo/bar';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/foo/bar'
+        'http://www.example.com:8080/foo/bar',
       );
       window.location.href = 'baz';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/foo/baz'
+        'http://www.example.com:8080/foo/baz',
       );
       window.location.href = '/foo/bar/';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/foo/bar/'
+        'http://www.example.com:8080/foo/bar/',
       );
       window.location.href = 'baz';
       assert.strictEqual(
         window.location.href,
-        'http://www.example.com:8080/foo/bar/baz'
+        'http://www.example.com:8080/foo/bar/baz',
       );
       window.location.href = '/';
       assert.strictEqual(window.location.href, 'http://www.example.com:8080/');
@@ -154,17 +152,14 @@ module('window-mock', function (hooks) {
 
   module('blocking dialogs', function () {
     test('it replaces alert with noop', function (assert) {
-      assert.expect(1);
       assert.strictEqual(window.alert('foo'), undefined);
     });
 
     test('it replaces confirm with noop', function (assert) {
-      assert.expect(1);
       assert.strictEqual(window.confirm('foo'), undefined);
     });
 
     test('it replaces prompt with prompt', function (assert) {
-      assert.expect(1);
       assert.strictEqual(window.prompt('foo'), undefined);
     });
 
@@ -353,7 +348,6 @@ module('window-mock', function (hooks) {
     });
 
     test('it allows adding and deleting functions', function (assert) {
-      assert.expect(3);
       window.screen.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.screen);
       window.screen.testFn();
@@ -401,6 +395,7 @@ module('window-mock', function (hooks) {
       QUnit.onUncaughtException = origQunitUncaught;
     });
 
+    // eslint-disable-next-line qunit/require-expect
     test('onerror works as expected', function (assert) {
       const done = assert.async();
       assert.expect(1);
@@ -427,7 +422,7 @@ module('window-mock', function (hooks) {
       setTimeout(() => {
         assert.true(
           window.onunhandledrejection.calledOnce,
-          'was called correctly'
+          'was called correctly',
         );
         done();
       }, 10);
@@ -443,13 +438,11 @@ module('window-mock', function (hooks) {
     });
 
     test('it proxies functions', function (assert) {
-      assert.expect(1);
       window.navigator.connection.removeEventListener('foo', () => {});
       assert.ok(true);
     });
 
     test('it allows adding and deleting functions', function (assert) {
-      assert.expect(3);
       window.navigator.testFn = () => assert.ok(true);
       assert.ok('testFn' in window.navigator);
       window.navigator.testFn();
@@ -458,7 +451,6 @@ module('window-mock', function (hooks) {
     });
 
     test('method calls have the correct context', function (assert) {
-      assert.expect(1);
       window.navigator.testFn = function () {
         assert.strictEqual(this, window.navigator);
       };
@@ -469,7 +461,7 @@ module('window-mock', function (hooks) {
       assert.strictEqual(typeof window.Notification, 'function');
       assert.strictEqual(
         typeof window.Notification.requestPermission,
-        'function'
+        'function',
       );
     });
 
@@ -502,7 +494,7 @@ module('window-mock', function (hooks) {
       assert.true(
         // eslint-disable-next-line qunit/no-assert-logical-expression
         typeof window.window === 'object' && window.window != null,
-        'it exists'
+        'it exists',
       );
       assert.strictEqual(window, window.window, 'it is the same');
     });

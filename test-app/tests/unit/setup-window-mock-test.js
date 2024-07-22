@@ -35,7 +35,7 @@ module('setup-window-mock', function () {
 
     testIsResetted();
     testIsNOTMocked(
-      'window is *not* mocked when test is *outside* setupWindowMock'
+      'window is *not* mocked when test is *outside* setupWindowMock',
     );
   });
 
@@ -47,19 +47,19 @@ module('setup-window-mock', function () {
         setupWindowMock(hooks);
 
         testIsMocked(
-          'window is mocked when test is inside inner setupWindowMock'
+          'window is mocked when test is inside inner setupWindowMock',
         );
       });
 
       testIsResetted();
       testIsMocked(
-        'window is mocked when test is inside outer setupWindowMock'
+        'window is mocked when test is inside outer setupWindowMock',
       );
     });
 
     testIsResetted();
     testIsNOTMocked(
-      'window is *not* mocked when test is *outside* setupWindowMock'
+      'window is *not* mocked when test is *outside* setupWindowMock',
     );
   });
 });
