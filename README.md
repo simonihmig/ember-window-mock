@@ -16,7 +16,7 @@ So when running tests this import will be replaced with one that mocks these cri
 
 ## Compatibility
 
-- Ember.js v4.12 or above
+- Ember.js v4.8 or above
 - Embroider or ember-auto-import v2
 
 ## Installation
