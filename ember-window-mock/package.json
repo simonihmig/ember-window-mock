@@ -10,12 +10,11 @@
   "author": "Simon Ihmig <simon.ihmig@gmail.com>",
   "type": "module",
   "sideEffects": false,
-  "exports": {
-    ".": "./src/index.js",
-    "./test-support": "./src/test-support/index.js"
-  },
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
   "files": [
-    "src"
+    "src",
+    "index.d.ts"
   ],
   "scripts": {
     "lint": "concurrently 'npm:lint:*(!fix)' --names 'lint:'",
