@@ -5764,6 +5764,14 @@ ember-try@3.0.0:
     semver "^7.5.4"
     walk-sync "^2.2.0"
 
+ember-window-mock@*:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/ember-window-mock/-/ember-window-mock-0.9.0.tgz#95fe1bc76899feefe224761b4ac0c28b7941623a"
+  integrity sha512-jFWq8zNFhiKNA0QnJFnhsYW+Y+2FwpvFuAf4s393Il5f1fJJfZoiwjL5l8FMpxV1alf2o8jZ2XqNQWh8rM9YBA==
+  dependencies:
+    ember-cli-babel "^7.26.11"
+    ember-cli-htmlbars "^6.2.0"
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
@@ -10653,10 +10661,10 @@ qunit-theme-ember@^1.0.0:
   resolved "https://registry.yarnpkg.com/qunit-theme-ember/-/qunit-theme-ember-1.0.0.tgz#3b750b9e3ab2837cc3b31cc5b73a0b71b964b0db"
   integrity sha512-vdMVVo6ecdCkWttMTKeyq1ZTLGHcA6zdze2zhguNuc3ritlJMhOXY5RDseqazOwqZVfCg3rtlmL3fMUyIzUyFQ==
 
-qunit@2.21.0:
-  version "2.21.0"
-  resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.21.0.tgz#c3d35adb1c9df8176459665f2daf33170c0f8662"
-  integrity sha512-kJJ+uzx5xDWk0oRrbOZ3zsm+imPULE58ZMIrNl+3POZl4a1k6VXj2E4OiqTmZ9j6hh9egE3kNgnAti9Q+BG6Yw==
+qunit@2.21.1:
+  version "2.21.1"
+  resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.21.1.tgz#b2199f08983efc9ad35c4d48ff6e49d12fb8274d"
+  integrity sha512-SMA8IBZamI9MyVB4dShGpn6+X6plO8mIyfZTQ815XBvv/nVMeUj+yxsw8SgZVnrMlrAvTziJkmjOhaDwkNMHWQ==
   dependencies:
     commander "7.2.0"
     node-watch "0.7.3"
