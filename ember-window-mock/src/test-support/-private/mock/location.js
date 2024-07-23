@@ -4,7 +4,6 @@ const mappedProperties = [
   'host',
   'hostname',
   'hash',
-  'origin',
   'search',
   'pathname',
   'protocol',
@@ -23,6 +22,7 @@ const mappedProperties = [
 export default function locationFactory(defaultUrl) {
   let location = {};
   let url = new URL(defaultUrl);
+  let mockedValues = {};
 
   mappedProperties.forEach((propertyName) => {
     Object.defineProperty(location, propertyName, {
@@ -33,6 +33,15 @@ export default function locationFactory(defaultUrl) {
         url[propertyName] = value;
       },
     });
+  });
+
+  Object.defineProperty(location, 'origin', {
+    get() {
+      return mockedValues.origin ?? url.origin;
+    },
+    set(value) {
+      mockedValues.origin = value;
+    },
   });
 
   Object.defineProperty(location, 'href', {
