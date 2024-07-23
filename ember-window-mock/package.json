@@ -27,6 +27,7 @@
     }
   },
   "files": [
+    "src",
     "addon-main.cjs"
   ],
   "scripts": {
