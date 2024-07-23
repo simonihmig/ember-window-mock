@@ -104,6 +104,7 @@ export function createMockedWindow(_window = window) {
   return mockedWindow;
 }
 
-export function reset(mockedWindow = mockedGlobalWindow) {
-  mockedWindow[_reset]?.();
+export function reset() {
+  mockedGlobalWindow[_reset]?.();
+  mockedWindows.forEach((w) => w[_reset]?.());
 }
