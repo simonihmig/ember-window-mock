@@ -2,6 +2,18 @@
 
 
 
+
+## v1.0.0-rc.1 (2024-07-23)
+
+#### :bug: Bug Fix
+* [#567](https://github.com/simonihmig/ember-window-mock/pull/567) Fix broken npm package ([@simonihmig](https://github.com/simonihmig))
+
+#### :house: Internal
+* [#569](https://github.com/simonihmig/ember-window-mock/pull/569) Fix release-it setup ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v1.0.0-rc.0 (2024-07-23)
 
 #### :boom: Breaking Change

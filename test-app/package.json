@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "version": "0.0.0",
+  "version": "1.0.0-rc.1",
   "private": true,
   "description": "Test app for ember-window-mock addon",
   "repository": "",
@@ -109,6 +109,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-window-mock": "1.0.0-rc.0"
+    "ember-window-mock": "1.0.0-rc.1"
   }
 }
