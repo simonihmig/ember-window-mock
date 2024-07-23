@@ -2,7 +2,7 @@ import mockFunction from './mock/function.js';
 import locationFactory from './mock/location.js';
 import proxyFactory from './mock/proxy.js';
 import Storage from './mock/storage.js';
-import mockedGlobalWindow, { _setCurrentHandler } from '../../index.js';
+import mockedGlobalWindow from '../../index.js';
 
 function noop() {}
 const _reset = Symbol('ember-window-mock:reset');
