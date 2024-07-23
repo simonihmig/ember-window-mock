@@ -109,6 +109,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "ember-window-mock": "*"
+    "ember-window-mock": "1.0.0-rc.0"
   }
 }
