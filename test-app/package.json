@@ -99,7 +99,7 @@
     "release-it-lerna-changelog": "5.0.0",
     "sinon": "17.0.1",
     "tracked-built-ins": "3.3.0",
-    "typescript": "5.5.3",
+    "typescript": "5.5.4",
     "webpack": "5.93.0"
   },
   "engines": {
