@@ -28,6 +28,7 @@
   },
   "files": [
     "src",
+    "index.d.ts",
     "addon-main.cjs"
   ],
   "scripts": {
