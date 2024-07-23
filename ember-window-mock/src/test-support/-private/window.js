@@ -35,6 +35,7 @@ export function createWindowProxyHandler(originalWindow = window) {
           return sessionStorage;
         case 'window':
           return receiver;
+        case 'top':
         case 'parent':
           return holder[name] ?? receiver;
         case 'alert':

@@ -181,6 +181,20 @@ export function runWindowTests(_window: Window & typeof globalThis) {
         );
       });
     });
+
+    module('top', function () {
+      test('top matches window by default', function (assert) {
+        assert.strictEqual(window.top, window);
+        assert.strictEqual(window.top!.location.href, window.location.href);
+
+        window.location.href = 'http://www.example.com';
+
+        assert.strictEqual(window.top, window);
+        assert.strictEqual(window.top!.location.href, window.location.href);
+      });
+
+      // we cannot mock window.top as a non-writable and non-configurable property
+    });
   });
 
   module('blocking dialogs', function () {
