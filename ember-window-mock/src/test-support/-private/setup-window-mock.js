@@ -1,4 +1,4 @@
-import { reset, mockProxyHandler } from './window.js';
+import { reset, createWindowProxyHandler } from './window.js';
 import { _setCurrentHandler } from '../../index.js';
 
 //
@@ -7,7 +7,7 @@ import { _setCurrentHandler } from '../../index.js';
 // NOTE: the `hooks = self` is for mocha support
 //
 export default function setupWindowMock(hooks = self) {
-  hooks.beforeEach(() => _setCurrentHandler(mockProxyHandler));
+  hooks.beforeEach(() => _setCurrentHandler(createWindowProxyHandler()));
   hooks.afterEach(() => {
     reset();
     _setCurrentHandler();

@@ -1,5 +1,9 @@
 import _window from 'ember-window-mock';
-import { reset, setupWindowMock } from 'ember-window-mock/test-support';
+import {
+  createMockedWindow,
+  reset,
+  setupWindowMock,
+} from 'ember-window-mock/test-support';
 import QUnit, { module, skip, test } from 'qunit';
 import sinon from 'sinon';
 import $ from 'jquery';
@@ -155,6 +159,31 @@ module('window-mock', function (hooks) {
       window.location.href = 'http://www.example.com';
       window.location.pathname = '/foo/';
       assert.strictEqual(window.location.href, 'http://www.example.com/foo/');
+    });
+
+    module('parent', function () {
+      test('parent matches window by default', function (assert) {
+        assert.strictEqual(window.parent, window);
+        assert.strictEqual(window.parent.location.href, window.location.href);
+
+        window.location.href = 'http://www.example.com';
+
+        assert.strictEqual(window.parent, window);
+        assert.strictEqual(window.parent.location.href, window.location.href);
+      });
+
+      test('parent can be mocked', function (assert) {
+        window.location.href = 'http://www.example.com';
+        window.parent = createMockedWindow();
+        window.parent.location.href = 'http://www.example2.com';
+
+        assert.notStrictEqual(window.parent, window);
+        assert.strictEqual(window.location.href, 'http://www.example.com/');
+        assert.strictEqual(
+          window.parent.location.href,
+          'http://www.example2.com/',
+        );
+      });
     });
   });
 

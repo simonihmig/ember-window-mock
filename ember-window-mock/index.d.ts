@@ -3,6 +3,9 @@ declare module 'ember-window-mock' {
 }
 
 declare module 'ember-window-mock/test-support' {
-  export function setupWindowMock(hooks: { afterEach: (fn: () => void) => void }): void;
+  export function setupWindowMock(hooks: {
+    afterEach: (fn: () => void) => void;
+  }): void;
   export function reset(): void;
+  export function createMockedWindow(window?: typeof window): typeof window;
 }
