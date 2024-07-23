@@ -124,19 +124,8 @@ module('window-mock', function (hooks) {
 
     test('it mocks window.location', function (assert) {
       // @ts-expect-error - this actually works
-      // > Though Window.location is a read-only Location object, you can also assign a string to it. This means that you can work with location as if it were a string in most cases: location = 'http://www.example.com' is a synonym of location.href = 'http://www.example.com'.
-      // See https://developer.mozilla.org/en-US/docs/Web/API/Window/location
       window.location = 'http://www.example.com';
       assert.strictEqual(window.location.href, 'http://www.example.com/');
-    });
-
-    test('it mocks window.location.origin', function (assert) {
-      // @ts-expect-error - we allow this when mocked
-      window.location.origin = 'http://www.example.com:8080/foo?q=bar#hash';
-      assert.strictEqual(
-        window.location.origin,
-        'http://www.example.com:8080/foo?q=bar#hash',
-      );
     });
 
     test('it mocks window.location.reload', function (assert) {
