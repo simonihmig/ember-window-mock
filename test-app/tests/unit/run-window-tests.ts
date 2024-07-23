@@ -294,7 +294,7 @@ export function runWindowTests(_window: Window & typeof globalThis) {
       assert.strictEqual(window.localStorage.key(0), 'c');
       assert.strictEqual(window.localStorage.length, 1);
 
-      reset();
+      reset(window);
 
       assert.strictEqual(window.localStorage.getItem('c'), null);
       assert.strictEqual(window.localStorage.key(0), null);
@@ -344,7 +344,7 @@ export function runWindowTests(_window: Window & typeof globalThis) {
       assert.strictEqual(window.sessionStorage.key(0), 'c');
       assert.strictEqual(window.sessionStorage.length, 1);
 
-      reset();
+      reset(window);
 
       assert.strictEqual(window.sessionStorage.getItem('c'), null);
       assert.strictEqual(window.sessionStorage.key(0), null);
@@ -371,7 +371,7 @@ export function runWindowTests(_window: Window & typeof globalThis) {
 
         // @ts-expect-error we can override that with the mocked window
         window.navigator.userAgent = 'mockUA';
-        reset();
+        reset(window);
         assert.strictEqual(window.navigator.userAgent, ua);
       });
     });
@@ -416,7 +416,7 @@ export function runWindowTests(_window: Window & typeof globalThis) {
 
         // @ts-expect-error we can override that with the mocked window
         window.screen.width = 320;
-        reset();
+        reset(window);
         assert.strictEqual(window.screen.width, w);
       });
     });
@@ -534,7 +534,7 @@ export function runWindowTests(_window: Window & typeof globalThis) {
 
       // @ts-expect-error - ok for testing
       window.screen.orientation.type = 'custom';
-      reset();
+      reset(window);
       assert.strictEqual(window.screen.orientation.type, t);
     });
 

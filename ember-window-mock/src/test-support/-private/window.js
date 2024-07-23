@@ -7,8 +7,6 @@ import mockedGlobalWindow, { _setCurrentHandler } from '../../index.js';
 function noop() {}
 const _reset = Symbol('ember-window-mock:reset');
 
-const mockedWindows = new Set();
-
 export function createWindowProxyHandler(originalWindow = window) {
   let holder;
   let location;
@@ -98,13 +96,9 @@ export function createWindowProxyHandler(originalWindow = window) {
 }
 
 export function createMockedWindow(_window = window) {
-  const mockedWindow = new Proxy(_window, createWindowProxyHandler(_window));
-  mockedWindows.add(mockedWindow);
-
-  return mockedWindow;
+  return new Proxy(_window, createWindowProxyHandler(_window));
 }
 
-export function reset() {
-  mockedGlobalWindow[_reset]?.();
-  mockedWindows.forEach((w) => w[_reset]?.());
+export function reset(_window = mockedGlobalWindow) {
+  _window[_reset]?.();
 }
