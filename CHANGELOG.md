@@ -3,6 +3,15 @@
 
 
 
+
+## v1.0.0-rc.2 (2024-07-23)
+
+#### :bug: Bug Fix
+* [#571](https://github.com/simonihmig/ember-window-mock/pull/571) Fix missing types in published package ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v1.0.0-rc.1 (2024-07-23)
 
 #### :bug: Bug Fix
