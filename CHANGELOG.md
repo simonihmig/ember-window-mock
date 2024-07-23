@@ -4,6 +4,15 @@
 
 
 
+
+## v1.0.0 (2024-07-23)
+
+#### :rocket: Enhancement
+* [#575](https://github.com/simonihmig/ember-window-mock/pull/575) Add createMockedWindow helper for mocking window.parent or other explicit window instances ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v1.0.0-rc.2 (2024-07-23)
 
 #### :bug: Bug Fix
