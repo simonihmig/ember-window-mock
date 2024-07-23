@@ -111,6 +111,59 @@ module('SidebarController', function(hooks) {
 });
 ```
 
+If you want to reset the state within a test, you can explicitly call `reset`:
+
+```js
+import window from 'ember-window-mock';
+import { setupWindowMock, reset } from 'ember-window-mock/test-support';
+
+module('SidebarController', function(hooks) {
+  setupWindowMock(hooks);
+
+  test('some test', function(assert) {
+    window.location.href = 'https://example.com';
+    assert.strictEqual(window.location.hostname, 'example.com');
+
+    reset();
+
+    assert.strictEqual(window.location.hostname, 'localhost');
+  });
+});
+```
+
+### createMockedWindow()
+
+When all you need is mocking the global `window` object, the guide above has you covered. But there can be cases where you want to create a new mocked window object from scratch, for example to mock `window.parent` with a different window instance. This you can use the `createMockedWindow()` test helper for:
+
+```js
+import window from 'ember-window-mock/test-support';
+import { createMockedWindow, setupWindowMock } from 'ember-window-mock/test-support';
+
+module('SidebarController', function(hooks) {
+  setupWindowMock(hooks);
+
+  test('app is running in iframe', function(assert) {
+    window.location.href = 'https://myapp.com';
+    window.parent = createMockedWindow();
+    window.parent.location.href = 'https://example.com';
+
+    // ...
+  });
+});
+```
+
+`setupWindowMock()` will _not_ reset the state of any explicitly created mocked windows, but in most cases this is not needed, since as soon as the reference to that mocked window is not used anymore, it will not have any effects and regular garbage collection will dispose the object. However, if you need to reset the state explicitly _within_ a test, you can do so by passing the mocked window object to `reset()`:
+
+```js
+import { createMockedWindow, reset } from 'ember-window-mock/test-support';
+
+const mockedWindow = createMockedWindow();
+mockedWindow.localStorage.set('foo', 'bar');
+// do something
+reset(mockedWindow);
+// now mockedWindow is back to its original state again
+```
+
 ### Test examples
 
 #### Mocking `window.location`
