@@ -1,6 +1,18 @@
 
 
 
+
+## v1.0.0-rc.0 (2024-07-23)
+
+#### :boom: Breaking Change
+* [#563](https://github.com/simonihmig/ember-window-mock/pull/563) Convert to v2 addon, drop support for Ember < 4.8 ([@simonihmig](https://github.com/simonihmig))
+
+#### :rocket: Enhancement
+* [#563](https://github.com/simonihmig/ember-window-mock/pull/563) Convert to v2 addon, drop support for Ember < 4.8 ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v0.9.0 (2023-06-13)
 
 #### :boom: Breaking Change
