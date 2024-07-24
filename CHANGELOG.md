@@ -5,6 +5,15 @@
 
 
 
+
+## v1.0.1 (2024-07-24)
+
+#### :bug: Bug Fix
+* [#577](https://github.com/simonihmig/ember-window-mock/pull/577) Fix default export positions ([@backspace](https://github.com/backspace))
+
+#### Committers: 1
+- Buck Doyle ([@backspace](https://github.com/backspace))
+
 ## v1.0.0 (2024-07-23)
 
 #### :rocket: Enhancement
