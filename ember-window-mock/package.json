@@ -10,12 +10,12 @@
   "author": "Simon Ihmig <simon.ihmig@gmail.com>",
   "exports": {
     ".": {
-      "default": "./src/index.js",
-      "types": "./index.d.ts"
+      "types": "./index.d.ts",
+      "default": "./src/index.js"
     },
     "./test-support": {
-      "default": "./src/test-support/index.js",
-      "types": "./index.d.ts"
+      "types": "./index.d.ts",
+      "default": "./src/test-support/index.js"
     },
     "./addon-main.js": "./addon-main.cjs"
   },
