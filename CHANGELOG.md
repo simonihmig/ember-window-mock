@@ -6,6 +6,15 @@
 
 
 
+
+## v1.0.2 (2024-08-30)
+
+#### :bug: Bug Fix
+* [#579](https://github.com/simonihmig/ember-window-mock/pull/579) Fix type error in type declaration ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 1
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v1.0.1 (2024-07-24)
 
 #### :bug: Bug Fix
