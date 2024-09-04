@@ -1203,10 +1203,10 @@
   resolved "https://registry.yarnpkg.com/@ember/string/-/string-4.0.0.tgz#24fe5cda227c9e6634e6e0b550944a3a13437878"
   integrity sha512-IMVyVE72twuAMSYcHzWSgtgYTtzlHlKSGW8vEbztnnmkU6uo7kVHmiqSN9R4RkBhzvh0VD4G76Eph+55t3iNIA==
 
-"@ember/test-helpers@4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-4.0.3.tgz#ce4b7f16d018dee3067c37a13dc9b23220509ac1"
-  integrity sha512-6RlNpzd108E7nq24wGtFHzt1uxq7kYPU0k8iWWsStfspyQs15vd3OjhSXmB+Uhzpt7b7Itb6UsOnBEPwlgJZsw==
+"@ember/test-helpers@4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-4.0.4.tgz#2ffb55c8438b8ba54ecd4f546059ba0166bc00f2"
+  integrity sha512-1mbOVyVEcLxYOGzBaeeaQkCrL1o9Av86QaHk/1RvrVBW24I6YUj1ILLEi2qLZT5PzcCy0TdfadHT3hKJwJ0GcQ==
   dependencies:
     "@ember/test-waiters" "^3.1.0"
     "@embroider/addon-shim" "^1.8.7"
