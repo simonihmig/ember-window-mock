@@ -5305,10 +5305,10 @@ ember-cli-version-checker@^5.1.1, ember-cli-version-checker@^5.1.2:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-cli@5.11.0:
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-5.11.0.tgz#4ba9c77f6bcf929f0a359b51b60513d75015709f"
-  integrity sha512-G+Fp194KLZy6NHC9c2i1ZlCB2SurxAMd5Hg61o9kRH4rogjDeoVUC3uiQ/mmrdn5DWRSnS0bfXV+i7+W4wu1Ug==
+ember-cli@5.12.0:
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-5.12.0.tgz#8f62a8124a02468e2dc2fe49b3044975d0e8affc"
+  integrity sha512-48ZOoUZTXsav37RIYY9gyCR35yo64mhzfv5YHtTbsZZwLv/HjvTz27X0CTvkfVQaOWHYDFekxdp9ppaKz84VNA==
   dependencies:
     "@pnpm/find-workspace-dir" "^6.0.2"
     broccoli "^3.5.2"
@@ -5387,7 +5387,7 @@ ember-cli@5.11.0:
     sort-package-json "^1.57.0"
     symlink-or-copy "^1.3.1"
     temp "0.9.4"
-    testem "^3.10.1"
+    testem "^3.15.1"
     tiny-lr "^2.0.0"
     tree-sync "^2.1.0"
     walk-sync "^3.0.0"
@@ -11785,7 +11785,7 @@ terser@^5.26.0, terser@^5.7.0:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
-testem@^3.10.1:
+testem@^3.15.1:
   version "3.15.2"
   resolved "https://registry.yarnpkg.com/testem/-/testem-3.15.2.tgz#abd6a96077a6576cd730f3d2e476039044c5cb34"
   integrity sha512-mRzqZktqTCWi/rUP/RQOKXvMtuvY3lxuzBVb1xGXPnRNGMEj/1DaLGn6X447yOsz6SlWxSsZfcNuiE7fT1MOKg==
