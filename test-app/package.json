@@ -95,7 +95,7 @@
     "prettier": "3.3.3",
     "qunit": "2.22.0",
     "qunit-dom": "3.2.1",
-    "release-it": "17.6.0",
+    "release-it": "17.7.0",
     "release-it-lerna-changelog": "5.0.0",
     "sinon": "19.0.2",
     "tracked-built-ins": "3.3.0",
