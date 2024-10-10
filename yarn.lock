@@ -1213,12 +1213,12 @@
     common-ancestor-path "^1.0.1"
     semver "^7.3.8"
 
-"@embroider/macros@1.16.8", "@embroider/macros@^1.0.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.1", "@embroider/macros@^1.16.5":
-  version "1.16.8"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.16.8.tgz#92c09babdbaa76735bc741befa71cdfe086edf22"
-  integrity sha512-Xsk2SnNHudGBnwKWDzcCA/afOuKcEPWmDOsAXxprK5CLPZD//mRo9kmyaNA8vN6pqF/eNgC3MLSyxVXslO1vVQ==
+"@embroider/macros@1.16.9", "@embroider/macros@^1.0.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.1", "@embroider/macros@^1.16.5":
+  version "1.16.9"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.16.9.tgz#d1292105259f53f31a8bf0fde48cf972495f06d1"
+  integrity sha512-AUrmHQdixczIU3ouv/+HzWxwYVsw/NwssZxAQnXfBDJ3d3/CRtAvGRu3JhY6OT3AAPFwfa2WT66tB5jeAa7r5g==
   dependencies:
-    "@embroider/shared-internals" "2.8.0"
+    "@embroider/shared-internals" "2.8.1"
     assert-never "^1.2.1"
     babel-import-util "^2.0.0"
     ember-cli-babel "^7.26.6"
@@ -1227,10 +1227,10 @@
     resolve "^1.20.0"
     semver "^7.3.2"
 
-"@embroider/shared-internals@2.8.0", "@embroider/shared-internals@^2.0.0", "@embroider/shared-internals@^2.6.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-2.8.0.tgz#bf7cc572a1971eab302b175aef43712849b55092"
-  integrity sha512-eOjJ/EAx49rgGpWVtqNj5ZMspi7RP1Mvt7PmbYwRI1A8+XI1wGmYujbGE4urgEQIBaeQZvRL95WMpD/Dvsnjfw==
+"@embroider/shared-internals@2.8.1", "@embroider/shared-internals@^2.0.0", "@embroider/shared-internals@^2.6.0":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-2.8.1.tgz#2aecff7324299f1e5fe563be7ee9882ee5566bcc"
+  integrity sha512-zi0CENFD1e0DH7c9M/rNKJnFnt2c3+736J3lguBddZdmaIV6Cb8l3HQSkskSW5O4ady+SavemLKO3hCjQQJBIw==
   dependencies:
     babel-import-util "^2.0.0"
     debug "^4.3.2"
