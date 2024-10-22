@@ -57,7 +57,7 @@
     "@types/ember__test": "4.0.6",
     "@types/ember__utils": "4.0.7",
     "@types/jquery": "3.5.31",
-    "@types/qunit": "2.19.10",
+    "@types/qunit": "2.19.11",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
     "broccoli-asset-rev": "3.0.0",
