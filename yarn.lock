@@ -5728,10 +5728,10 @@ eslint-module-utils@^2.12.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-ember@12.3.0:
-  version "12.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-12.3.0.tgz#ad97220409d9a88a4e49dd61472792a50dc027c3"
-  integrity sha512-e+YKwercYYRpkkP6MK+ir5Ol5itOXvbXCy8SEO6HO+ySJ+6TuWUIEaSV5/D1YkJUfuhNf7RJ/xgbTXmJMu25+g==
+eslint-plugin-ember@12.3.1:
+  version "12.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-12.3.1.tgz#6d9368141f1c685f89f96fd0143350481f91cdcc"
+  integrity sha512-Ew8E7R0inU7HSQZ7ChixLvv4y3wtyC++9DYBmAYyjtRoM+p/PwP2kUkyKYJTLi5v5IuSR+fS3IWtbswoq9bPyQ==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     css-tree "^2.3.1"
