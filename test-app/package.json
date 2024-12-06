@@ -93,7 +93,7 @@
     "jquery": "3.7.1",
     "loader.js": "4.7.0",
     "prettier": "3.4.2",
-    "qunit": "2.23.0",
+    "qunit": "2.23.1",
     "qunit-dom": "3.4.0",
     "release-it": "17.10.0",
     "release-it-lerna-changelog": "5.0.0",
