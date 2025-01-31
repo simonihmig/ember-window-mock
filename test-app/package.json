@@ -29,7 +29,7 @@
     "@babel/plugin-proposal-decorators": "7.25.9",
     "@ember/optional-features": "2.2.0",
     "@ember/string": "4.0.0",
-    "@ember/test-helpers": "4.0.4",
+    "@ember/test-helpers": "4.0.5",
     "@embroider/macros": "1.16.10",
     "@embroider/test-setup": "4.0.0",
     "@glimmer/component": "1.1.2",
