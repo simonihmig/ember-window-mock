@@ -4790,7 +4790,7 @@ electron-to-chromium@^1.5.73:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.96.tgz#afa3bf1608c897a7c7e33f22d4be1596dd5a4f3e"
   integrity sha512-8AJUW6dh75Fm/ny8+kZKJzI1pgoE8bKLZlzDU2W1ENd+DXKJrx7I7l9hb8UWR4ojlnb5OlixMt00QWiYJoVw1w==
 
-ember-auto-import@2.10.0, ember-auto-import@^2.6.3:
+ember-auto-import@2.10.0, ember-auto-import@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.10.0.tgz#2a29b82335eba4375d115570cbe836666ed2e7cc"
   integrity sha512-bcBFDYVTFHyqyq8BNvsj6UO3pE6Uqou/cNmee0WaqBgZ+1nQqFz0UE26usrtnFAT+YaFZSkqF2H36QW84k0/cg==
@@ -5344,13 +5344,14 @@ ember-source-channel-url@3.0.0, ember-source-channel-url@^3.0.0:
   dependencies:
     node-fetch "^2.6.0"
 
-ember-source@5.12.0:
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-5.12.0.tgz#2bf10d5e6247c0ed1d61179d3f69e3119a7318d7"
-  integrity sha512-2MWlJmQEeeiIk9p5CDMuvD470YPi7/4wXgU41ftbWc9svwF+0usoe4PLoLC0T/jV6YX+3SY5tumQfxLSLoFhmQ==
+ember-source@6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-6.2.0.tgz#b02644102c9126baae42875469bb8fca7e296e9c"
+  integrity sha512-J1IFfKldkRzbWXUr0oUU6JKQ9fEkW4Dq4qEus9WmxDArNWTl6/Yr1g5uXXbO/4XO8++6h0pv6G9gRmasYfl/JA==
   dependencies:
     "@babel/core" "^7.24.4"
     "@ember/edition-utils" "^1.2.0"
+    "@embroider/addon-shim" "^1.9.0"
     "@glimmer/compiler" "0.92.4"
     "@glimmer/destroyable" "0.92.3"
     "@glimmer/env" "^0.1.7"
@@ -5374,7 +5375,7 @@ ember-source@5.12.0:
     broccoli-funnel "^3.0.8"
     broccoli-merge-trees "^4.2.0"
     chalk "^4.0.0"
-    ember-auto-import "^2.6.3"
+    ember-auto-import "^2.10.0"
     ember-cli-babel "^8.2.0"
     ember-cli-get-component-path-option "^1.0.0"
     ember-cli-is-package-missing "^1.0.0"
