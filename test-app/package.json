@@ -24,7 +24,7 @@
     "test:ember": "ember test"
   },
   "devDependencies": {
-    "@babel/core": "7.26.8",
+    "@babel/core": "7.26.9",
     "@babel/eslint-parser": "7.26.8",
     "@babel/plugin-proposal-decorators": "7.25.9",
     "@ember/optional-features": "2.2.0",
