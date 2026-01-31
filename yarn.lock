@@ -1068,10 +1068,10 @@
     common-ancestor-path "^1.0.1"
     semver "^7.3.8"
 
-"@embroider/macros@1.17.2", "@embroider/macros@^1.0.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.5", "@embroider/macros@^1.16.9":
-  version "1.17.2"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.17.2.tgz#e1c5fc18bd099e8a076b64701a22655283460073"
-  integrity sha512-mgGdufPjL8MAzhYNN1QfHRCFQzv/KEcH9EmObn7y4QC4nPQAPcxEdR8xYZhgTLtKHaVfmN27rXKk+XI7jQAxAg==
+"@embroider/macros@1.17.3", "@embroider/macros@^1.0.0", "@embroider/macros@^1.13.1", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.5", "@embroider/macros@^1.16.9":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.17.3.tgz#1af5fe61bfc99eb5f9060d4d374bfb94a1e29fb2"
+  integrity sha512-ag0QUiawjSwEqOhNqscZN5O2Q0gjQ6TS5weepamn4MGGVwIC4/9MpLUAZKmbVh5dmPhCvRp9jTmYvCykx0vB2Q==
   dependencies:
     "@embroider/shared-internals" "3.0.0"
     assert-never "^1.2.1"
