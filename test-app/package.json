@@ -100,7 +100,7 @@
     "sinon": "19.0.5",
     "tracked-built-ins": "3.4.0",
     "typescript": "5.8.3",
-    "webpack": "5.99.9"
+    "webpack": "5.104.1"
   },
   "engines": {
     "node": ">= 18"
