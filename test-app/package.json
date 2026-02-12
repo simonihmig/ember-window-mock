@@ -32,7 +32,7 @@
     "@ember/test-helpers": "4.0.5",
     "@embroider/macros": "1.19.7",
     "@embroider/test-setup": "4.0.0",
-    "@glimmer/component": "1.1.2",
+    "@glimmer/component": "2.0.0",
     "@glimmer/tracking": "1.1.2",
     "@tsconfig/ember": "3.0.12",
     "@types/ember": "4.0.11",
