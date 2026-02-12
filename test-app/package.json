@@ -98,7 +98,7 @@
     "release-it": "19.2.4",
     "release-it-lerna-changelog": "5.0.0",
     "sinon": "19.0.5",
-    "tracked-built-ins": "3.4.0",
+    "tracked-built-ins": "4.1.0",
     "typescript": "5.9.3",
     "webpack": "5.105.0"
   },
