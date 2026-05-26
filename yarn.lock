@@ -4891,10 +4891,10 @@ electron-to-chromium@^1.5.263:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.286.tgz#142be1ab5e1cd5044954db0e5898f60a4960384e"
   integrity sha512-9tfDXhJ4RKFNerfjdCcZfufu49vg620741MNs26a9+bhLThdB+plgMeou98CAaHu/WATj2iHOOHTp1hWtABj2A==
 
-ember-auto-import@2.12.0, ember-auto-import@^2.6.3:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.12.0.tgz#6aa6000bf9a1708fc1b3373aa665b538850ae993"
-  integrity sha512-J9wVTddnpx1ZPf6CgtMs8byp5t9ZZITUX9v+H+PgSDSgbYbDrVlKr2RGDfJLrnaTpuWwZqh1b54/9jLaERr6QA==
+ember-auto-import@2.12.1, ember-auto-import@^2.6.3:
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.12.1.tgz#9f8d2b0b91dfa41402ca5c1e64e4f77582e60b0e"
+  integrity sha512-wyvl+aJJKOKbRSLqq6CyMsNrvurmX4SIWHHqZdC5giZ7P8ECGmcn9W9HFoVLpwXkFJoXhNV4L7mqqcU6881t0w==
   dependencies:
     "@babel/core" "^7.16.7"
     "@babel/plugin-proposal-class-properties" "^7.16.7"
