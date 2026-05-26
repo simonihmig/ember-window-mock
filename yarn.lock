@@ -1266,7 +1266,15 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@glimmer/component@1.1.2", "@glimmer/component@^1.1.0":
+"@glimmer/component@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-2.1.1.tgz#aa80876d601a1639655ffd10a54229f8de07bdd9"
+  integrity sha512-zFZFaMbWy+9WOcDg/kCgrkGgqkLT39EE4FgyFD0MIkQO5coQsrRZyLsiBu1tbchyM+8hT8jAv+EQVUd8u+MdSQ==
+  dependencies:
+    "@embroider/addon-shim" "^1.10.2"
+    "@glimmer/env" "0.1.7"
+
+"@glimmer/component@^1.1.0":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.2.tgz#892ec0c9f0b6b3e41c112be502fde073cf24d17c"
   integrity sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==
