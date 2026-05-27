@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   test:
-    name: "Tests"
+    name: 'Tests'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -32,7 +32,7 @@ jobs:
         run: yarn test
 
   floating:
-    name: "Floating Dependencies"
+    name: 'Floating Dependencies'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -57,10 +57,9 @@ jobs:
       fail-fast: false
       matrix:
         try-scenario:
-          - ember-lts-4.8
-          - ember-lts-4.12
-          - ember-lts-5.4
-          - ember-lts-5.8
+          - ember-lts-5.12
+          - ember-lts-6.4
+          - ember-lts-6.8
           - ember-release
           - ember-beta
           - ember-canary
