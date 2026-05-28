@@ -1142,21 +1142,7 @@
     common-ancestor-path "^1.0.1"
     semver "^7.3.8"
 
-"@embroider/macros@1.19.7":
-  version "1.19.7"
-  resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.19.7.tgz#2cbea2423b2332ec38b99e9f904976e10ab2f686"
-  integrity sha512-KOdoJ2QwNpWFwRP8q4CutMjs4QAgZ0rjNJAO+hYZkWFxM3DOQFyqvImNDx0m/Z/sXEnE1XwUN8NpMCNYyq801A==
-  dependencies:
-    "@embroider/shared-internals" "3.0.2"
-    assert-never "^1.2.1"
-    babel-import-util "^3.0.1"
-    ember-cli-babel "^7.26.6 || ^8.3.1"
-    find-up "^5.0.0"
-    lodash "^4.17.21"
-    resolve "^1.20.0"
-    semver "^7.3.2"
-
-"@embroider/macros@^1.0.0", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.5", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1", "@embroider/macros@^1.20.2":
+"@embroider/macros@1.20.3", "@embroider/macros@^1.0.0", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.5", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1", "@embroider/macros@^1.20.2":
   version "1.20.3"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.20.3.tgz#6f95da777ffcfcd71c84ff79510a4ada11fcdc86"
   integrity sha512-8sClktPsQ20KgnWl8id6NL5G/hv3+Q5OlnQ4y4XQjYS/RsPy8/C9tU75/2ujgToi1YfX64UykjCau6PXqKDfUQ==
@@ -1177,25 +1163,6 @@
   dependencies:
     mem "^8.0.0"
     resolve.exports "^2.0.2"
-
-"@embroider/shared-internals@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@embroider/shared-internals/-/shared-internals-3.0.2.tgz#0e10926956f682e3dd5621b911e4c3eb36df3816"
-  integrity sha512-/SusdG+zgosc3t+9sPFVKSFOYyiSgLfXOT6lYNWoG1YtnhWDxlK4S8leZ0jhcVjemdaHln5rTyxCnq8oFLxqpQ==
-  dependencies:
-    babel-import-util "^3.0.1"
-    debug "^4.3.2"
-    ember-rfc176-data "^0.3.17"
-    fs-extra "^9.1.0"
-    is-subdir "^1.2.0"
-    js-string-escape "^1.0.1"
-    lodash "^4.17.21"
-    minimatch "^3.0.4"
-    pkg-entry-points "^1.1.1"
-    resolve-package-path "^4.0.1"
-    resolve.exports "^2.0.2"
-    semver "^7.3.5"
-    typescript-memoize "^1.0.1"
 
 "@embroider/shared-internals@3.1.0", "@embroider/shared-internals@^3.0.1":
   version "3.1.0"
