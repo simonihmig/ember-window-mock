@@ -1,63 +1,54 @@
-import { macroCondition, isTesting } from '@embroider/macros';
+// this Proxy handler will be used to preserve the unaltered behavior of the window global by default
+const doNothingHandler = {
+  get(target, prop) {
+    const value = Reflect.get(target, prop);
 
-let exportedWindow;
-let _setCurrentHandler;
+    // make sure the function receives the original window as the this context! (e.g. alert will throw an invalid invocation error)
+    if (typeof value === 'function') {
+      return new Proxy(value, {
+        apply(t, _thisArg, argumentsList) {
+          return Reflect.apply(value, target, argumentsList);
+        },
+      });
+    }
 
-if (macroCondition(isTesting())) {
-  // this Proxy handler will be used to preserve the unaltered behavior of the window global by default
-  const doNothingHandler = {
-    get(target, prop) {
-      const value = Reflect.get(target, prop);
+    return value;
+  },
+  set: Reflect.set,
+  has: Reflect.has,
+  deleteProperty: Reflect.deleteProperty,
+  getOwnPropertyDescriptor: Reflect.getOwnPropertyDescriptor,
+  defineProperty: Reflect.defineProperty,
+};
 
-      // make sure the function receives the original window as the this context! (e.g. alert will throw an invalid invocation error)
-      if (typeof value === 'function') {
-        return new Proxy(value, {
-          apply(t, _thisArg, argumentsList) {
-            return Reflect.apply(value, target, argumentsList);
-          },
-        });
-      }
+let currentHandler = doNothingHandler;
 
-      return value;
-    },
-    set: Reflect.set,
-    has: Reflect.has,
-    deleteProperty: Reflect.deleteProperty,
-    getOwnPropertyDescriptor: Reflect.getOwnPropertyDescriptor,
-    defineProperty: Reflect.defineProperty,
-  };
+// private function to replace the default handler in tests
+const _setCurrentHandler = (handler = doNothingHandler) =>
+  (currentHandler = handler);
 
-  let currentHandler = doNothingHandler;
+const proxyHandler = {
+  get() {
+    return currentHandler.get(...arguments);
+  },
+  set() {
+    return currentHandler.set(...arguments);
+  },
+  has() {
+    return currentHandler.has(...arguments);
+  },
+  deleteProperty() {
+    return currentHandler.deleteProperty(...arguments);
+  },
+  getOwnPropertyDescriptor() {
+    return currentHandler.getOwnPropertyDescriptor(...arguments);
+  },
+  defineProperty() {
+    return currentHandler.defineProperty(...arguments);
+  },
+};
 
-  // private function to replace the default handler in tests
-  _setCurrentHandler = (handler = doNothingHandler) =>
-    (currentHandler = handler);
-
-  const proxyHandler = {
-    get() {
-      return currentHandler.get(...arguments);
-    },
-    set() {
-      return currentHandler.set(...arguments);
-    },
-    has() {
-      return currentHandler.has(...arguments);
-    },
-    deleteProperty() {
-      return currentHandler.deleteProperty(...arguments);
-    },
-    getOwnPropertyDescriptor() {
-      return currentHandler.getOwnPropertyDescriptor(...arguments);
-    },
-    defineProperty() {
-      return currentHandler.defineProperty(...arguments);
-    },
-  };
-
-  exportedWindow = new Proxy(window, proxyHandler);
-} else {
-  exportedWindow = window;
-}
+const exportedWindow = new Proxy(window, proxyHandler);
 
 export default exportedWindow;
 export { _setCurrentHandler };
