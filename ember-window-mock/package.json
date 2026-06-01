@@ -42,7 +42,7 @@
     "@embroider/addon-shim": "^1.8.7"
   },
   "devDependencies": {
-    "concurrently": "9.2.1",
+    "concurrently": "10.0.1",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-ember": "13.3.2",
