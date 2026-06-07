@@ -7,6 +7,26 @@
 
 
 
+
+## v2.0.0 (2026-06-07)
+
+#### :boom: Breaking Change
+* [#608](https://github.com/simonihmig/ember-window-mock/pull/608) Always use proxy to window, Closes [#602](https://github.com/simonihmig/ember-window-mock/issues/602) ([@bobisjan](https://github.com/bobisjan))
+* [#623](https://github.com/simonihmig/ember-window-mock/pull/623) Drop support for Ember < 5.12 ([@simonihmig](https://github.com/simonihmig))
+
+#### :rocket: Enhancement
+* [#623](https://github.com/simonihmig/ember-window-mock/pull/623) Drop support for Ember < 5.12 ([@simonihmig](https://github.com/simonihmig))
+
+#### :bug: Bug Fix
+* [#608](https://github.com/simonihmig/ember-window-mock/pull/608) Always use proxy to window, Closes [#602](https://github.com/simonihmig/ember-window-mock/issues/602) ([@bobisjan](https://github.com/bobisjan))
+
+#### :house: Internal
+* [#615](https://github.com/simonihmig/ember-window-mock/pull/615) Fix tests for Ember v7 ([@simonihmig](https://github.com/simonihmig))
+
+#### Committers: 2
+- Jan Bobisud ([@bobisjan](https://github.com/bobisjan))
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+
 ## v1.0.2 (2024-08-30)
 
 #### :bug: Bug Fix
