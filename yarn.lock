@@ -1130,7 +1130,7 @@
     common-ancestor-path "^1.0.1"
     semver "^7.3.8"
 
-"@embroider/macros@^1.0.0", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1":
+"@embroider/macros@^1.0.0", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1":
   version "1.20.4"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.20.4.tgz#d188196cb1110fd191c8eeef629f7fe475a1615d"
   integrity sha512-R83kUvMXRNPtFSCyplyBEF6FFYCCclQf4epT3mPBo/GfmchxtChOSNYz/skyhpbhnD47WIW1A+aROXBQPlKI8A==
@@ -5100,13 +5100,12 @@ ember-page-title@9.0.3:
     "@embroider/addon-shim" "^1.8.7"
     "@simple-dom/document" "^1.4.0"
 
-ember-qunit@9.0.4:
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-9.0.4.tgz#3b16131c2b03f657a231b9768b78b57ca18dd9ea"
-  integrity sha512-rv6gKvrdXdPBTdSZC5co82eIcDWWVR7RjafU/c+5TTz290oXhIHPoVuZbcO2F5RiAqkTW0jKzwkCP8y+2tCjFw==
+ember-qunit@9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-9.1.0.tgz#9fae1d821b592cfa20b4652dbe731960e3e3f7a6"
+  integrity sha512-dE32lSODyv4em0ACBS8PDzrAIPKR75hhSpn/au0qFBlzbdmNA/VVsgv2aoFAVRdlQ0zYJ8EiNPFqsBFciIeXVA==
   dependencies:
-    "@embroider/addon-shim" "^1.9.0"
-    "@embroider/macros" "^1.16.12"
+    "@embroider/addon-shim" "^1.10.2"
     qunit-theme-ember "^1.0.0"
 
 ember-resolver@13.2.0:
