@@ -1101,14 +1101,13 @@
   resolved "https://registry.yarnpkg.com/@ember/string/-/string-4.0.1.tgz#2c9d3f749bad92567e99ab5b8d4fdb5ed7f0ff0c"
   integrity sha512-VWeng8BSWrIsdPfffOQt/bKwNKJL7+37gPFh/6iZZ9bke+S83kKqkS30poo4bTGfRcMnvAE0ie7txom+iDu81Q==
 
-"@ember/test-helpers@5.4.2":
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-5.4.2.tgz#828d38557a1c7a994ec5f8cb6318f743a768d837"
-  integrity sha512-ZT++x8DbixXgvxO00J064rzNcsn9WycMPisNvee6dg9u6G4Z1yx0Hc8HqUFBJP7NyxVKZCokHlRWRQuz9S6wvQ==
+"@ember/test-helpers@5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-5.4.3.tgz#393e36a85f20a12753ddbae394bc58d9f7415b32"
+  integrity sha512-WeNABJsXBidEXP87AH5gaI/KAyb0zEUYJxWa31A/Us5lqg85E3tPlHjBwCrlReOrJbSgvvArMnrdCwt7TRpjPQ==
   dependencies:
     "@ember/test-waiters" "^3.1.0 || ^4.0.0"
     "@embroider/addon-shim" "^1.10.2"
-    "@embroider/macros" "^1.20.2"
     "@simple-dom/interface" "^1.4.0"
     decorator-transforms "^2.0.0"
     dom-element-descriptors "^0.5.0"
@@ -1131,7 +1130,7 @@
     common-ancestor-path "^1.0.1"
     semver "^7.3.8"
 
-"@embroider/macros@^1.0.0", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1", "@embroider/macros@^1.20.2":
+"@embroider/macros@^1.0.0", "@embroider/macros@^1.16.12", "@embroider/macros@^1.16.9", "@embroider/macros@^1.18.1":
   version "1.20.4"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.20.4.tgz#d188196cb1110fd191c8eeef629f7fe475a1615d"
   integrity sha512-R83kUvMXRNPtFSCyplyBEF6FFYCCclQf4epT3mPBo/GfmchxtChOSNYz/skyhpbhnD47WIW1A+aROXBQPlKI8A==
