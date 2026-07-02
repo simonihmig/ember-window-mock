@@ -17,7 +17,7 @@
     "@release-it-plugins/workspaces": "5.0.3",
     "concurrently": "10.0.3",
     "prettier": "3.9.4",
-    "release-it": "19.2.4"
+    "release-it": "20.2.1"
   },
   "workspaces": [
     "ember-window-mock",
