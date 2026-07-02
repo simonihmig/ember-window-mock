@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "concurrently": "10.0.3",
-    "eslint": "8.57.1",
+    "eslint": "10.6.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-ember": "13.4.0",
     "eslint-plugin-import": "2.32.0",
