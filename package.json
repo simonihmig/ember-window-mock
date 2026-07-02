@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@release-it-plugins/lerna-changelog": "8.0.1",
-    "@release-it-plugins/workspaces": "5.0.3",
+    "@release-it-plugins/workspaces": "6.0.0",
     "concurrently": "10.0.3",
     "prettier": "3.9.4",
     "release-it": "19.2.4"

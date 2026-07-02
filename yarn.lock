@@ -2015,10 +2015,10 @@
     validate-peer-dependencies "^2.2.0"
     which "^5.0.0"
 
-"@release-it-plugins/workspaces@5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@release-it-plugins/workspaces/-/workspaces-5.0.3.tgz#bde80b7ffd6cff90a33a39de51f883cac25ec8cd"
-  integrity sha512-J3xvLIABlO/AY06WeqEncIUGXjPNcdCMAVXKyvlPWNi26zUT8x5qYffdy748wUlY73XhATO7bXD7vtY5KKdlMQ==
+"@release-it-plugins/workspaces@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@release-it-plugins/workspaces/-/workspaces-6.0.0.tgz#e4fce99f07652cc055f3378913184101f8892514"
+  integrity sha512-ijQAfWaeIYVhyLb1jxn1pUW+y9j4VrI3N5olh+htFxDaUFimvHXgiKcdHEHTO6gUPZs/0SWqMgfjbGSXQBcXPQ==
   dependencies:
     detect-indent "^6.1.0"
     detect-newline "^3.1.0"
@@ -2026,7 +2026,7 @@
     semver "^7.7.2"
     url-join "^4.0.1"
     validate-peer-dependencies "^1.2.0"
-    walk-sync "^2.2.0"
+    walk-sync "^4.0.2"
     yaml "^2.8.0"
 
 "@rtsao/scc@^1.1.0":
