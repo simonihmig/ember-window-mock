@@ -5046,24 +5046,24 @@ ember-data@5.8.2:
     "@warp-drive/legacy" "5.8.2"
     "@warp-drive/utilities" "5.8.2"
 
-ember-eslint-parser@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/ember-eslint-parser/-/ember-eslint-parser-0.14.0.tgz#1c349475e5594a4a6f216f4988fd5df1f140ba0e"
-  integrity sha512-lFF19I8DhsAdNfUIV5ljC+2lHVUp1So1iQE1/ZbhMwHCq/c1s2G2XnUtal/DxLM/L+ZCwU0VTf2hwDqvqCxkZw==
+ember-eslint-parser@^0.14.2:
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/ember-eslint-parser/-/ember-eslint-parser-0.14.3.tgz#ea71227094c3432dd63a9d2ac6eaae50d715be46"
+  integrity sha512-jU1HtVHqlbzqRDMwS4lxggjIY7u/wr+lij4bEvyC1CpNd5YqHK7anK3ubmVZLiB19VrFO6tH2/iYUQ+drpSYuA==
   dependencies:
     "@glimmer/syntax" "^0.95.0"
     "@typescript-eslint/tsconfig-utils" "^8.57.1"
     content-tag "^4.1.1"
-    ember-estree "^0.6.3"
+    ember-estree "^0.6.10"
     eslint-scope "^9.1.2"
     html-tags "^5.1.0"
     mathml-tag-names "^4.0.0"
     svg-tags "^1.0.0"
 
-ember-estree@^0.6.3:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/ember-estree/-/ember-estree-0.6.4.tgz#e4fa1303d95f33ecfdbfa2acacc334d4341c890f"
-  integrity sha512-/0+JLFt200RB/gUfLfRALTFWby6fGS7Bu+NN985Y8gadEntX4KoiYHhOl2hkzvy+AmBi+PbHxBa9QVCV7K/PUg==
+ember-estree@^0.6.10:
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/ember-estree/-/ember-estree-0.6.10.tgz#99d39b9bea98ffc0d451e0a2ec4825a810c67825"
+  integrity sha512-5nItZGzvxHgoCdASQbn9qBzF4sdjSggUeZpXdihAanmYWm6XkObT/TlUvakYtoKret1/8gm0jNLwNPqZYwHtCw==
   dependencies:
     "@glimmer/env" "^0.1.7"
     "@glimmer/syntax" "^0.95.0"
@@ -5511,17 +5511,17 @@ eslint-module-utils@^2.12.1:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-ember@13.4.0:
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.4.0.tgz#8166b7b00fdad59cbd7cbcaac12605db488f8d11"
-  integrity sha512-D7fDHqTEFPMw8bnvMLGmLsLqenUj0/cCKrg7/WTB4dv+MaSS6JjR4TYycOE9n5jKbIgOlmXA2zMUDya7sVkl0Q==
+eslint-plugin-ember@13.4.1:
+  version "13.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.4.1.tgz#59409dfc4073e0106298a60cc2577c9920ca1cfd"
+  integrity sha512-KyPKk3SfYQ5ci9U/bvVIA0NFB1UFn6rZAHNNb62AOgcMUNIR1/+0zqzyhrLHPyodo8BmE+kKDj7subsp71NkqA==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     aria-query "^5.3.2"
     axobject-query "^4.1.0"
     css-tree "^3.0.1"
     editorconfig "^3.0.2"
-    ember-eslint-parser "^0.14.0"
+    ember-eslint-parser "^0.14.2"
     ember-rfc176-data "^0.3.18"
     eslint-utils "^3.0.0"
     estraverse "^5.3.0"
