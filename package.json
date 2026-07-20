@@ -13,7 +13,7 @@
     "release": "yarn release-it"
   },
   "devDependencies": {
-    "@release-it-plugins/lerna-changelog": "8.0.1",
+    "@release-it-plugins/lerna-changelog": "9.0.0",
     "@release-it-plugins/workspaces": "5.0.3",
     "concurrently": "10.0.3",
     "prettier": "3.9.5",
