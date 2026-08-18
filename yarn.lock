@@ -1032,7 +1032,7 @@
   resolved "https://registry.yarnpkg.com/@ember-tooling/blueprint-blueprint/-/blueprint-blueprint-0.3.0.tgz#549fd924a722a59810610d229330c36ae98a4c0b"
   integrity sha512-9mwMGda8OC9oEJbvxnXX1DT5ZFR6YQumfmPwV+uUJCbGsaUkgr1UeTkcpgdL+Izvb4kjF/+BWcOtnaSvmR7Yig==
 
-"@ember-tooling/blueprint-model@^0.7.0":
+"@ember-tooling/blueprint-model@^0.7.1":
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@ember-tooling/blueprint-model/-/blueprint-model-0.7.1.tgz#a987539847c1de22c61151e6bcb61e672c94351a"
   integrity sha512-UqibAm7MWkSNdAnBfq2i36jaQpUjCvhdcRFiT+oWWXer5WgaoYFVJ+kHs5Ux2i42kCWjsztercepOEm+BhOyQw==
@@ -1057,34 +1057,34 @@
     silent-error "^1.1.1"
     walk-sync "^4.0.0"
 
-"@ember-tooling/classic-build-addon-blueprint@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@ember-tooling/classic-build-addon-blueprint/-/classic-build-addon-blueprint-7.1.0.tgz#9eb57a8f429e6e3c3b512822307d9ecbebab23a1"
-  integrity sha512-jn2vsTatOBh6fwBIhrJs6puTPPlXf7DIEHVn+rzaJw1o/MZLf9k54gQY7/HQGKjoEbU6FR6DPSvd6bRlRdZZiQ==
+"@ember-tooling/classic-build-addon-blueprint@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ember-tooling/classic-build-addon-blueprint/-/classic-build-addon-blueprint-7.2.0.tgz#6f792ac50bebaa3e9d20ffc7682d2d97c827accb"
+  integrity sha512-/pUXRe2k6pZ4YVNAVMZfMdN00GUJgNrerNY2eajhUNgtTfQvdmK8MBNUNQ7e1fBC+x0UptR7lmQtVssDy2uKWw==
   dependencies:
-    "@ember-tooling/blueprint-model" "^0.7.0"
+    "@ember-tooling/blueprint-model" "^0.7.1"
     chalk "^5.6.2"
     ember-cli-normalize-entity-name "^1.0.0"
     ember-cli-string-utils "^1.1.0"
-    fs-extra "^11.3.5"
+    fs-extra "^11.4.0"
     lodash "^4.18.1"
     silent-error "^1.1.1"
     sort-package-json "^2.15.1"
     walk-sync "^3.0.0"
 
-"@ember-tooling/classic-build-app-blueprint@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@ember-tooling/classic-build-app-blueprint/-/classic-build-app-blueprint-7.1.0.tgz#180deb4eac0055ac3d9f62d53926ba7c41bbece7"
-  integrity sha512-EYD2YC3jiErjfJuqbjtChsfYA9zNJ33+Dtp2QnEgdHjaidcDWrFpY0Kkl0O9dPVwtUCByDTj6ofJDvDBXvcOXA==
+"@ember-tooling/classic-build-app-blueprint@7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ember-tooling/classic-build-app-blueprint/-/classic-build-app-blueprint-7.2.0.tgz#6f187600c19c2e43ca677d3694104a4f51af93f8"
+  integrity sha512-7CsesB6uM+0Ca1RqvzzHb+elXC7Bv2tj+t6KVEhhcDEqfyxvmtzjm4fnsO3g0hmFhm4buhJ+StyIiyd3owP1Lw==
   dependencies:
-    "@ember-tooling/blueprint-model" "^0.7.0"
+    "@ember-tooling/blueprint-model" "^0.7.1"
     chalk "^5.6.2"
     ember-cli-string-utils "^1.1.0"
 
-"@ember/app-blueprint@~7.1.0":
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/@ember/app-blueprint/-/app-blueprint-7.1.1.tgz#032fd8d06ae5bf6a7caa9848c73c000f6d66dbdd"
-  integrity sha512-uQokcn8U1n/nm0nXXpeXVa2IDOnEMg2+aeUrj+J8phuXHiJ3B7scnhT4NLqYpSNLXP1FbmodngxaQwIZjsFhvQ==
+"@ember/app-blueprint@~7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ember/app-blueprint/-/app-blueprint-7.2.0.tgz#51e04efa88285e0c13c01a0fd3ab523afb8aad5c"
+  integrity sha512-QiWnJUUSjYCV00XMlhSPbPPZYj9nyHiR5P/QC1+Ki5CXdTwE3lKQEs/anyxZl6gH1LslgFShwVlJi9kvDKXsnw==
   dependencies:
     ejs "^3.1.10"
     ember-cli-string-utils "^1.1.0"
@@ -4937,16 +4937,16 @@ ember-cli-version-checker@^5.1.2:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-cli@7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-7.1.0.tgz#4f73cc1e7a5b090eadeb16aa0e0fd34829df6f09"
-  integrity sha512-lLkRbkJeA7NYhcxFLbl5ZWAjwsgGxhC87fVaJcKWM8TKIcr8dl069qtksGswgJxmlY/X9rhfL2L7CY82tO+ubQ==
+ember-cli@7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-7.2.0.tgz#10cee8cc8b697a7856c02edb3e5b2e6186cd8104"
+  integrity sha512-EafquLJ+EVHz0nNo32NWwAfHr5UxTXn9zdlukuKZFSFrR4G6RRStmBPQ5O0bLSaQVDtU+jOe5gGTHSS4Xy3uQA==
   dependencies:
     "@ember-tooling/blueprint-blueprint" "^0.3.0"
-    "@ember-tooling/blueprint-model" "^0.7.0"
-    "@ember-tooling/classic-build-addon-blueprint" "7.1.0"
-    "@ember-tooling/classic-build-app-blueprint" "7.1.0"
-    "@ember/app-blueprint" "~7.1.0"
+    "@ember-tooling/blueprint-model" "^0.7.1"
+    "@ember-tooling/classic-build-addon-blueprint" "7.2.0"
+    "@ember-tooling/classic-build-app-blueprint" "7.2.0"
+    "@ember/app-blueprint" "~7.2.0"
     "@pnpm/find-workspace-dir" "^1000.1.5"
     babel-remove-types "^2.0.0"
     broccoli "^4.0.0"
@@ -4981,10 +4981,10 @@ ember-cli@7.1.0:
     execa "^9.6.1"
     exit "^0.1.2"
     express "^5.2.1"
-    filesize "^11.0.17"
+    filesize "^11.0.22"
     find-up "^8.0.0"
     find-yarn-workspace-root "^2.0.0"
-    fs-extra "^11.3.5"
+    fs-extra "^11.4.0"
     fs-tree-diff "^2.0.1"
     get-caller-file "^2.0.5"
     git-repo-info "^2.1.1"
@@ -4999,9 +4999,9 @@ ember-cli@7.1.0:
     is-git-url "^1.0.0"
     is-language-code "^5.1.3"
     lodash "^4.18.1"
-    markdown-it "^14.2.0"
+    markdown-it "^14.3.0"
     markdown-it-terminal "^0.4.0"
-    minimatch "^10.2.5"
+    minimatch "^10.2.6"
     morgan "^1.11.0"
     nopt "^3.0.6"
     npm-package-arg "^13.0.2"
@@ -5025,7 +5025,7 @@ ember-cli@7.1.0:
     tree-sync "^2.1.0"
     walk-sync "^4.0.2"
     watch-detector "^1.0.2"
-    workerpool "^10.0.2"
+    workerpool "^10.0.3"
     yam "^1.0.0"
 
 ember-data@5.8.2:
@@ -6026,7 +6026,7 @@ filelist@^1.0.4:
   dependencies:
     minimatch "^5.0.1"
 
-filesize@^11.0.17:
+filesize@^11.0.22:
   version "11.0.22"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-11.0.22.tgz#7ceb11d6b7ee33248939c83a93b042e6562c6015"
   integrity sha512-RlCVs9CY+oSsRnNZn95J9vDXjNjOwddKyTFjOYtA4yxYVIxBnwiVVGJX+TFhsmu3uUf81JDGyijtYL9xgawlTw==
@@ -6229,7 +6229,7 @@ fs-extra@^10.0.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
-fs-extra@^11.3.4, fs-extra@^11.3.5:
+fs-extra@^11.3.4, fs-extra@^11.4.0:
   version "11.4.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.4.0.tgz#f88ed6d180ac9e14b61b08e679468f0b1b6b4730"
   integrity sha512-EQsFzMUJkCKGr1ePqlYADkIUmHW1s3ZXr5Yqy6wbGrfUCphpl2maM/kyOIRA2HpP3AaFQTZXD4ldjek+nccddA==
@@ -7971,7 +7971,7 @@ markdown-it-terminal@^0.4.0:
     cli-table "^0.3.1"
     lodash.merge "^4.6.2"
 
-markdown-it@^14.1.0, markdown-it@^14.2.0:
+markdown-it@^14.1.0, markdown-it@^14.3.0:
   version "14.3.0"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-14.3.0.tgz#8542fa5506e3530f7e2b08dc3885630135c5620e"
   integrity sha512-RCEsPjR+sr0x+AuYp601tKTkgFG4YEPLCzHST3cQ/fhlJkqAkz1L2/Qbp1j9qw5SBwQHFBoW8+hoN5xssOF0Tw==
@@ -8571,7 +8571,7 @@ mini-css-extract-plugin@^2.5.2:
   dependencies:
     brace-expansion "^1.1.7"
 
-minimatch@^10.0.3, minimatch@^10.1.1, minimatch@^10.2.2, minimatch@^10.2.5, minimatch@~10.2.4:
+minimatch@^10.0.3, minimatch@^10.1.1, minimatch@^10.2.2, minimatch@^10.2.5, minimatch@^10.2.6, minimatch@~10.2.4:
   version "10.2.6"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-10.2.6.tgz#fd956bbe0b77241e9f15ac5dccb1c638060968ef"
   integrity sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==
@@ -11862,7 +11862,7 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-workerpool@^10.0.2:
+workerpool@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-10.0.3.tgz#e9914112d0169a974fc1b4c2fda00388bbd70b61"
   integrity sha512-6z2Iis68Wqth93/G/wJP9u+R3O+d2XTlgWChGCwuT1qLbBsOYueGRZuJ++v3mtDP5KjYdy+WzvWC+VWETSVXJA==
