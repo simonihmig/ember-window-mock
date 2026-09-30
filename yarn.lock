@@ -5165,10 +5165,10 @@ ember-page-title@9.0.3:
     "@embroider/addon-shim" "^1.8.7"
     "@simple-dom/document" "^1.4.0"
 
-ember-qunit@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-9.1.0.tgz#9fae1d821b592cfa20b4652dbe731960e3e3f7a6"
-  integrity sha512-dE32lSODyv4em0ACBS8PDzrAIPKR75hhSpn/au0qFBlzbdmNA/VVsgv2aoFAVRdlQ0zYJ8EiNPFqsBFciIeXVA==
+ember-qunit@9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-9.2.0.tgz#738a3c84e9a0b29729770d6ef84bac783ece712e"
+  integrity sha512-y/v9D7/wfH9fWh6p6NPNZ4KMJ97ZdowoASNmLvLrrzDYSVHJDbbbOfFMKLfdvHF942PHMlf6NulKVezO4yNfmw==
   dependencies:
     "@embroider/addon-shim" "^1.10.2"
     qunit-theme-ember "^1.0.0"
