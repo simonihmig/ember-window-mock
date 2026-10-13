@@ -5238,10 +5238,10 @@ ember-source@6.12.0:
     silent-error "^1.1.1"
     simple-html-tokenizer "^0.5.11"
 
-ember-template-lint@7.9.3:
-  version "7.9.3"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-7.9.3.tgz#f8f8e965a10b6872f8062c49374495b2cef47fed"
-  integrity sha512-iqC4rv/oVlXViGuf7hlOA/bC550ZqacZKAc8WvQV0ueeCtIYPkYYK+Tc7FwpM8qGx3jiwu/ZsTuNfPInI5pL7Q==
+ember-template-lint@7.9.4:
+  version "7.9.4"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-7.9.4.tgz#fa5304acf0bbb092150549b618aeff38d96d9b2e"
+  integrity sha512-yj/LIvtBv9zL7RJ8Fz+RURxZeYa1d+rCTnWSAjUFho74ywq55uht71+Nu8Svr5SL4eQXCdXmS7hWl+LCVPJvqg==
   dependencies:
     "@lint-todo/utils" "^13.1.1"
     content-tag "^3.1.1"
