@@ -27,7 +27,7 @@
     "node": "18.* || >= 20"
   },
   "resolutions": {
-    "@glimmer/component": "2.1.1"
+    "@glimmer/component": "2.2.0"
   },
   "release-it": {
     "plugins": {
