@@ -1278,24 +1278,12 @@
   resolved "https://registry.yarnpkg.com/@glimmer/env/-/env-0.1.7.tgz#fd2d2b55a9029c6b37a6c935e8c8871ae70dfa07"
   integrity sha512-JKF/a9I9jw6fGoz8kA7LEQslrwJ5jms5CXhu/aqkBWk+PmZ6pTl8mlb/eJ/5ujBGTiQzBhy5AIWF712iA+4/mw==
 
-"@glimmer/interfaces@0.94.6":
-  version "0.94.6"
-  resolved "https://registry.yarnpkg.com/@glimmer/interfaces/-/interfaces-0.94.6.tgz#a4a2877730f37587326cab361de81cc0da71a823"
-  integrity sha512-sp/1WePvB/8O+jrcUHwjboNPTKrdGicuHKA9T/lh0vkYK2qM5Xz4i25lQMQ38tEMiw7KixrjHiTUiaXRld+IwA==
+"@glimmer/syntax@>= 0.94.9", "@glimmer/syntax@>= 0.95.0":
+  version "0.97.0"
+  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.97.0.tgz#50100a07d18502ee48793b057ef6a4f0d48a92d8"
+  integrity sha512-uDUqlAxU40eJHJjMUR6ffdpDp6W53gNvS9YZNrBbf77sUL5xUFsBAaReB3FuyVPbwRg09p5rviioUJ8nyg7BBA==
   dependencies:
-    "@simple-dom/interface" "^1.4.0"
-    type-fest "^4.35.0"
-
-"@glimmer/syntax@>= 0.94.9", "@glimmer/syntax@^0.95.0":
-  version "0.95.0"
-  resolved "https://registry.yarnpkg.com/@glimmer/syntax/-/syntax-0.95.0.tgz#0d4c06bdae55087e3262b06d82c31a5586230fc5"
-  integrity sha512-W/PHdODnpONsXjbbdY9nedgIHpglMfOzncf/moLVrKIcCfeQhw2vG07Rs/YW8KeJCgJRCLkQsi+Ix7XvrurGAg==
-  dependencies:
-    "@glimmer/interfaces" "0.94.6"
-    "@glimmer/util" "0.94.8"
-    "@glimmer/wire-format" "0.94.8"
-    "@handlebars/parser" "~2.2.0"
-    simple-html-tokenizer "^0.5.11"
+    simple-html-tokenizer "^1.0.0"
 
 "@glimmer/tracking@1.1.2":
   version "1.1.2"
@@ -1305,29 +1293,10 @@
     "@glimmer/env" "^0.1.7"
     "@glimmer/validator" "^0.44.0"
 
-"@glimmer/util@0.94.8":
-  version "0.94.8"
-  resolved "https://registry.yarnpkg.com/@glimmer/util/-/util-0.94.8.tgz#13eb1003c2f5df84aedd73907745ec02baf4f8f8"
-  integrity sha512-HfCKeZ74clF9BsPDBOqK/yRNa/ke6niXFPM6zRn9OVYw+ZAidLs7V8He/xljUHlLRL322kaZZY8XxRW7ALEwyg==
-  dependencies:
-    "@glimmer/interfaces" "0.94.6"
-
 "@glimmer/validator@^0.44.0":
   version "0.44.0"
   resolved "https://registry.yarnpkg.com/@glimmer/validator/-/validator-0.44.0.tgz#03d127097dc9cb23052cdb7fcae59d0a9dca53e1"
   integrity sha512-i01plR0EgFVz69GDrEuFgq1NheIjZcyTy3c7q+w7d096ddPVeVcRzU3LKaqCfovvLJ+6lJx40j45ecycASUUyw==
-
-"@glimmer/wire-format@0.94.8":
-  version "0.94.8"
-  resolved "https://registry.yarnpkg.com/@glimmer/wire-format/-/wire-format-0.94.8.tgz#439877561779b7aa19040879ecf915b3cd8b5fbe"
-  integrity sha512-A+Cp5m6vZMAEu0Kg/YwU2dJZXyYxVJs2zI57d3CP6NctmX7FsT8WjViiRUmt5abVmMmRH5b8BUovqY6GSMAdrw==
-  dependencies:
-    "@glimmer/interfaces" "0.94.6"
-
-"@handlebars/parser@~2.2.0":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@handlebars/parser/-/parser-2.2.4.tgz#0c827548feedc5e05c5be0070aad522387c35e9c"
-  integrity sha512-/h1xCfa032pytotQCcvL6TROzLK7KUjnzCYk17ZfFCSP5Shp+k0E8JMnwgz+DqlqbRGZMyk2kFYXtx+wYkx/eA==
 
 "@humanwhocodes/config-array@^0.13.0":
   version "0.13.0"
@@ -5104,27 +5073,27 @@ ember-data@5.9.1:
     "@warp-drive/legacy" "5.9.1"
     "@warp-drive/utilities" "5.9.1"
 
-ember-eslint-parser@^0.14.7:
-  version "0.14.9"
-  resolved "https://registry.yarnpkg.com/ember-eslint-parser/-/ember-eslint-parser-0.14.9.tgz#44157aa0cf0b9afc1c4fcb7d879b147b8c9fce57"
-  integrity sha512-42TiXJU7qK0xYokRhXyBYffId9u5gPokzQm28sCs5lRgj+XeYpdKUnpZuMpGwtPQs0TNGTS9UknBhDtOksqLFA==
+ember-eslint-parser@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/ember-eslint-parser/-/ember-eslint-parser-0.15.0.tgz#52b0f6174e6a5184abb9ea64c37183f65e53cda9"
+  integrity sha512-bHjiIse2p+sNqwiy//Kvfx+OrRXig5RGqiOH3oXTf9iXgbWEg7LqU8bX3afUe5DhEqPrZqDCo4omaeTaiHP74g==
   dependencies:
-    "@glimmer/syntax" "^0.95.0"
+    "@glimmer/syntax" ">= 0.95.0"
     "@typescript-eslint/tsconfig-utils" "^8.57.1"
     content-tag "^4.1.1"
-    ember-estree "^0.6.10"
+    ember-estree "^0.9.0"
     eslint-scope "^9.1.2"
     html-tags "^5.1.0"
     mathml-tag-names "^4.0.0"
     svg-tags "^1.0.0"
 
-ember-estree@^0.6.10:
-  version "0.6.11"
-  resolved "https://registry.yarnpkg.com/ember-estree/-/ember-estree-0.6.11.tgz#123542b81a10b8adc2ce72a04cbc3eb8e13f5e6b"
-  integrity sha512-aZyheQGUXyHu8GARPd1YyjbDMGkvqBYKzPj6RVp8qqMqA1L1MbkWKsljWE3K1CwiJcHwTPgm/O3oxS0TY1AX9Q==
+ember-estree@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/ember-estree/-/ember-estree-0.9.0.tgz#1afb37770ee88858680dcc914fa4be0a516ddba0"
+  integrity sha512-CExL0d6FbbffZaQkD0+zA5PaIgle3fbpzapuLVQ+QZfI2KLalnhuof0e85Zvfy/fh8+q9liw7dqUhQX4gibMBA==
   dependencies:
     "@glimmer/env" "^0.1.7"
-    "@glimmer/syntax" "^0.95.0"
+    "@glimmer/syntax" ">= 0.95.0"
     content-tag "^4.2.0"
     oxc-parser "^0.130.0"
 
@@ -5568,17 +5537,17 @@ eslint-module-utils@^2.12.1:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-ember@13.6.1:
-  version "13.6.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.6.1.tgz#c8d2c2db4d9c11989e1d6fb3f55720a17b2be75e"
-  integrity sha512-TgS69WbBbaTP6kcnsZO2dlhlPsgWCGyEOu3nGY1PrreX6tKhevb2x6fDSKSeUQ38QH+q24ZwHLfcYNeao6hPwQ==
+eslint-plugin-ember@13.7.0:
+  version "13.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.7.0.tgz#e3435fd62fcd76da5caacaea478ef998f7324b7e"
+  integrity sha512-EYoEgKMbJdTR5IMdRdbllv+vnH9hBbnEKgIinUNk/ZTwSC8kxiKYGaBnLX+7ti8AQAkR7mfuTGJo/TbBI6McJw==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     aria-query "^5.3.2"
     axobject-query "^4.1.0"
     css-tree "^3.0.1"
     editorconfig "^3.0.2"
-    ember-eslint-parser "^0.14.7"
+    ember-eslint-parser "^0.15.0"
     ember-rfc176-data "^0.3.18"
     eslint-utils "^3.0.0"
     estraverse "^5.3.0"
@@ -10588,6 +10557,11 @@ simple-html-tokenizer@^0.5.11:
   resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-0.5.11.tgz#4c5186083c164ba22a7b477b7687ac056ad6b1d9"
   integrity sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==
 
+simple-html-tokenizer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/simple-html-tokenizer/-/simple-html-tokenizer-1.0.0.tgz#1c5c20d70bbe434deb3a3f9736d7dd6574ae1c09"
+  integrity sha512-ydo9dHOcttfRxVWBglPk7jcBucsuva2zN+5SmUO5eXgUBlxFCZ9CwYEpF30ESzfKsckimVQE+GIbfsgM3mgSdQ==
+
 sinon@22.1.0:
   version "22.1.0"
   resolved "https://registry.yarnpkg.com/sinon/-/sinon-22.1.0.tgz#df5a9308d1818166d1370795a4953ceadc5ff706"
@@ -11383,11 +11357,6 @@ type-fest@^2.5.1:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
-
-type-fest@^4.35.0:
-  version "4.41.0"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.41.0.tgz#6ae1c8e5731273c2bf1f58ad39cbae2c91a46c58"
-  integrity sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==
 
 type-fest@^5.0.0:
   version "5.10.0"
