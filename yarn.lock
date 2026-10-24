@@ -5537,10 +5537,10 @@ eslint-module-utils@^2.12.1:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-ember@13.8.1:
-  version "13.8.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.8.1.tgz#29aab36b26f5b90b6d4f22167f9d6e31f5be924a"
-  integrity sha512-MLkDuUaQTTOmseOlLn006MEjZJDhFfwRHsaHrlanUo/bKk7/RGO5RJ1R0s3M0JAi7RZhW6lzRpd+CW9A1NKX1g==
+eslint-plugin-ember@13.9.0:
+  version "13.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-13.9.0.tgz#e170a10834a9a52831b2256ea4f63400b6183105"
+  integrity sha512-Fa/dXnVJP3YCQt73d/fQUueFPRCrIhIrzuLXayyBqR+dkX684Gqhav8kEj9bxJYPtHqVSab4Qvm6VPTbciL8+Q==
   dependencies:
     "@ember-data/rfc395-data" "^0.0.4"
     aria-query "^5.3.2"
