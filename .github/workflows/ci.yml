@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 26
           cache: yarn
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 26
           cache: yarn
       - name: Install Dependencies
         run: yarn install --no-lockfile
@@ -70,7 +70,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 26
           cache: yarn
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
